@@ -1,143 +1,190 @@
-create database CrabStore;
-use CrabStore;
+CREATE DATABASE CrabStore;
+USE CrabStore;
 
-create table Category (
-     categoryName varchar(255) not null,
-     shortDescription text not null,
-     description text not null,
-     constraint primary key (categoryName));
+CREATE TABLE Category (
+    categoryName VARCHAR(255) NOT NULL,
+    shortDescription TEXT NOT NULL,
+    description TEXT NOT NULL,
+    icon VARCHAR(255) NOT NULL,
+    mainImage VARCHAR(255) NOT NULL,
+    secondaryImage VARCHAR(255) NOT NULL,
+    video VARCHAR(255) NOT NULL,
+    PRIMARY KEY (categoryName)
+);
 
-create table Configurable (
-     configurableId int(11) not null,
-     name varchar(255) not null,
-     productId int(11) not null,
-     constraint primary key (configurableId));
+CREATE TABLE Configurable (
+    configurableId INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    icon VARCHAR(255) NOT NULL,
+    productId INT NOT NULL,
+    PRIMARY KEY (configurableId)
+);
 
-create table ConfigurableOption (
-     configurableOptionId int(11) not null,
-     details text not null,
-     price decimal(10, 2) not null, /* 10 is the precision, 2 is the number of decimals*/
-     configurableId int(11) not null,
-     constraint primary key (configurableOptionId));
 
-create table Customer (
-     username varchar(255) not null,
-     firstName varchar(255) not null,
-     lastName varchar(255) not null,
-     email varchar(255) not null,
-     phoneNumber varchar(255) not null,
-     accountCreationDate date not null,
-     password varchar(255) not null,
-     balance decimal(10, 2) not null,
-     constraint primary key (username));
+CREATE TABLE ConfigurableOption (
+    configurableOptionId INT AUTO_INCREMENT NOT NULL,
+    details TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    configurableId INT NOT NULL,
+    PRIMARY KEY (configurableOptionId)
+);
 
-create table CustomProduct (
-     customProductId int(11) not null,
-     configuredPrice decimal(10, 2) not null,
-     productId int(11) not null,
-     finalPrice decimal(10, 2) not null,
-     constraint primary key (customProductId));
 
-create table Notification (
-     notificationId int(11) not null,
-     description text not null,
-     date date not null,
-     isRead bool not null,
-     username varchar(255) not null,
-     constraint primary key (notificationId));
+CREATE TABLE Customer (
+    username VARCHAR(50) NOT NULL,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phoneNumber VARCHAR(15) NOT NULL,
+    joinDate DATE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    balance DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    PRIMARY KEY (username)
+);
 
-create table `Order` (
-     orderId int(11) not null,
-     status enum('ordered', 'inTransit', 'delivered') not null,
-     orderDate date not null,
-     deliveryDate date,
-     username varchar(255) not null,
-     constraint primary key (orderId));
 
-create table Product (
-     productId int(11) not null,
-     name varchar(255) not null,
-     lineUpName varchar(255) not null,
-	 shortDescription text not null,
-     description text not null,
-     price decimal(10, 2) not null,
-     releaseDate date,
-     status enum('released', 'discontinued', 'upcoming') not null,
-     specSheet blob,
-     categoryName varchar(255) not null,
-     discountName varchar(255),
-     constraint primary key (productId));
+CREATE TABLE CustomProduct (
+    customProductId INT AUTO_INCREMENT NOT NULL,
+    configuredPrice DECIMAL(10,2) NOT NULL,
+    finalPrice DECIMAL(10,2) NOT NULL,
+    productId INT NOT NULL,
+    PRIMARY KEY (customProductId)
+);
 
-create table Discount (
-     discountName varchar(255) not null,
-     amount decimal(10, 2) not null,
-     constraint primary key (discountName));
 
-create table CartProduct (
-     customProductId int(11) not null,
-     username varchar(255) not null,
-     amount int(11) not null,
-     constraint primary key (username, customProductId));
+CREATE TABLE Discount (
+    discountName VARCHAR(255) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (discountName)
+);
 
-create table Customization (
-     configurableOptionId int(11) not null,
-     customProductId int(11) not null,
-     constraint primary key (configurableOptionId, customProductId));
+CREATE TABLE ProductVideo (
+    videoId INT AUTO_INCREMENT NOT NULL,
+    videoUrl TEXT NOT NULL,
+    PRIMARY KEY (videoId)
+);
 
-create table OrderProduct (
-     orderId int(11) not null,
-     customProductId int(11) not null,
-     amount int(11) not null,
-     constraint primary key (customProductId, orderId));
 
-alter table Configurable add constraint
-     foreign key (productId)
-     references Product (productId);
+CREATE TABLE ProductImage (
+    imageId INT AUTO_INCREMENT NOT NULL,
+    priority INT NOT NULL,
+    imageUrl TEXT NOT NULL,
+    productId INT NOT NULL,
+    PRIMARY KEY (imageId)
+);
 
-alter table ConfigurableOption add constraint
-     foreign key (configurableId)
-     references Configurable (configurableId);
 
-alter table CustomProduct add constraint
-     foreign key (productId)
-     references Product (productId);
+CREATE TABLE Configuration (
+    configurableOptionId INT NOT NULL,
+    customProductId INT NOT NULL,
+    PRIMARY KEY (configurableOptionId, customProductId)
+);
 
-alter table Notification add constraint
-     foreign key (username)
-     references Customer (username);
 
-alter table `Order` add constraint
-     foreign key (username)
-     references Customer (username);
+CREATE TABLE OrderProduct (
+    orderId INT NOT NULL,
+    customProductId INT NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY (orderId, customProductId)
+);
 
-alter table Product add constraint
-     foreign key (categoryName)
-     references Category (categoryName);
+CREATE TABLE Notification (
+    notificationId INT AUTO_INCREMENT NOT NULL,
+    description TEXT NOT NULL,
+    date DATETIME NOT NULL,
+    isRead BOOLEAN NOT NULL DEFAULT 0,
+    username VARCHAR(50) NOT NULL,
+    PRIMARY KEY (notificationId)
+);
 
-alter table Product add constraint
-     foreign key (discountName)
-     references Discount (discountName);
+CREATE TABLE `Order` (
+    orderId INT AUTO_INCREMENT NOT NULL,
+    orderStatus VARCHAR(50) NOT NULL,
+    orderDate DATETIME NOT NULL,
+    deliveryDate DATETIME NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    PRIMARY KEY (orderId)
+);
 
-alter table CartProduct add constraint
-     foreign key (username)
-     references Customer (username);
+CREATE TABLE Product (
+    productId INT AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    lineupName VARCHAR(255) NOT NULL,
+    shortDescription TEXT NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    releaseDate DATE NOT NULL,
+    productStatus VARCHAR(50) NOT NULL,
+    specSheet TEXT NOT NULL,
+    videoId INT DEFAULT NULL,
+    categoryName VARCHAR(255) NOT NULL,
+    discountName VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (productId)
+);
 
-alter table CartProduct add constraint
-     foreign key (customProductId)
-     references CustomProduct (customProductId);
+CREATE TABLE CartProduct (
+    customProductId INT NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    amount INT NOT NULL,
+    PRIMARY KEY (username, customProductId)
+);
 
-alter table Customization add constraint
-     foreign key (customProductId)
-     references CustomProduct (customProductId);
+ALTER TABLE Configurable ADD CONSTRAINT
+    FOREIGN KEY (productId)
+    REFERENCES Product (productId);
 
-alter table Customization add constraint
-     foreign key (configurableOptionId)
-     references ConfigurableOption (configurableOptionId);
+ALTER TABLE ConfigurableOption ADD CONSTRAINT
+    FOREIGN KEY (configurableId)
+    REFERENCES Configurable (configurableId);
 
-alter table OrderProduct add constraint
-     foreign key (customProductId)
-     references CustomProduct (customProductId);
+ALTER TABLE CustomProduct ADD CONSTRAINT
+    FOREIGN KEY (productId)
+    REFERENCES Product (productId);
 
-alter table OrderProduct add constraint
-     foreign key (orderId)
-     references `Order` (orderId);
+ALTER TABLE ProductImage ADD CONSTRAINT
+    FOREIGN KEY (productId)
+    REFERENCES Product (productId);
+
+ALTER TABLE Configuration ADD CONSTRAINT
+    FOREIGN KEY (customProductId)
+    REFERENCES CustomProduct (customProductId);
+
+ALTER TABLE Configuration ADD CONSTRAINT
+    FOREIGN KEY (configurableOptionId)
+    REFERENCES ConfigurableOption (configurableOptionId);
+
+ALTER TABLE OrderProduct ADD CONSTRAINT
+    FOREIGN KEY (customProductId)
+    REFERENCES CustomProduct (customProductId);
+
+ALTER TABLE OrderProduct ADD CONSTRAINT
+    FOREIGN KEY (orderId)
+    REFERENCES `Order` (orderId);
+
+ALTER TABLE Notification ADD CONSTRAINT
+    FOREIGN KEY (username)
+    REFERENCES Customer (username);
+
+ALTER TABLE `Order` ADD CONSTRAINT
+    FOREIGN KEY (username)
+    REFERENCES Customer (username);
+
+ALTER TABLE Product ADD CONSTRAINT
+    FOREIGN KEY (videoId)
+    REFERENCES ProductVideo (videoId);
+
+ALTER TABLE Product ADD CONSTRAINT
+    FOREIGN KEY (categoryName)
+    REFERENCES Category (categoryName);
+
+ALTER TABLE Product ADD CONSTRAINT
+    FOREIGN KEY (discountName)
+    REFERENCES Discount (discountName);
+
+ALTER TABLE CartProduct ADD CONSTRAINT
+    FOREIGN KEY (username)
+    REFERENCES Customer (username);
+
+ALTER TABLE CartProduct ADD CONSTRAINT
+    FOREIGN KEY (customProductId)
+    REFERENCES CustomProduct (customProductId);
