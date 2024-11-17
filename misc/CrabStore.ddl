@@ -67,7 +67,7 @@ CREATE TABLE ProductVideo (
 
 CREATE TABLE ProductImage (
     imageId INT AUTO_INCREMENT NOT NULL,
-    priority INT NOT NULL,
+    priority INT NOT NULL UNIQUE,
     imageUrl TEXT NOT NULL,
     productId INT NOT NULL,
     PRIMARY KEY (imageId)
@@ -101,7 +101,7 @@ CREATE TABLE `Order` (
     orderId INT AUTO_INCREMENT NOT NULL,
     orderStatus VARCHAR(50) NOT NULL,
     orderDate DATETIME NOT NULL,
-    deliveryDate DATETIME NOT NULL,
+    deliveryDate DATETIME,
     username VARCHAR(50) NOT NULL,
     PRIMARY KEY (orderId)
 );
