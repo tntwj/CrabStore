@@ -1266,7 +1266,7 @@ ER
 
 
 20241106
-20241117
+20241118
 T
 E
 
@@ -1361,6 +1361,9 @@ E
 1742
 2961
 4884
+4890
+4893
+4896
 -
 78
 246
@@ -1372,6 +1375,9 @@ E
 1742
 2961
 4884
+4890
+4893
+4896
 -
 *3
 4424
@@ -1380,7 +1386,7 @@ Logical
 
 
 20241117
-20241117
+20241118
 F
 E
 
@@ -1476,10 +1482,13 @@ E
 4426
 -
 4692
-4695
 4698
 4701
 4887
+4902
+4905
+4908
+4911
 -
 4434
 4433
@@ -1488,10 +1497,13 @@ E
 -
 -
 4692
-4695
 4698
 4701
 4887
+4902
+4905
+4908
+4911
 -
 *4
 1018
@@ -6797,6 +6809,9 @@ I
 3810
 4880
 4885
+4891
+4894
+4897
 -
 *18
 4426
@@ -6883,7 +6898,6 @@ I
 4602
 4604
 4693
-4696
 4699
 4702
 4705
@@ -6922,6 +6936,10 @@ I
 4878
 4882
 4888
+4903
+4906
+4909
+4912
 -
 *18
 1
@@ -6940,16 +6958,58 @@ I
 4432
 -
 *19
+4912
+0
+133545
+231272
+0
+*19
+4909
+0
+206545
+216545
+0
+*19
+4906
+0
+295636
+51908
+0
+*19
+4903
+0
+99090
+32999
+0
+*19
+4897
+0
+129818
+7364
+0
+*19
+4894
+0
+299999
+68909
+0
+*19
+4891
+0
+192999
+211635
+0
+*19
 4888
 0
-122273
-56454
+295909
+69181
 0
 *19
 4885
 0
-177906
-57000
+298723
+79726
 0
 *19
 4882
@@ -6966,14 +7026,14 @@ I
 *19
 2962
 0
-292181
-247819
+295818
+248818
 0
 *19
 1743
 0
-131000
-248182
+124727
+238000
 0
 *19
 342
@@ -6984,8 +7044,8 @@ I
 *19
 337
 0
-182999
-181090
+187091
+168545
 0
 *19
 4703
@@ -7008,20 +7068,14 @@ I
 *19
 4702
 0
-135181
-225455
+209181
+113455
 0
 *19
 4699
 0
 70908
 215727
-0
-*19
-4696
-0
-131000
-248182
 0
 *19
 4693
@@ -9286,6 +9340,63 @@ o
 0
 -
 *60
+4910
+0
+while in the cart, the finalPrice of a CustomProduct has to be calculated each time the page is loaded by subtracting the applied discount from configuredPrice.
+once it ends up in the order finalPrice must not be modified ever again for history purposes
+4911
+-
+4912
+-
+*60
+4907
+0
+An order has 3 states: Ordered, In Transit and Delivered
+4908
+-
+4909
+-
+*60
+4904
+0
+A product is either Available or Upcoming
+4905
+-
+4906
+-
+*60
+4901
+0
+in the final db there will be no imageId. dbmain does not allow using external ids alone
+4902
+-
+4903
+-
+*60
+4895
+0
+in the final db there will be no imageId. dbmain does not allow using external ids alone
+4896
+-
+4897
+-
+*60
+4892
+0
+A product is either Available or Upcoming
+4893
+-
+4894
+-
+*60
+4889
+0
+An order has 3 states: Ordered, In Transit and Delivered
+4890
+-
+4891
+-
+*60
 4886
 0
 Only upcoming product have a teaser video
@@ -9304,8 +9415,8 @@ Only upcoming product have a teaser video
 *60
 1741
 0
-while in the cart, the finalPrice has to be calculated each time by subtracting the applied discount from configuredPrice.
-once it ends up in the order finalPrice must not be modified ever again
+while in the cart, the finalPrice of a CustomProduct has to be calculated each time the page is loaded by subtracting the applied discount from configuredPrice.
+once it ends up in the order finalPrice must not be modified ever again for history purposes
 1742
 -
 1743
@@ -9341,15 +9452,6 @@ a configurable has one and only one default configurable option that has a price
 4692
 -
 4693
--
-*60
-4694
-0
-while in the cart, the finalPrice has to be calculated each time by subtracting the applied discount from configuredPrice.
-once it ends up in the order finalPrice must not be modified ever again
-4695
--
-4696
 -
 *60
 4697

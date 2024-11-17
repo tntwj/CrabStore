@@ -103,12 +103,10 @@ CREATE TABLE Product (
 );
 
 CREATE TABLE ProductImage (
-    imageId INT AUTO_INCREMENT NOT NULL,
     priority INT NOT NULL,
     imageUrl VARCHAR(255) NOT NULL,
     productId INT NOT NULL,
-    PRIMARY KEY (imageId, productId),
-    UNIQUE (priority, productId)
+    PRIMARY KEY (productId, priority)
 );
 
 CREATE TABLE OrderProduct (
