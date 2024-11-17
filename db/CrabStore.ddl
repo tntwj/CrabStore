@@ -90,7 +90,6 @@ CREATE TABLE `Order` (
 CREATE TABLE Product (
     productId INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
-    lineupName VARCHAR(255) NOT NULL,
     shortDescription TEXT NOT NULL,
     description TEXT NOT NULL,
     price DECIMAL(10,2) NOT NULL,

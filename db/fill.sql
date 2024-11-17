@@ -27,15 +27,13 @@ VALUES
     (2, 'crabphone15-overview.mp4');
 
 ########################################################
--- Product Insertion
-########################################################
 -- CrabMac Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(1, 'CrabMac Pro', 'CrabMac', 'Ultimate desktop performance.', 
+(1, 'CrabMac Pro', 'Ultimate desktop performance.', 
  'The CrabMac Pro delivers unmatched performance for professionals.',
  5999.00, '2024-11-01', 'Available', 
  '{"CPU": "Intel Xeon W", "RAM": "64GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro Vega II"}', 
@@ -56,10 +54,10 @@ VALUES
 -- CrabPhone 15
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(2, 'CrabPhone 15', 'CrabPhone', 'Revolutionary smartphone.', 
+(2, 'CrabPhone 15', 'Revolutionary smartphone.', 
  'The CrabPhone 15 redefines smartphone innovation with powerful hardware.',
  999.00, '2024-09-01', 'Available', 
  '{"CPU": "A17 Bionic", "RAM": "6GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Silver", "Gold", "Deep Blue"], "Camera": "48MP Main"}', 
@@ -87,10 +85,10 @@ VALUES
 -- CrabWatch Ultra
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(3, 'CrabWatch Ultra', 'CrabWatch', 'Adventure companion.', 
+(3, 'CrabWatch Ultra', 'Adventure companion.', 
  'The CrabWatch Ultra is the ultimate smartwatch for fitness and exploration.',
  799.00, '2024-10-10', 'Available', 
  '{"Battery Life": "36 hours", "Display": "Sapphire Crystal", "Features": "GPS, Altimeter, Compass", "Band Options": ["Alpine Loop", "Ocean Band", "Trail Loop"]}', 
@@ -110,10 +108,10 @@ VALUES
 -- CrabPhone 16
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(4, 'CrabPhone 16', 'CrabPhone', 'Enhanced performance and design.', 
+(4, 'CrabPhone 16', 'Enhanced performance and design.', 
  'The CrabPhone 16 offers faster performance and sleek design for everyday use.',
  1099.00, '2024-11-01', 'Available', 
  '{"CPU": "A18 Bionic", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Silver", "Red", "Space Gray"], "Camera": "50MP Main"}', 
@@ -141,10 +139,10 @@ VALUES
 -- CrabPhone 17
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(5, 'CrabPhone 17', 'CrabPhone', 'Next-gen mobile experience.', 
+(5, 'CrabPhone 17', 'Next-gen mobile experience.', 
  'The CrabPhone 17 is packed with new features, offering an even better mobile experience.',
  1299.00, '2024-12-01', 'Available', 
  '{"CPU": "A18 Pro", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Blue", "Gold", "Green"], "Camera": "64MP Main"}', 
@@ -172,10 +170,10 @@ VALUES
 -- CrabMac Pro 16 (Desktop)
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(6, 'CrabMac Pro 16', 'CrabMac', 'Top-tier desktop performance for professionals.',
+(6, 'CrabMac Pro 16', 'Top-tier desktop performance for professionals.',
  'The CrabMac Pro 16 brings unparalleled desktop computing with more power and flexibility.',
  6499.00, '2024-11-10', 'Available', 
  '{"CPU": "Intel Xeon W-2295", "RAM": "128GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro W6800X"}', 
@@ -196,10 +194,10 @@ VALUES
 -- CrabMac Pro 17 (Desktop)
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(7, 'CrabMac Pro 17', 'CrabMac', 'Premium desktop for demanding workloads.',
+(7, 'CrabMac Pro 17', 'Premium desktop for demanding workloads.',
  'The CrabMac Pro 17 offers powerful configurations ideal for creative professionals and engineers.',
  7499.00, '2024-11-15', 'Available', 
  '{"CPU": "Intel Xeon W-2375", "RAM": "128GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "NVIDIA RTX A5000"}', 
@@ -220,10 +218,10 @@ VALUES
 -- CrabMac Air (Laptop)
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(8, 'CrabMac Air', 'CrabMac', 'Lightweight and powerful laptop.',
+(8, 'CrabMac Air', 'Lightweight and powerful laptop.',
  'The CrabMac Air offers the ideal balance between performance and portability.',
  1499.00, '2024-11-20', 'Available', 
  '{"CPU": "M2 Chip", "RAM": "16GB", "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M2 GPU"}', 
@@ -243,10 +241,10 @@ VALUES
 -- CrabMac Pro Air (Laptop)
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(9, 'CrabMac Pro Air', 'CrabMac', 'High-performance laptop.',
+(9, 'CrabMac Pro Air', 'High-performance laptop.',
  'The CrabMac Pro Air is designed for professionals seeking a balance of performance and portability.',
  2499.00, '2024-11-25', 'Available', 
  '{"CPU": "Intel Core i9", "RAM": "32GB", "Storage Options": ["512GB SSD", "1TB SSD"], "GPU": "NVIDIA RTX 4070"}', 
@@ -265,10 +263,10 @@ VALUES
 -- CrabPad Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(10, 'CrabPad Pro', 'CrabPad', 'Ultimate tablet experience.',
+(10, 'CrabPad Pro', 'Ultimate tablet experience.',
  'The CrabPad Pro delivers outstanding performance for work and play.',
  899.00, '2024-11-10', 'Available', 
  '{"CPU": "Apple M2 Chip", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Screen Size": "12.9 inches"}', 
@@ -288,10 +286,10 @@ VALUES
 -- CrabPad Air
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(11, 'CrabPad Air', 'CrabPad', 'Lightweight and powerful tablet.',
+(11, 'CrabPad Air', 'Lightweight and powerful tablet.',
  'The CrabPad Air is perfect for productivity on the go.',
  499.00, '2024-11-12', 'Available', 
  '{"CPU": "A14 Bionic", "RAM": "4GB", "Storage Options": ["64GB", "128GB", "256GB"], "Screen Size": "10.5 inches"}', 
@@ -311,10 +309,10 @@ VALUES
 -- CrabPods 1
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(12, 'CrabPods 1', 'CrabPods', 'Premium wireless earbuds.',
+(12, 'CrabPods 1', 'Premium wireless earbuds.',
  'CrabPods 1 offers high-quality sound and comfortable fit for music lovers.',
  199.00, '2024-10-05', 'Available', 
  '{"Battery Life": "6 hours", "Bluetooth": "5.0", "Color Options": ["White", "Black"]}', 
@@ -333,10 +331,10 @@ VALUES
 -- CrabWatch Sport
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(13, 'CrabWatch Sport', 'CrabWatch', 'Sporty smartwatch.',
+(13, 'CrabWatch Sport', 'Sporty smartwatch.',
  'CrabWatch Sport offers essential fitness and health tracking features.',
  199.00, '2024-11-18', 'Available', 
  '{"Battery Life": "24 hours", "Display": "LCD", "Features": "Fitness tracking, Water resistance", "Band Options": ["Silicone", "Nylon"]}', 
@@ -355,10 +353,10 @@ VALUES
 -- CrabMouse
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(14, 'CrabMouse', 'Accessories', 'Ergonomic mouse for CrabMac users.',
+(14, 'CrabMouse', 'Ergonomic mouse for CrabMac users.',
  'A high-quality ergonomic mouse designed to complement CrabMac desktops.',
  59.99, '2024-11-05', 'Available', 
  '{"Connectivity": "Bluetooth", "Ergonomics": "Ambidextrous", "Color": "Gray"}', 
@@ -368,10 +366,10 @@ VALUES
 -- CrabPad Mini
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(15, 'CrabPad Mini', 'CrabPad', 'Compact and portable tablet.',
+(15, 'CrabPad Mini', 'Compact and portable tablet.',
  'The CrabPad Mini is perfect for everyday tasks, offering portability and performance in a smaller form factor.',
  399.00, '2024-11-17', 'Available', 
  '{"CPU": "A13 Bionic", "RAM": "3GB", "Storage Options": ["64GB", "128GB"], "Screen Size": "8.3 inches"}', 
@@ -390,10 +388,10 @@ VALUES
 -- CrabPhone 18
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(16, 'CrabPhone 18', 'CrabPhone', 'Ultimate smartphone experience.',
+(16, 'CrabPhone 18', 'Ultimate smartphone experience.',
  'The CrabPhone 18 delivers top-tier performance with cutting-edge technology.',
  1399.00, '2024-12-01', 'Available', 
  '{"CPU": "A19 Bionic", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Gold", "Silver", "Midnight Green"], "Camera": "64MP Main"}', 
@@ -421,10 +419,10 @@ VALUES
 -- CrabWatch Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(17, 'CrabWatch Pro', 'CrabWatch', 'Smartwatch with advanced features.',
+(17, 'CrabWatch Pro', 'Smartwatch with advanced features.',
  'The CrabWatch Pro combines cutting-edge technology with style for fitness enthusiasts.',
  499.00, '2024-11-30', 'Available', 
  '{"Battery Life": "48 hours", "Display": "OLED", "Features": "Blood Oxygen Monitoring, GPS, ECG", "Band Options": ["Sport Band", "Leather"]}', 
@@ -443,10 +441,10 @@ VALUES
 -- CrabPad Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(18, 'CrabPod Pro', 'CrabPods', 'Premium wireless headphones.',
+(18, 'CrabPod Pro', 'Premium wireless headphones.',
  'CrabPod Pro offers premium sound quality and noise cancellation for audiophiles.',
  299.00, '2024-12-05', 'Available', 
  '{"Battery Life": "12 hours", "Bluetooth": "5.0", "Noise Cancellation": "Active", "Color Options": ["Black", "Silver"]}', 
@@ -465,10 +463,10 @@ VALUES
 -- CrabMac Air Max
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(19, 'CrabMac Air Max', 'CrabMac', 'Top-tier ultra-light laptop.',
+(19, 'CrabMac Air Max', 'Top-tier ultra-light laptop.',
  'The CrabMac Air Max combines extreme portability with extreme power.',
  1799.00, '2024-11-28', 'Available', 
  '{"CPU": "M3 Chip", "RAM": "16GB", "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M3 GPU"}', 
@@ -488,10 +486,10 @@ VALUES
 -- CrabKeyboard
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
-(20, 'CrabKeyboard', 'Accessories', 'Mechanical keyboard with customizable RGB lighting.',
+(20, 'CrabKeyboard', 'Mechanical keyboard with customizable RGB lighting.',
  'A premium mechanical keyboard with responsive keys and RGB lighting for the ultimate typing experience.',
  120.00, '2024-11-05', 'Available', 
  '{"Type": "Mechanical", "Lighting": "RGB", "Connectivity": "Wired"}', 
@@ -501,10 +499,10 @@ VALUES
 -- CrabCable
 ########################################################
  INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES 
- (21, 'CrabCable', 'Accessories', 'USB-C to USB-C charging cable.',
+ (21, 'CrabCable', 'USB-C to USB-C charging cable.',
  'A durable and fast charging USB-C cable to power your devices.',
  25.00, '2024-11-05', 'Available', 
  '{"Length": "6ft", "Material": "Nylon Braided"}', 
@@ -514,10 +512,10 @@ VALUES
 -- CrabPencil
 ########################################################
 INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES
- (22, 'CrabPencil', 'Accessories', 'Wireless stylus pen for drawing and note-taking.',
+ (22, 'CrabPencil', 'Wireless stylus pen for drawing and note-taking.',
  'Precision stylus with Bluetooth connectivity, designed for drawing and note-taking on digital devices.',
  80.00, '2024-11-05', 'Available', 
  '{"Compatibility": "iOS, Android", "Battery Life": "20 hours", "Color": "Silver"}', 
@@ -527,10 +525,10 @@ VALUES
 -- CrabAdapter
 ########################################################
  INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES
- (23, 'CrabAdapter', 'Accessories', '65W USB-C power adapter.',
+ (23, 'CrabAdapter', '65W USB-C power adapter.',
  'Compact USB-C power adapter for fast charging of your devices.',
  40.00, '2024-11-05', 'Available', 
  '{"Power Output": "65W", "Compatibility": "USB-C"}', 
@@ -540,10 +538,10 @@ VALUES
 -- Wireless CrabCharger
 ########################################################
  INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES
- (24, 'Wireless CrabCharger', 'Accessories', 'Wireless charging pad with 15W charging speed.',
+ (24, 'Wireless CrabCharger', 'Wireless charging pad with 15W charging speed.',
  'A sleek and efficient wireless charging pad supporting up to 15W charging.',
  50.00, '2024-11-05', 'Available', 
  '{"Charging Speed": "15W", "Material": "Aluminum", "Compatibility": "Qi-enabled devices"}', 
@@ -553,10 +551,10 @@ VALUES
 -- CrabSleeve
 ########################################################
  INSERT INTO Product (
-    productId, name, lineupName, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
 )
 VALUES
- (25, 'CrabSleeve', 'Accessories', 'Protective sleeve for 13-inch and 15-inch laptops.',
+ (25, 'CrabSleeve', 'Protective sleeve for 13-inch and 15-inch laptops.',
  'A protective sleeve made from high-quality neoprene, designed for 13-inch and 15-inch laptops.',
  30.00, '2024-11-05', 'Available', 
  '{"Material": "Neoprene", "Size": "13-inch, 15-inch", "Color": "Black"}', 
