@@ -96,7 +96,7 @@ CREATE TABLE Product (
     releaseDate DATE,
     productStatus VARCHAR(50) NOT NULL,
     specSheet BLOB NOT NULL,
-    videoId INT,
+    video VARCHAR(255),
     categoryName VARCHAR(255) NOT NULL,
     discountId INT,
     PRIMARY KEY (productId)
@@ -109,12 +109,6 @@ CREATE TABLE ProductImage (
     productId INT NOT NULL,
     PRIMARY KEY (imageId, productId),
     UNIQUE (priority, productId)
-);
-
-CREATE TABLE ProductVideo (
-    videoId INT AUTO_INCREMENT NOT NULL,
-    videoUrl VARCHAR(255) NOT NULL,
-    PRIMARY KEY (videoId)
 );
 
 CREATE TABLE OrderProduct (
@@ -159,10 +153,6 @@ ALTER TABLE Notification ADD CONSTRAINT
 ALTER TABLE `Order` ADD CONSTRAINT
     FOREIGN KEY (username)
     REFERENCES Customer (username);
-
-ALTER TABLE Product ADD CONSTRAINT
-    FOREIGN KEY (videoId)
-    REFERENCES ProductVideo (videoId);
 
 ALTER TABLE Product ADD CONSTRAINT
     FOREIGN KEY (categoryName)

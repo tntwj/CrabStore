@@ -17,56 +17,56 @@ VALUES
 -- Insert Discounts
 INSERT INTO Discount (discountId, name, amount)
 VALUES
-    (1, 'Holiday Discount', 50.00),
-    (2, 'Black Friday', 100.00);
+    (1, 'Holiday Discount 2024', 50.00);
 
--- Insert Product Videos
-INSERT INTO ProductVideo (videoId, videoUrl)
-VALUES
-    (1, 'crabmacpro-overview.mp4'),
-    (2, 'crabphone15-overview.mp4');
-
+-- Insert Products
 ########################################################
 -- CrabMac Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (1, 'CrabMac Pro', 'Ultimate desktop performance.', 
  'The CrabMac Pro delivers unmatched performance for professionals.',
  5999.00, '2024-11-01', 'Available', 
- '{"CPU": "Intel Xeon W", "RAM": "64GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro Vega II"}', 
- 1, 'CrabMac', NULL);
+ '{"CPU": "Intel Xeon W", "RAM": ["64GB", "128GB", "256GB"], "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro Vega II"}', 
+ NULL, 'CrabMac', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(1, 'Storage Options', '/icons/storage.png', 1);
+(1, 'Storage Options', 'storage.png', 1),
+(23, 'Ram Options', 'ram.png', 1);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage Options
 (1, 1, '1TB SSD', 0.00, 1),
 (2, 0, '2TB SSD', 400.00, 1),
 (3, 0, '4TB SSD', 800.00, 1),
-(4, 0, '8TB SSD', 1200.00, 1);
+(4, 0, '8TB SSD', 2000.00, 1),
+-- Ram Options
+(68, 1, '64GB', 0.00, 23),
+(69, 0, '128GB', 500.00, 23),
+(70, 0, '256GB', 1250.00, 23);
 
 ########################################################
 -- CrabPhone 15
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (2, 'CrabPhone 15', 'Revolutionary smartphone.', 
  'The CrabPhone 15 redefines smartphone innovation with powerful hardware.',
  999.00, '2024-09-01', 'Available', 
  '{"CPU": "A17 Bionic", "RAM": "6GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Silver", "Gold", "Deep Blue"], "Camera": "48MP Main"}', 
- 2, 'CrabPhone', NULL);
+ NULL, 'CrabPhone', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(2, 'Storage Options', '/icons/storage.png', 2),
-(3, 'Color Options', '/icons/color.png', 2);
+(2, 'Storage Options', 'storage.png', 2),
+(3, 'Color Options', 'color.png', 2);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -85,18 +85,18 @@ VALUES
 -- CrabWatch Ultra
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (3, 'CrabWatch Ultra', 'Adventure companion.', 
  'The CrabWatch Ultra is the ultimate smartwatch for fitness and exploration.',
  799.00, '2024-10-10', 'Available', 
  '{"Battery Life": "36 hours", "Display": "Sapphire Crystal", "Features": "GPS, Altimeter, Compass", "Band Options": ["Alpine Loop", "Ocean Band", "Trail Loop"]}', 
- NULL, 'CrabWatch', NULL);
+ NULL, 'CrabWatch', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(4, 'Band Options', '/icons/band.png', 3);
+(4, 'Band Options', 'band.png', 3);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -108,19 +108,19 @@ VALUES
 -- CrabPhone 16
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (4, 'CrabPhone 16', 'Enhanced performance and design.', 
  'The CrabPhone 16 offers faster performance and sleek design for everyday use.',
  1099.00, '2024-11-01', 'Available', 
  '{"CPU": "A18 Bionic", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Silver", "Red", "Space Gray"], "Camera": "50MP Main"}', 
- NULL, 'CrabPhone', NULL);
+ NULL, 'CrabPhone', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(5, 'Storage Options', '/icons/storage.png', 4),
-(6, 'Color Options', '/icons/color.png', 4);
+(5, 'Storage Options', 'storage.png', 4),
+(6, 'Color Options', 'color.png', 4);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -139,7 +139,7 @@ VALUES
 -- CrabPhone 17
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (5, 'CrabPhone 17', 'Next-gen mobile experience.', 
@@ -150,8 +150,8 @@ VALUES
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(7, 'Storage Options', '/icons/storage.png', 5),
-(8, 'Color Options', '/icons/color.png', 5);
+(7, 'Storage Options', 'storage.png', 5),
+(8, 'Color Options', 'color.png', 5);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -170,111 +170,139 @@ VALUES
 -- CrabMac Pro 16 (Desktop)
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (6, 'CrabMac Pro 16', 'Top-tier desktop performance for professionals.',
  'The CrabMac Pro 16 brings unparalleled desktop computing with more power and flexibility.',
  6499.00, '2024-11-10', 'Available', 
- '{"CPU": "Intel Xeon W-2295", "RAM": "128GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro W6800X"}', 
- 1, 'CrabMac', NULL);
+ '{"CPU": "Intel Xeon W-2295", "RAM": ["64GB", "128GB"], "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "AMD Radeon Pro W6800X"}', 
+ NULL, 'CrabMac', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(9, 'Storage Options', '/icons/storage.png', 6);
+(9, 'Storage Options', 'storage.png', 6),
+(24, 'Ram Options', 'ram.png', 6);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage options
 (29, 1, '1TB SSD', 0.00, 9),
 (30, 0, '2TB SSD', 400.00, 9),
 (31, 0, '4TB SSD', 800.00, 9),
-(32, 0, '8TB SSD', 1200.00, 9);
+(32, 0, '8TB SSD', 1200.00, 9),
+-- Ram Options
+(71, 1, '64GB', 0.00, 24),
+(72, 0, '128GB', 750.00, 24);
 
 ########################################################
 -- CrabMac Pro 17 (Desktop)
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (7, 'CrabMac Pro 17', 'Premium desktop for demanding workloads.',
  'The CrabMac Pro 17 offers powerful configurations ideal for creative professionals and engineers.',
- 7499.00, '2024-11-15', 'Available', 
- '{"CPU": "Intel Xeon W-2375", "RAM": "128GB", "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "NVIDIA RTX A5000"}', 
- 1, 'CrabMac', NULL);
+ 7499.00, NULL, 'Upcoming', 
+ '{"CPU": "Intel Xeon W-2375", "RAM": ["128GB", "256GB"], "Storage Options": ["1TB SSD", "2TB SSD", "4TB SSD", "8TB SSD"], "GPU": "NVIDIA RTX A5000"}', 
+ 'crabmacpro17-teaser.mp4', 'CrabMac', NULL);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(10, 'Storage Options', '/icons/storage.png', 7);
+(10, 'Storage Options', 'storage.png', 7),
+(25, 'Ram Options', 'ram.png', 7);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage options
 (33, 1, '1TB SSD', 0.00, 10),
 (34, 0, '2TB SSD', 400.00, 10),
 (35, 0, '4TB SSD', 800.00, 10),
-(36, 0, '8TB SSD', 1200.00, 10);
+(36, 0, '8TB SSD', 1200.00, 10),
+-- Ram options
+(73, 1, '128GB', 0.00, 25),
+(74, 0, '256GB', 500.00, 25);
 
 ########################################################
 -- CrabMac Air (Laptop)
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (8, 'CrabMac Air', 'Lightweight and powerful laptop.',
  'The CrabMac Air offers the ideal balance between performance and portability.',
  1499.00, '2024-11-20', 'Available', 
- '{"CPU": "M2 Chip", "RAM": "16GB", "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M2 GPU"}', 
- 1, 'CrabMac', NULL);
+ '{"CPU": "M2 Chip", "RAM": ["8GB", "16GB"], "Display": ["13 inch FullHD IPS", "15 inch 4K OLED"], "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M2 GPU"}', 
+ NULL, 'CrabMac', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(11, 'Storage Options', '/icons/storage.png', 8);
+(11, 'Storage Options', 'storage.png', 8),
+(26, 'Ram Options', 'ram.png', 8),
+(27, 'Display Options', 'display.png', 8);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage Options
 (37, 1, '256GB SSD', 0.00, 11),
 (38, 0, '512GB SSD', 200.00, 11),
-(39, 0, '1TB SSD', 400.00, 11);
+(39, 0, '1TB SSD', 400.00, 11),
+-- Ram Options
+(75, 1, '8GB', 0.00, 26),
+(76, 0, '16GB', 200.00, 26),
+-- Display Options
+(77, 1, '13 inch FullHD IPS', 0.00, 27),
+(78, 0, '15 inch 4K OLED', 500.00, 27);
 
 ########################################################
 -- CrabMac Pro Air (Laptop)
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (9, 'CrabMac Pro Air', 'High-performance laptop.',
  'The CrabMac Pro Air is designed for professionals seeking a balance of performance and portability.',
  2499.00, '2024-11-25', 'Available', 
- '{"CPU": "Intel Core i9", "RAM": "32GB", "Storage Options": ["512GB SSD", "1TB SSD"], "GPU": "NVIDIA RTX 4070"}', 
- 1, 'CrabMac', NULL);
+ '{"CPU": "Intel Core i9", "RAM": ["32GB", "64GB"], "Display": ["13 inch FullHD IPS", "15 inch 4K OLED"], "Storage Options": ["512GB SSD", "1TB SSD"], "GPU": "NVIDIA RTX 4070"}', 
+ NULL, 'CrabMac', NULL);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(12, 'Storage Options', '/icons/storage.png', 9);
+(12, 'Storage Options', 'storage.png', 9),
+(28, 'Ram Options', 'ram.png', 9),
+(29, 'Display Options', 'display.png', 9);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage options
 (40, 1, '512GB SSD', 0.00, 12),
-(41, 0, '1TB SSD', 200.00, 12);
+(41, 0, '1TB SSD', 200.00, 12),
+-- Ram Options
+(79, 1, '32GB', 0.00, 28),
+(80, 0, '64GB', 400.00, 28),
+-- Display Options
+(81, 1, '13 inch FullHD IPS', 0.00, 29),
+(82, 0, '15 inch 4K OLED', 500.00, 29);
 
 ########################################################
 -- CrabPad Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (10, 'CrabPad Pro', 'Ultimate tablet experience.',
  'The CrabPad Pro delivers outstanding performance for work and play.',
  899.00, '2024-11-10', 'Available', 
- '{"CPU": "Apple M2 Chip", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Screen Size": "12.9 inches"}', 
+ '{"CPU": "Apple M2 Chip", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Screen Size": "12.9 inch"}', 
  NULL, 'CrabPad', NULL);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(13, 'Storage Options', '/icons/storage.png', 10);
+(13, 'Storage Options', 'storage.png', 10);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -286,18 +314,18 @@ VALUES
 -- CrabPad Air
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (11, 'CrabPad Air', 'Lightweight and powerful tablet.',
  'The CrabPad Air is perfect for productivity on the go.',
- 499.00, '2024-11-12', 'Available', 
- '{"CPU": "A14 Bionic", "RAM": "4GB", "Storage Options": ["64GB", "128GB", "256GB"], "Screen Size": "10.5 inches"}', 
- NULL, 'CrabPad', NULL);
+ 499.00, NULL, 'Upcoming', 
+ '{"CPU": "A14 Bionic", "RAM": "4GB", "Storage Options": ["64GB", "128GB", "256GB"], "Screen Size": "10.5 inch"}', 
+ 'crabpadair-teaser.mp4', 'CrabPad', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(14, 'Storage Options', '/icons/storage.png', 11);
+(14, 'Storage Options', 'storage.png', 11);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -309,18 +337,18 @@ VALUES
 -- CrabPods 1
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (12, 'CrabPods 1', 'Premium wireless earbuds.',
  'CrabPods 1 offers high-quality sound and comfortable fit for music lovers.',
  199.00, '2024-10-05', 'Available', 
  '{"Battery Life": "6 hours", "Bluetooth": "5.0", "Color Options": ["White", "Black"]}', 
- NULL, 'CrabPods', NULL);
+ NULL, 'CrabPods', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(15, 'Color Options', '/icons/color.png', 12);
+(15, 'Color Options', 'color.png', 12);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -331,18 +359,18 @@ VALUES
 -- CrabWatch Sport
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (13, 'CrabWatch Sport', 'Sporty smartwatch.',
  'CrabWatch Sport offers essential fitness and health tracking features.',
  199.00, '2024-11-18', 'Available', 
  '{"Battery Life": "24 hours", "Display": "LCD", "Features": "Fitness tracking, Water resistance", "Band Options": ["Silicone", "Nylon"]}', 
- NULL, 'CrabWatch', NULL);
+ NULL, 'CrabWatch', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(16, 'Band Options', '/icons/band.png', 13);
+(16, 'Band Options', 'band.png', 13);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -353,7 +381,7 @@ VALUES
 -- CrabMouse
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (14, 'CrabMouse', 'Ergonomic mouse for CrabMac users.',
@@ -366,18 +394,18 @@ VALUES
 -- CrabPad Mini
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (15, 'CrabPad Mini', 'Compact and portable tablet.',
  'The CrabPad Mini is perfect for everyday tasks, offering portability and performance in a smaller form factor.',
  399.00, '2024-11-17', 'Available', 
- '{"CPU": "A13 Bionic", "RAM": "3GB", "Storage Options": ["64GB", "128GB"], "Screen Size": "8.3 inches"}', 
- NULL, 'CrabPad', NULL);
+ '{"CPU": "A13 Bionic", "RAM": "3GB", "Storage Options": ["64GB", "128GB"], "Screen Size": "8.3 inch"}', 
+ NULL, 'CrabPad', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(17, 'Storage Options', '/icons/storage.png', 15);
+(17, 'Storage Options', 'storage.png', 15);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -388,19 +416,19 @@ VALUES
 -- CrabPhone 18
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (16, 'CrabPhone 18', 'Ultimate smartphone experience.',
  'The CrabPhone 18 delivers top-tier performance with cutting-edge technology.',
- 1399.00, '2024-12-01', 'Available', 
+ 1399.00, NULL, 'Upcoming', 
  '{"CPU": "A19 Bionic", "RAM": "8GB", "Storage Options": ["128GB", "256GB", "512GB"], "Color Options": ["Black", "Gold", "Silver", "Midnight Green"], "Camera": "64MP Main"}', 
- NULL, 'CrabPhone', NULL);
+ 'crabphone18-teaser.mp4', 'CrabPhone', NULL);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(18, 'Storage Options', '/icons/storage.png', 16),
-(19, 'Color Options', '/icons/color.png', 16);
+(18, 'Storage Options', 'storage.png', 16),
+(19, 'Color Options', 'color.png', 16);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -419,7 +447,7 @@ VALUES
 -- CrabWatch Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (17, 'CrabWatch Pro', 'Smartwatch with advanced features.',
@@ -430,7 +458,7 @@ VALUES
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(20, 'Band Options', '/icons/band.png', 17);
+(20, 'Band Options', 'band.png', 17);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -438,21 +466,21 @@ VALUES
 (62, 0, 'Leather', 50.00, 20);
 
 ########################################################
--- CrabPad Pro
+-- CrabPods Pro
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
-(18, 'CrabPod Pro', 'Premium wireless headphones.',
- 'CrabPod Pro offers premium sound quality and noise cancellation for audiophiles.',
+(18, 'CrabPods Pro', 'Premium wireless headphones.',
+ 'CrabPods Pro offer premium sound quality and noise cancellation for audiophiles.',
  299.00, '2024-12-05', 'Available', 
- '{"Battery Life": "12 hours", "Bluetooth": "5.0", "Noise Cancellation": "Active", "Color Options": ["Black", "Silver"]}', 
+ '{"Battery Life": "12 hours", "Bluetooth": "5.0", "Noise Cancellation": "CrabTech 2.0", "Color Options": ["Black", "Silver"]}', 
  NULL, 'CrabPods', NULL);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(21, 'Color Options', '/icons/color.png', 18);
+(21, 'Color Options', 'color.png', 18);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
@@ -463,30 +491,39 @@ VALUES
 -- CrabMac Air Max
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (19, 'CrabMac Air Max', 'Top-tier ultra-light laptop.',
  'The CrabMac Air Max combines extreme portability with extreme power.',
  1799.00, '2024-11-28', 'Available', 
- '{"CPU": "M3 Chip", "RAM": "16GB", "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M3 GPU"}', 
- NULL, 'CrabMac', NULL);
+ '{"CPU": "M3 Chip", "RAM": ["16GB", "32GB"], "Display": ["13 inch FullHD OLED", "13 inch 4K OLED"], "Storage Options": ["256GB SSD", "512GB SSD", "1TB SSD"], "GPU": "Apple M3 GPU"}', 
+ NULL, 'CrabMac', 1);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
-(22, 'Storage Options', '/icons/storage.png', 19);
+(22, 'Storage Options', 'storage.png', 19),
+(30, 'Ram Options', 'ram.png', 19),
+(31, 'Display Options', 'display.png', 19);
 
 INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
 VALUES 
+-- Storage Options
 (65, 1, '256GB SSD', 0.00, 22),
 (66, 0, '512GB SSD', 200.00, 22),
-(67, 0, '1TB SSD', 400.00, 22);
+(67, 0, '1TB SSD', 400.00, 22),
+-- Ram Options
+(83, 1, '16GB', 0.00, 30),
+(84, 0, '32GB', 200.00, 30),
+-- Display Options
+(85, 1, '13 inch FullHD OLED', 0.00, 31),
+(86, 0, '13 inch 4K OLED', 400.00, 31);
 
 ########################################################
 -- CrabKeyboard
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
 (20, 'CrabKeyboard', 'Mechanical keyboard with customizable RGB lighting.',
@@ -499,7 +536,7 @@ VALUES
 -- CrabCable
 ########################################################
  INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES 
  (21, 'CrabCable', 'USB-C to USB-C charging cable.',
@@ -512,7 +549,7 @@ VALUES
 -- CrabPencil
 ########################################################
 INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES
  (22, 'CrabPencil', 'Wireless stylus pen for drawing and note-taking.',
@@ -525,7 +562,7 @@ VALUES
 -- CrabAdapter
 ########################################################
  INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES
  (23, 'CrabAdapter', '65W USB-C power adapter.',
@@ -538,7 +575,7 @@ VALUES
 -- Wireless CrabCharger
 ########################################################
  INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES
  (24, 'Wireless CrabCharger', 'Wireless charging pad with 15W charging speed.',
@@ -551,7 +588,7 @@ VALUES
 -- CrabSleeve
 ########################################################
  INSERT INTO Product (
-    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, videoId, categoryName, discountId
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
 )
 VALUES
  (25, 'CrabSleeve', 'Protective sleeve for 13-inch and 15-inch laptops.',
