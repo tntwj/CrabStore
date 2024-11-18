@@ -157,5 +157,13 @@ class DatabaseHelper {
         }
     }
 }
+    public function getCartProductsOfCustomer($username) {
+        $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username;"
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $username); // bind $productId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
 ?>
