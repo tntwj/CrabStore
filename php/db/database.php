@@ -41,6 +41,39 @@ class DatabaseHelper {
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    // Returns the configurables of a product
+    public function getProductConfigurables($productid) {
+        $query = "SELECT configurableId, C.name, icon, C.productId FROM configurable C, product P WHERE C.productId = P.productId AND C.productId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Returns the configurable options of a configurable of a product
+    public function getProductConfigurableOptions($configurableId) {
+        $query = "SELECT configurableOptionid, isDefault, details, price, CO.configurableId FROM configurableoption CO, configurable C WHERE CO.configurableId = C.configurableId AND CO.configurableId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $configurableId); // bind $configurableId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Returns all the notifications related to a user
+    public function getUserNotifications($username) {
+        $query = "SELECT notificationId, subject, description, date, isRead, username FROM notification WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $configurableId); // bind $username as a string
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 
 ?>
