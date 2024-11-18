@@ -1,0 +1,1 @@
+media such as images and videos are put here.
