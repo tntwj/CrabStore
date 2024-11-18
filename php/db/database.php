@@ -135,7 +135,7 @@ class DatabaseHelper {
     // Registers a customer and hashes his password before storing it.
     public function registerCustomer($username, $firstname, $lastName, $email, $password) {
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO Customer (username, firstName, lastName, email, joinDate, password)" VALUES (?, ?, ?, ?, NOW(), ?);
+        $query = "INSERT INTO Customer (username, firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sssss", $username, $firstname, $lastName, $email, $hashedpassword);
         $stmt->execute();

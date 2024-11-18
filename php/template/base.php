@@ -19,7 +19,7 @@
     <main>
         <h2>Main Content</h2>
     <?php
-        require($templateParams["nome"]);
+        //require($templateParams["nome"]);
     ?>
     </main><aside>
         <section>
