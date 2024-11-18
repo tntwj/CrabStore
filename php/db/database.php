@@ -157,8 +157,12 @@ class DatabaseHelper {
         }
     }
 
+    /**************************
+     * CART AND ORDER QUERIES *
+     **************************/
+
     public function getCartProductsOfCustomer($username) {
-        $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
+        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $username); 
         $stmt->execute();
