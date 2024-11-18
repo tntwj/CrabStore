@@ -5,7 +5,7 @@ CREATE TABLE CartProduct (
     customProductId INT NOT NULL,
     username VARCHAR(50) NOT NULL,
     amount INT NOT NULL,
-    PRIMARY KEY (username, customProductId)
+    PRIMARY KEY (customProductId)
 );
 
 CREATE TABLE Category (
@@ -113,7 +113,7 @@ CREATE TABLE OrderProduct (
     orderId INT NOT NULL,
     customProductId INT NOT NULL,
     amount INT NOT NULL,
-    PRIMARY KEY (orderId, customProductId)
+    PRIMARY KEY (customProductId)
 );
 
 ALTER TABLE CartProduct ADD CONSTRAINT
