@@ -10,6 +10,10 @@ class DatabaseHelper {
         }
     }
 
+    /*******************
+     * PRODUCT QUERIES *
+     *******************/
+
     // Returns all the categories.
     public function getCategories() {
         $query = "SELECT categoryName, shortDescription, description, icon, mainImage, secondaryImage, video FROM category";
@@ -40,6 +44,88 @@ class DatabaseHelper {
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /********************************
+     * PRODUCT CONFIGURATION QUERIES*
+     ********************************/
+
+    // Returns the configurables of a product
+    public function getProductConfigurables($productid) {
+        $query = "SELECT configurableId, C.name, icon, C.productId FROM configurable C, product P WHERE C.productId = P.productId AND C.productId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Returns the configurable options of a configurable of a product
+    public function getProductConfigurableOptions($configurableId) {
+        $query = "SELECT configurableOptionid, isDefault, details, price, CO.configurableId FROM configurableoption CO, configurable C WHERE CO.configurableId = C.configurableId AND CO.configurableId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $configurableId); // bind $configurableId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /************************
+     * NOTIFICATIONS QUERIES*
+     ************************/
+
+    // Returns all the notifications related to a user.
+    public function getUserNotifications($username) {
+        $query = "SELECT notificationId, subject, description, date, isRead, username FROM notification WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $configurableId); // bind $username as a string
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Sets a notification as read.
+    public function setNotificationAsRead($notificationId) {
+        $query = "UPDATE notification SET isRead=1 WHERE notificationId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $notificationId);
+        $stmt->execute();
+        // More checks could be added
+    }
+
+    // Sets all notifications related to an user as read.
+    public function setAllUserNotificationsAsRead($username) {
+        $query = "UPDATE notification SET isRead=1 WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+    }
+
+    // Removes a notification identified by its id.
+    public function deleteNotification($notificationId) {
+        $query = "DELETE FROM notification WHERE notificationId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $notificationId);
+        $stmt->execute();
+    }
+
+    // Removes all notifications related to a username.
+    public function deleteAllUserNotification($username) {
+        $query = "DELETE FROM notification WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+    }
+
+    // Inserts a notification
+    public function insertNotification($subject, $description, $username) {
+        $query = "INSERT INTO notification (subject, description, date, username) VALUES (?, ?, NOW(), ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $subject, $description, $username);
+        $stmt->execute();
     }
 }
     public function getCartProductsOfCustomer($username) {
