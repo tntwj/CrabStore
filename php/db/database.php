@@ -127,8 +127,36 @@ class DatabaseHelper {
         $stmt->bind_param("sss", $subject, $description, $username);
         $stmt->execute();
     }
-        
-    // Get products of cart of a customer given the username.
+
+    /******************************
+     * REGISTER AND LOGIN QUERIES *
+     ******************************/
+
+    // Registers a customer and hashes his password before storing it.
+    public function registerCustomer($username, $firstname, $lastName, $email, $password) {
+        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
+        $query = "INSERT INTO Customer (username, firstName, lastName, email, joinDate, password)" VALUES (?, ?, ?, ?, NOW(), ?);
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssss", $username, $firstname, $lastName, $email, $hashedpassword);
+        $stmt->execute();
+    }
+
+    // Returns true if authentication was succesfull.
+    public function authenticateCustomer($username, $password) {
+        $query = "SELECT password FROM customer WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->bind_result($storedHashedPassword);
+        $stmt->fetch();
+
+        if ($stmt->num_rows > 0 && password_verify($password, $storedHashedPassword)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getCartProductsOfCustomer($username) {
         $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
         $stmt = $this->db->prepare($query);
@@ -138,6 +166,4 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
-
-
 ?>
