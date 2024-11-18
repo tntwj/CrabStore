@@ -127,14 +127,17 @@ class DatabaseHelper {
         $stmt->bind_param("sss", $subject, $description, $username);
         $stmt->execute();
     }
-}
+        
+    // Get products of cart of a customer given the username.
     public function getCartProductsOfCustomer($username) {
-        $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username;"
+        $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $username); // bind $productId as a integer
+        $stmt->bind_param("s", $username); 
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+}
+
 
 ?>
