@@ -9,6 +9,11 @@
     <header>
         <h1>Big header</h1>
     </header>
+    <nav>
+        <ul> 
+            <li><a href="cart.php">Cart</a></li>
+        </ul>
+    </nav>
     <main>
         <h2>Main Content</h2>
     <?php
