@@ -10,6 +10,10 @@ class DatabaseHelper {
         }
     }
 
+    /*******************
+     * PRODUCT QUERIES *
+     *******************/
+
     // Returns all the categories.
     public function getCategories() {
         $query = "SELECT categoryName, shortDescription, description, icon, mainImage, secondaryImage, video FROM category";
@@ -41,6 +45,10 @@ class DatabaseHelper {
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    /********************************
+     * PRODUCT CONFIGURATION QUERIES*
+     ********************************/
 
     // Returns the configurables of a product
     public function getProductConfigurables($productid) {
