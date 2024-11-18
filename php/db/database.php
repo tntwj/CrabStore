@@ -64,7 +64,11 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns all the notifications related to a user
+    /************************
+     * NOTIFICATIONS QUERIES*
+     ************************/
+
+    // Returns all the notifications related to a user.
     public function getUserNotifications($username) {
         $query = "SELECT notificationId, subject, description, date, isRead, username FROM notification WHERE username = ?";
         $stmt = $this->db->prepare($query);
@@ -73,6 +77,47 @@ class DatabaseHelper {
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    // Sets a notification as read.
+    public function setNotificationAsRead($notificationId) {
+        $query = "UPDATE notification SET isRead=1 WHERE notificationId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $notificationId);
+        $stmt->execute();
+        // More checks could be added
+    }
+
+    // Sets all notifications related to an user as read.
+    public function setAllUserNotificationsAsRead($username) {
+        $query = "UPDATE notification SET isRead=1 WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+    }
+
+    // Removes a notification identified by its id.
+    public function deleteNotification($notificationId) {
+        $query = "DELETE FROM notification WHERE notificationId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $notificationId);
+        $stmt->execute();
+    }
+
+    // Removes all notifications related to a username.
+    public function deleteAllUserNotification($username) {
+        $query = "DELETE FROM notification WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+    }
+
+    // Inserts a notification
+    public function insertNotification($subject, $description, $username) {
+        $query = "INSERT INTO notification (subject, description, date, username) VALUES (?, ?, NOW(), ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $subject, $description, $username);
+        $stmt->execute();
     }
 }
 
