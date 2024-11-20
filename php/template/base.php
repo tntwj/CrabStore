@@ -8,7 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+    <div class="container-fluid">
         <button
             class="navbar-toggler d-lg-none"
             type="button"
@@ -17,9 +18,11 @@
             aria-controls="collapsibleNavId"
             aria-expanded="false"
             aria-label="Toggle navigation"
-        ></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
+            <ul class="navbar-nav mt-2 mt-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
@@ -42,7 +45,7 @@
                     <a class="nav-link" href="#">Accessories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Notifications</a>
+                    <a class="nav-link" href="#">🔔</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a
@@ -62,6 +65,7 @@
                     </div>
                 </li>
             </ul>
+            </div>
         </div>
     </nav>
     <main>
