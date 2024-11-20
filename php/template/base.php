@@ -19,7 +19,7 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
         >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon "></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0">
@@ -78,8 +78,8 @@
             <h2>Interesting Stuff</h2>
         </section>
     </aside>
-    <footer>
-        <p>CrabStore Copyright - A.A. 2024/2025</p>
-    </footer>
+    <footer class="mt-5 p-4 bg-dark text-white text-center">
+        <p>CrabStore Copyright 2025</p>
+</footer>
 </body>
 </html>
