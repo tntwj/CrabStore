@@ -1,0 +1,28 @@
+div header{
+    background-color: lightcyan !important;   
+}
+
+div nav, nav div div div ul{
+    background-color: rgb(212, 247, 247) !important;
+}
+
+div header div h1, nav a{
+    color:cadetblue !important;
+}
+
+body {
+    background-color: lightblue !important;
+}
+
+footer {
+    background-color: lightcyan !important;
+}
+
+.navbar img {
+    width: 2vw;
+    height: auto;
+}
+
+p {
+    text-align: justify;
+}
