@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">🦀</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">CrabBooks</a>
