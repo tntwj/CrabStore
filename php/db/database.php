@@ -184,7 +184,7 @@ class DatabaseHelper {
                   VALUES (?, ?, ?) 
                   ON DUPLICATE KEY UPDATE amount = amount + ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("isis", $customProductId, $username, $amount, $amount);
+        $stmt->bind_param("isi", $customProductId, $username, $amount);
         $result = $stmt->execute();
     }
 
@@ -194,5 +194,7 @@ class DatabaseHelper {
         $stmt->bind_param("is", $customProductId, $username);
         $result = $stmt->execute();
     }
+
+    
 }
 ?>

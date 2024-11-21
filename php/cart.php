@@ -2,7 +2,7 @@
 require_once("bootstrap.php");
 
 $templateParams["title"] = "Crabstore - Cart";
-$templateParams["main-content"] = "cart-of-customer.php";
+$templateParams["main-content"] = "customer-cart.php";
 $username="jane_smith";
 if (isset($_GET["username"])) {
     $username = $_GET["username"];

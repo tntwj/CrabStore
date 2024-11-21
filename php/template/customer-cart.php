@@ -1,7 +1,7 @@
 <h2>Cart</h2>
 <ul>
     <?php
-    $totalAmount = 0;
+    $totalPrice = 0;
     if(isset($templateParams["products-cart"])): 
     ?>
         <?php foreach($templateParams["products-cart"] as $product): ?>
@@ -12,14 +12,14 @@
             <p><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></p>
         </li>
         <?php 
-        $totalAmount += $product["finalPrice"] * $product["amount"]; 
+        $totalPrice += $product["finalPrice"] * $product["amount"]; 
         ?>
         <?php endforeach ?>
     <?php endif ?>
 </ul>
-<p><strong>Your bag total is: $<?php echo $totalAmount; ?></strong></p>
-<form action="process_payment.php" method="POST">
-    <input type="hidden" name="totalAmount" value="<?php echo $totalAmount; ?>">
+<p><strong>Your bag total is: $<?php echo $totalPrice; ?></strong></p>
+<form action="payment.php" method="POST">
+    <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
     <button type="submit">Checkout</button>
 </form>
 
