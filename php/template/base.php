@@ -58,10 +58,11 @@
                         >More</a
                     >
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">User page</a>
+                        <a class="dropdown-item" href="#">Sign in</a>
+                        <a class="dropdown-item" href="#">Account</a>
                         <a class="dropdown-item" href="#">Notifications</a>
                         <a class="dropdown-item" href="cart.php">Cart</a>
-                        <a class="dropdown-item" href="#">Order details</a>
+                        <a class="dropdown-item" href="#">Orders</a>
                     </div>
                 </li>
             </ul>
