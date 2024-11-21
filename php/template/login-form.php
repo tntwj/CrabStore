@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container d-flex flex-column align-items-center mt-3">
     <h1>Sign in to Crab Store</h1>
     <form action="#" method="post">
         <div class="my-3">
@@ -9,14 +9,14 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
-        <div class="form-check mb-3">
+        <div class="form-check d-flex justify-content-center mb-3">
             <label for="form-check-label">
                 <input type="checkbox" class="form-check-input" name="remember">Remember me
             </label>
         </div>
-        <input type="submit" class="btn btn-primary" value="Login">
+        <div class="d-flex justify-content-center mb-3">
+            <input type="submit" class="btn btn-primary" value="Login">
+        </div>
     </form>
-</div>
-<div class="container">
-    <a href="#">Not yet registered? Register now!</a>
+    <a href="#">Don't have an account? Create yours now.</a>
 </div>
