@@ -163,7 +163,7 @@ class DatabaseHelper {
 
     // Return the products in the customer's shopping cart.
     public function getCartProductsOfCustomer($email) {
-        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? GROUP BY customer.email";
+        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); 
         $stmt->execute();
