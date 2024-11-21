@@ -72,7 +72,7 @@
     <main>
     <!-- Main content goes here -->
     <?php
-        //require($templateParams["main-content"]);
+        require($templateParams["main-content"]);
     ?>
     </main><aside>
     <!-- Secondary stuff goes here (News, interesting things, etc)-->
