@@ -18,5 +18,5 @@
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
     </form>
-    <a href="#">Don't have an account? Create yours now.</a>
+    <a href="register.php">Don't have an account? Create yours now.</a>
 </div>
