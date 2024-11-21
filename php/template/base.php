@@ -58,7 +58,7 @@
                         >More</a
                     >
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Sign in</a>
+                        <a class="dropdown-item" href="login.php">Sign in</a>
                         <a class="dropdown-item" href="#">Account</a>
                         <a class="dropdown-item" href="#">Notifications</a>
                         <a class="dropdown-item" href="cart.php">Cart</a>
@@ -72,7 +72,7 @@
     <main>
         <h2>Main Content</h2>
     <?php
-        //require($templateParams["main-content"]);
+        require($templateParams["main-content"]);
     ?>
     </main><aside>
         <section>
