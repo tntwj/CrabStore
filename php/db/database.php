@@ -37,7 +37,7 @@ class DatabaseHelper {
 
     // Returns the images related to a product in order of priority
     public function getProductImages($productId) {
-        $query = "SELECT priority, imageUrl, PI.productId FROM productimage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC";
+        $query = "SELECT priority, imageUrl FROM productimageusage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productId); // bind $productId as a integer
         $stmt->execute();
@@ -77,10 +77,10 @@ class DatabaseHelper {
      ************************/
 
     // Returns all the notifications related to a user.
-    public function getUserNotifications($username) {
-        $query = "SELECT notificationId, subject, description, date, isRead, username FROM notification WHERE username = ?";
+    public function getUserNotifications($email) {
+        $query = "SELECT notificationId, subject, description, date, isRead, email FROM notification WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $username); // bind $username as a string
+        $stmt->bind_param("s", $email); // bind $email as a string
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -97,10 +97,10 @@ class DatabaseHelper {
     }
 
     // Sets all notifications related to an user as read.
-    public function setAllUserNotificationsAsRead($username) {
-        $query = "UPDATE notification SET isRead=1 WHERE username = ?";
+    public function setAllUserNotificationsAsRead($email) {
+        $query = "UPDATE notification SET isRead=1 WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
     }
 
@@ -112,19 +112,19 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-    // Removes all notifications related to a username.
-    public function deleteAllUserNotification($username) {
-        $query = "DELETE FROM notification WHERE username = ?";
+    // Removes all notifications related to a email.
+    public function deleteAllUserNotification($email) {
+        $query = "DELETE FROM notification WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
     }
 
     // Inserts a notification
-    public function insertNotification($subject, $description, $username) {
-        $query = "INSERT INTO notification (subject, description, date, username) VALUES (?, ?, NOW(), ?)";
+    public function insertNotification($subject, $description, $email) {
+        $query = "INSERT INTO notification (subject, description, date, email) VALUES (?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sss", $subject, $description, $username);
+        $stmt->bind_param("sss", $subject, $description, $email);
         $stmt->execute();
     }
 
@@ -133,19 +133,19 @@ class DatabaseHelper {
      ******************************/
 
     // Registers a customer and hashes his password before storing it.
-    public function registerCustomer($username, $firstname, $lastName, $email, $password) {
+    public function registerCustomer($firstname, $lastName, $email, $password) {
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO Customer (username, firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssss", $username, $firstname, $lastName, $email, $hashedpassword);
+        $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedpassword);
         $stmt->execute();
     }
 
     // Returns true if authentication was succesfull.
-    public function authenticateCustomer($username, $password) {
-        $query = "SELECT password FROM customer WHERE username = ?";
+    public function authenticateCustomer($email, $password) {
+        $query = "SELECT password FROM customer WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->bind_result($storedHashedPassword);
         $stmt->fetch();
