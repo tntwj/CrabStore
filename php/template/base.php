@@ -44,9 +44,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Accessories</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">🔔</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a
                         class="nav-link dropdown-toggle"
@@ -58,9 +55,9 @@
                         >More</a
                     >
                     <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Sign in</a>
+                        <a class="dropdown-item" href="login.php">Sign in</a>
                         <a class="dropdown-item" href="#">Account</a>
-                        <a class="dropdown-item" href="#">Notifications</a>
+                        <a class="dropdown-item" href="notifications.php">Notifications</a>
                         <a class="dropdown-item" href="cart.php">Cart</a>
                         <a class="dropdown-item" href="#">Orders</a>
                     </div>
@@ -70,13 +67,12 @@
         </div>
     </nav>
     <main>
+    <!-- Main content goes here -->
     <?php
         require($templateParams["main-content"]);
     ?>
     </main><aside>
-        <section>
-            <h2>Interesting Stuff</h2>
-        </section>
+    <!-- Secondary stuff goes here (News, interesting things, etc)-->
     </aside>
     <footer class="mt-5 p-4 bg-dark text-white text-center">
         <p>CrabStore Copyright 2025</p>

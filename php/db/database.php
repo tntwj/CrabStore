@@ -80,7 +80,7 @@ class DatabaseHelper {
     public function getUserNotifications($username) {
         $query = "SELECT notificationId, subject, description, date, isRead, username FROM notification WHERE username = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $configurableId); // bind $username as a string
+        $stmt->bind_param("s", $username); // bind $username as a string
         $stmt->execute();
         $result = $stmt->get_result();
 
