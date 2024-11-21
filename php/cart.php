@@ -3,11 +3,11 @@ require_once("bootstrap.php");
 
 $templateParams["title"] = "Crabstore - Cart";
 $templateParams["main-content"] = "customer-cart.php";
-$username="jane_smith";
-if (isset($_GET["username"])) {
-    $username = $_GET["username"];
+$email="jane.smith@example.com";
+if (isset($_GET["email"])) {
+    $email = $_GET["email"];
 }
-$cartProducts = $dbh->getCartProductsOfCustomer($username);
+$cartProducts = $dbh->getCartProductsOfCustomer($email);
 
 foreach ($cartProducts as &$product) {
     $productId = $product['productId'];

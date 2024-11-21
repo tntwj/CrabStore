@@ -162,36 +162,36 @@ class DatabaseHelper {
      **************************/
 
     // Return the products in the customer's shopping cart.
-    public function getCartProductsOfCustomer($username) {
-        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
+    public function getCartProductsOfCustomer($email) {
+        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? GROUP BY customer.email";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $username); 
+        $stmt->bind_param("s", $email); 
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     // Update the quantity of product in the customer's shopping cart.
-    public function updateQtaOfProductCart($customProductId, $username, $n) {
-        $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ? AND username = ?";
+    public function updateQtaOfProductCart($customProductId, $email, $n) {
+        $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ? AND email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iis", $n, $customProductId, $username);
+        $stmt->bind_param("iis", $n, $customProductId, $email);
         $result = $stmt->execute();
     }
     
-    public function addProductToCart($customProductId, $username, $amount) {
-        $query = "INSERT INTO CartProduct (customProductId, username, amount) 
+    public function addProductToCart($customProductId, $email, $amount) {
+        $query = "INSERT INTO CartProduct (customProductId, email, amount) 
                   VALUES (?, ?, ?) 
                   ON DUPLICATE KEY UPDATE amount = amount + ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("isi", $customProductId, $username, $amount);
+        $stmt->bind_param("isi", $customProductId, $email, $amount);
         $result = $stmt->execute();
     }
 
-    public function removeProductFromCart($customProductId, $username) {
-        $query = "DELETE FROM CartProduct WHERE customProductId = ? AND username = ?";
+    public function removeProductFromCart($customProductId, $email) {
+        $query = "DELETE FROM CartProduct WHERE customProductId = ? AND email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("is", $customProductId, $username);
+        $stmt->bind_param("is", $customProductId, $email);
         $result = $stmt->execute();
     }
 
