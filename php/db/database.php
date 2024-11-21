@@ -157,13 +157,44 @@ class DatabaseHelper {
         }
     }
 
+    /**************************
+     * CART AND ORDER QUERIES *
+     **************************/
+
+    // Return the products in the customer's shopping cart.
     public function getCartProductsOfCustomer($username) {
-        $query = "SELECT name, amount, finalPrice FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
+        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.username = cartproduct.username AND customer.username = ? GROUP BY customer.username";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $username); 
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    // Update the quantity of product in the customer's shopping cart.
+    public function updateQtaOfProductCart($customProductId, $username, $n) {
+        $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ? AND username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iis", $n, $customProductId, $username);
+        $result = $stmt->execute();
+    }
+    
+    public function addProductToCart($customProductId, $username, $amount) {
+        $query = "INSERT INTO CartProduct (customProductId, username, amount) 
+                  VALUES (?, ?, ?) 
+                  ON DUPLICATE KEY UPDATE amount = amount + ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("isi", $customProductId, $username, $amount);
+        $result = $stmt->execute();
+    }
+
+    public function removeProductFromCart($customProductId, $username) {
+        $query = "DELETE FROM CartProduct WHERE customProductId = ? AND username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("is", $customProductId, $username);
+        $result = $stmt->execute();
+    }
+
+    
 }
 ?>
