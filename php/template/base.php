@@ -59,7 +59,7 @@
                         <a class="dropdown-item" href="#">Account</a>
                         <a class="dropdown-item" href="notifications.php">Notifications</a>
                         <a class="dropdown-item" href="cart.php">Cart</a>
-                        <a class="dropdown-item" href="#">Orders</a>
+                        <a class="dropdown-item" href="orders.php">Orders</a>
                     </div>
                 </li>
             </ul>
