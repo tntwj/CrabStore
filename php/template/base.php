@@ -70,14 +70,12 @@
         </div>
     </nav>
     <main>
-        <h2>Main Content</h2>
+    <!-- Main content goes here -->
     <?php
         //require($templateParams["main-content"]);
     ?>
     </main><aside>
-        <section>
-            <h2>Interesting Stuff</h2>
-        </section>
+    <!-- Secondary stuff goes here (News, interesting things, etc)-->
     </aside>
     <footer class="mt-5 p-4 bg-dark text-white text-center">
         <p>CrabStore Copyright 2025</p>
