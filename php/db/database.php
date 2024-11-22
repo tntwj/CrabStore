@@ -135,25 +135,29 @@ class DatabaseHelper {
     // Registers a customer and hashes his password before storing it.
     public function registerCustomer($firstname, $lastName, $email, $password) {
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, ?, NOW(), ?)";
+        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance) VALUES (?, ?, ?, NOW(), ?, 0.00)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedpassword);
         $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            echo "Rows affected: " . $stmt->affected_rows;
+        } else {
+            echo "No rows were inserted.";
+        }
     }
 
-    // Returns true if authentication was succesfull.
-    public function authenticateCustomer($email, $password) {
+    public function getCustomerPasswordByEmail($email) {
         $query = "SELECT password FROM customer WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->bind_result($storedHashedPassword);
-        $stmt->fetch();
 
-        if ($stmt->num_rows > 0 && password_verify($password, $storedHashedPassword)) {
-            return true;
+        if ($stmt->fetch()) {
+            return $storedHashedPassword;
         } else {
-            return false;
+            return null; // No user found
         }
     }
 

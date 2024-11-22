@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column align-items-center mt-3">
     <h1>Create you Crab Store account</h1>
-    <form action="#" method="post">
+    <form action="<?php echo HANDLERS_DIR;?>register-handler.php" method="post">
         <div class="row my-3">
             <div class="col">
                 <label for="firstname">First Name:</label>
@@ -21,11 +21,7 @@
         </div>
         <div class="mb-3">
             <label for="confirm_password">Confirm password:</label>
-            <input type="password" class="form-control" placeholder="Confirm Password" name="confir_password">
-        </div>
-        <div class="mb-3">
-            <label for="phone_number">Phone Number</label>
-            <input type="tel" class="form-control" placeholder="Phone Number" name="phone_number">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="confirm_password">
         </div>
         <div class="d-flex justify-content-center mb-3">
             <input type="submit" class="btn btn-primary" value="Continue">
