@@ -46,6 +46,16 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getProductInformation($productId) {
+        $query = "SELECT `name` FROM  product P WHERE P.productId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /********************************
      * PRODUCT CONFIGURATION QUERIES*
      ********************************/
@@ -171,13 +181,12 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrderProductsOfCustomer($email, $orderId) {
-        $query = "SELECT amount, finalPrice, productId
-                FROM orderproduct op, `Order` o, customproduct cp, customer c
-                WHERE op.orderId=o.orderId AND cp.customProductId=op.customProductId AND c.email=o.email
-                AND c.email = ? AND o.orderId = ?";
+    public function getOrderDetails($email, $orderId) {
+        $query = "SELECT o.orderStatus, o.orderDate, o.deliveryDate, cp.finalPrice, op.amount, cp.productId
+                FROM `order` o, orderproduct op, customproduct cp, customer c
+                WHERE o.orderId=op.orderId AND cp.customProductId=op.customProductId AND c.email=o.email AND o.orderId = ? AND c.email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("si", $email); 
+        $stmt->bind_param("is", $orderId, $email); 
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
