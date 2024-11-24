@@ -181,12 +181,20 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrderDetails($email, $orderId) {
-        $query = "SELECT o.orderStatus, o.orderDate, o.deliveryDate, cp.finalPrice, op.amount, cp.productId
-                FROM `order` o, orderproduct op, customproduct cp, customer c
-                WHERE o.orderId=op.orderId AND cp.customProductId=op.customProductId AND c.email=o.email AND o.orderId = ? AND c.email = ?";
+    public function getOrder($orderId) {
+        $stmt = $this->db->prepare("SELECT * FROM `order` WHERE orderId = ?");
+        $stmt->bind_param("i", $orderId); 
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function getOrderProducts($orderId) {
+        $query = "SELECT cp.finalPrice, op.amount, cp.productId
+                FROM `order` o, orderproduct op, customproduct cp
+                WHERE o.orderId=op.orderId AND cp.customProductId=op.customProductId AND o.orderId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("is", $orderId, $email); 
+        $stmt->bind_param("i", $orderId); 
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

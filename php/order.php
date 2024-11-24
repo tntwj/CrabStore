@@ -11,17 +11,17 @@ if (isset($_GET["email"])) {
 if (isset($_GET["orderId"])) {
     $orderId = $_GET["orderId"];
 }
-$order = $dbh->getOrderDetails($email, $orderId);
-var_dump($order);
+$products = $dbh->getOrderProducts($orderId);
+$order = $dbh->getOrder($orderId);
 
-foreach ($order as $singleOrder) {
-    $productId = $singleOrder["productId"];
-    $product[$productId]["images"] = $dbh->getProductImages($productId);
-    $product[$productId]["information"] = $dbh->getProductInformation($productId);
+foreach ($products as &$product) {
+    $productId = $product["productId"];
+    $product["images"] = $dbh->getProductImages($productId);
+    $product["information"] = $dbh->getProductInformation($productId);
 }
 
 $templateParams["order"] = $order;
-$templateParams["product"] = $product;
+$templateParams["order-products"] = $products;
 
 require_once("template/base.php");
 ?>
