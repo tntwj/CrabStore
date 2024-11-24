@@ -2,17 +2,17 @@
 INSERT INTO Category (categoryName, shortDescription, description, icon, mainImage, secondaryImage, video)
 VALUES
     ('CrabMac', 'High-performance desktops and laptops', 'Experience the ultimate in computing power with our CrabMac lineup.', 
-    'crabmac-icon.png', 'crabmac-main.jpg', 'crabmac-secondary.jpg', 'crabmac.mp4'),
+    'crabmac-icon.png', 'crabmac-main.png', 'crabmac-secondary.png', 'crabmac.mp4'),
     ('CrabPad', 'Portable and versatile tablets', 'Unleash creativity and productivity with CrabPad.', 
-    'crabpad-icon.png', 'crabpad-main.jpg', 'crabpad-secondary.jpg', 'crabpad.mp4'),
+    'crabpad-icon.png', 'crabpad-main.png', 'crabpad-secondary.png', 'crabpad.mp4'),
     ('CrabPhone', 'Revolutionary smartphones', 'Connect with the world using CrabPhone, a premium communication device.', 
-    'crabphone-icon.png', 'crabphone-main.jpg', 'crabphone-secondary.jpg', 'crabphone.mp4'),
+    'crabphone-icon.png', 'crabphone-main.png', 'crabphone-secondary.png', 'crabphone.mp4'),
     ('CrabWatch', 'Smartwatches for every lifestyle', 'Track fitness, health, and more with the CrabWatch.', 
-    'crabwatch-icon.png', 'crabwatch-main.jpg', 'crabwatch-secondary.jpg', 'crabwatch.mp4'),
+    'crabwatch-icon.png', 'crabwatch-main.png', 'crabwatch-secondary.png', 'crabwatch.mp4'),
     ('CrabPods', 'Wireless earbuds and headphones', 'Immerse yourself in sound with CrabPods.', 
-    'crabpods-icon.png', 'crabpods-main.jpg', 'crabpods-secondary.jpg', 'crabpods.mp4'),
+    'crabpods-icon.png', 'crabpods-main.png', 'crabpods-secondary.png', 'crabpods.mp4'),
     ('Accessories', 'Enhance your experience', 'Find the perfect accessories to complement your devices.', 
-    'accessories-icon.png', 'accessories-main.jpg', 'accessories-secondary.jpg', 'accessories.mp4');
+    'accessories-icon.png', 'accessories-main.png', 'accessories-secondary.png', 'accessories.mp4');
 
 -- Insert Discounts
 INSERT INTO Discount (discountId, name, amount)
@@ -34,14 +34,14 @@ VALUES
  NULL, 'CrabMac', 1);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabmacdesktop-main.jpeg'),
-('crabmacdesktop-secondary.jpeg'),
-('crabmacdesktop-tertiary.jpeg');
+('crabmacdesktop-main.png'),
+('crabmacdesktop-secondary.png'),
+('crabmacdesktop-tertiary.png');
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmacdesktop-main.jpeg', 1, 1),
-('crabmacdesktop-secondary.jpeg', 1, 2),
-('crabmacdesktop-tertiary.jpeg', 1, 3);
+('crabmacdesktop-main.png', 1, 1),
+('crabmacdesktop-secondary.png', 1, 2),
+('crabmacdesktop-tertiary.png', 1, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -74,14 +74,14 @@ VALUES
  NULL, 'CrabPhone', 1);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabphone-main.jpeg'),
-('crabphone-secondary.jpeg'),
-('crabphone-tertiary.jpeg');
+('crabphone-main.png'),
+('crabphone-secondary.png'),
+('crabphone-tertiary.png');
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabphone-main.jpeg', 2, 1),
-('crabphone-secondary.jpeg', 2, 2),
-('crabphone-tertiary.jpeg', 2, 3);
+('crabphone-main.png', 2, 1),
+('crabphone-secondary.png', 2, 2),
+('crabphone-tertiary.png', 2, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -115,14 +115,14 @@ VALUES
  NULL, 'CrabWatch', 1);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabwatch-main.jpeg'),
-('crabwatch-secondary.jpeg'),
-('crabwatch-tertiary.jpeg');
+('crabwatch-main.png'),
+('crabwatch-secondary.png'),
+('crabwatch-tertiary.png');
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabwatch-main.jpeg', 3, 1),
-('crabwatch-secondary.jpeg', 3, 2),
-('crabwatch-tertiary.jpeg', 3, 3);
+('crabwatch-main.png', 3, 1),
+('crabwatch-secondary.png', 3, 2),
+('crabwatch-tertiary.png', 3, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -148,9 +148,9 @@ VALUES
  NULL, 'CrabPhone', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabphone-main.jpeg', 4, 1),
-('crabphone-secondary.jpeg', 4, 2),
-('crabphone-tertiary.jpeg', 4, 3);
+('crabphone-main.png', 4, 1),
+('crabphone-secondary.png', 4, 2),
+('crabphone-tertiary.png', 4, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -184,9 +184,9 @@ VALUES
  NULL, 'CrabPhone', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabphone-main.jpeg', 5, 1),
-('crabphone-secondary.jpeg', 5, 2),
-('crabphone-tertiary.jpeg', 5, 3);
+('crabphone-main.png', 5, 1),
+('crabphone-secondary.png', 5, 2),
+('crabphone-tertiary.png', 5, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -220,9 +220,9 @@ VALUES
  NULL, 'CrabMac', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmacdesktop-main.jpeg', 6, 1),
-('crabmacdesktop-secondary.jpeg', 6, 2),
-('crabmacdesktop-tertiary.jpeg', 6, 3);
+('crabmacdesktop-main.png', 6, 1),
+('crabmacdesktop-secondary.png', 6, 2),
+('crabmacdesktop-tertiary.png', 6, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -254,9 +254,9 @@ VALUES
  'crabmacpro17-teaser.mp4', 'CrabMac', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmacdesktop-main.jpeg', 7, 1),
-('crabmacdesktop-secondary.jpeg', 7, 2),
-('crabmacdesktop-tertiary.jpeg', 7, 3);
+('crabmacdesktop-main.png', 7, 1),
+('crabmacdesktop-secondary.png', 7, 2),
+('crabmacdesktop-tertiary.png', 7, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -288,14 +288,14 @@ VALUES
  NULL, 'CrabMac', 1);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabmaclaptop-main.jpeg'),
-('crabmaclaptop-secondary.jpeg'),
-('crabmaclaptop-tertiary.jpeg');
+('crabmaclaptop-main.png'),
+('crabmaclaptop-secondary.png'),
+('crabmaclaptop-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmaclaptop-main.jpeg', 8, 1),
-('crabmaclaptop-secondary.jpeg', 8, 2),
-('crabmaclaptop-tertiary.jpeg', 8, 3);
+('crabmaclaptop-main.png', 8, 1),
+('crabmaclaptop-secondary.png', 8, 2),
+('crabmaclaptop-tertiary.png', 8, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -330,9 +330,9 @@ VALUES
  NULL, 'CrabMac', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmaclaptop-main.jpeg', 9, 1),
-('crabmaclaptop-secondary.jpeg', 9, 2),
-('crabmaclaptop-tertiary.jpeg', 9, 3);
+('crabmaclaptop-main.png', 9, 1),
+('crabmaclaptop-secondary.png', 9, 2),
+('crabmaclaptop-tertiary.png', 9, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -366,14 +366,14 @@ VALUES
  NULL, 'CrabPad', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabpad-main.jpeg'),
-('crabpad-secondary.jpeg'),
-('crabpad-tertiary.jpeg');
+('crabpad-main.png'),
+('crabpad-secondary.png'),
+('crabpad-tertiary.png');
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpad-main.jpeg', 10, 1),
-('crabpad-secondary.jpeg', 10, 2),
-('crabpad-tertiary.jpeg', 10, 3);
+('crabpad-main.png', 10, 1),
+('crabpad-secondary.png', 10, 2),
+('crabpad-tertiary.png', 10, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -399,9 +399,9 @@ VALUES
  'crabpadair-teaser.mp4', 'CrabPad', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpad-main.jpeg', 11, 1),
-('crabpad-secondary.jpeg', 11, 2),
-('crabpad-tertiary.jpeg', 11, 3);
+('crabpad-main.png', 11, 1),
+('crabpad-secondary.png', 11, 2),
+('crabpad-tertiary.png', 11, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -427,14 +427,14 @@ VALUES
  NULL, 'CrabPods', 1);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabpods-main.jpeg'),
-('crabpods-secondary.jpeg'),
-('crabpods-tertiary.jpeg');
+('crabpods-main.png'),
+('crabpods-secondary.png'),
+('crabpods-tertiary.png');
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpods-main.jpeg', 12, 1),
-('crabpods-secondary.jpeg', 12, 2),
-('crabpods-tertiary.jpeg', 12, 3);
+('crabpods-main.png', 12, 1),
+('crabpods-secondary.png', 12, 2),
+('crabpods-tertiary.png', 12, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -459,9 +459,9 @@ VALUES
  NULL, 'CrabWatch', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabwatch-main.jpeg', 13, 1),
-('crabwatch-secondary.jpeg', 13, 2),
-('crabwatch-tertiary.jpeg', 13, 3);
+('crabwatch-main.png', 13, 1),
+('crabwatch-secondary.png', 13, 2),
+('crabwatch-tertiary.png', 13, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -486,14 +486,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabmouse-main.jpeg'),
-('crabmouse-secondary.jpeg'),
-('crabmouse-tertiary.jpeg');
+('crabmouse-main.png'),
+('crabmouse-secondary.png'),
+('crabmouse-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmouse-main.jpeg', 14, 1),
-('crabmouse-secondary.jpeg', 14, 2),
-('crabmouse-tertiary.jpeg', 14, 3);
+('crabmouse-main.png', 14, 1),
+('crabmouse-secondary.png', 14, 2),
+('crabmouse-tertiary.png', 14, 3);
  
 ########################################################
 -- CrabPad Mini
@@ -509,9 +509,9 @@ VALUES
  NULL, 'CrabPad', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpad-main.jpeg', 15, 1),
-('crabpad-secondary.jpeg', 15, 2),
-('crabpad-tertiary.jpeg', 15, 3);
+('crabpad-main.png', 15, 1),
+('crabpad-secondary.png', 15, 2),
+('crabpad-tertiary.png', 15, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -536,9 +536,9 @@ VALUES
  'crabphone18-teaser.mp4', 'CrabPhone', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabphone-main.jpeg', 16, 1),
-('crabphone-secondary.jpeg', 16, 2),
-('crabphone-tertiary.jpeg', 16, 3);
+('crabphone-main.png', 16, 1),
+('crabphone-secondary.png', 16, 2),
+('crabphone-tertiary.png', 16, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -572,9 +572,9 @@ VALUES
  NULL, 'CrabWatch', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabwatch-main.jpeg', 17, 1),
-('crabwatch-secondary.jpeg', 17, 2),
-('crabwatch-tertiary.jpeg', 17, 3);
+('crabwatch-main.png', 17, 1),
+('crabwatch-secondary.png', 17, 2),
+('crabwatch-tertiary.png', 17, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -599,9 +599,9 @@ VALUES
  NULL, 'CrabPods', NULL);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpods-main.jpeg', 18, 1),
-('crabpods-secondary.jpeg', 18, 2),
-('crabpods-tertiary.jpeg', 18, 3);
+('crabpods-main.png', 18, 1),
+('crabpods-secondary.png', 18, 2),
+('crabpods-tertiary.png', 18, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -626,9 +626,9 @@ VALUES
  NULL, 'CrabMac', 1);
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabmaclaptop-main.jpeg', 19, 1),
-('crabmaclaptop-secondary.jpeg', 19, 2),
-('crabmaclaptop-tertiary.jpeg', 19, 3);
+('crabmaclaptop-main.png', 19, 1),
+('crabmaclaptop-secondary.png', 19, 2),
+('crabmaclaptop-tertiary.png', 19, 3);
 
 INSERT INTO Configurable (configurableId, name, icon, productId)
 VALUES 
@@ -663,14 +663,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabkeyboard-main.jpeg'),
-('crabkeyboard-secondary.jpeg'),
-('crabkeyboard-tertiary.jpeg');
+('crabkeyboard-main.png'),
+('crabkeyboard-secondary.png'),
+('crabkeyboard-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabkeyboard-main.jpeg', 20, 1),
-('crabkeyboard-secondary.jpeg', 20, 2),
-('crabkeyboard-tertiary.jpeg', 20, 3);
+('crabkeyboard-main.png', 20, 1),
+('crabkeyboard-secondary.png', 20, 2),
+('crabkeyboard-tertiary.png', 20, 3);
  
 ########################################################
 -- CrabCable
@@ -686,14 +686,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabcable-main.jpeg'),
-('crabcable-secondary.jpeg'),
-('crabcable-tertiary.jpeg');
+('crabcable-main.png'),
+('crabcable-secondary.png'),
+('crabcable-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabcable-main.jpeg', 21, 1),
-('crabcable-secondary.jpeg', 21, 2),
-('crabcable-tertiary.jpeg', 21, 3);
+('crabcable-main.png', 21, 1),
+('crabcable-secondary.png', 21, 2),
+('crabcable-tertiary.png', 21, 3);
  
 ########################################################
 -- CrabPencil
@@ -709,14 +709,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabpencil-main.jpeg'),
-('crabpencil-secondary.jpeg'),
-('crabpencil-tertiary.jpeg');
+('crabpencil-main.png'),
+('crabpencil-secondary.png'),
+('crabpencil-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabpencil-main.jpeg', 22, 1),
-('crabpencil-secondary.jpeg', 22, 2),
-('crabpencil-tertiary.jpeg', 22, 3);
+('crabpencil-main.png', 22, 1),
+('crabpencil-secondary.png', 22, 2),
+('crabpencil-tertiary.png', 22, 3);
  
 ########################################################
 -- CrabAdapter
@@ -732,14 +732,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabadapter-main.jpeg'),
-('crabadapter-secondary.jpeg'),
-('crabadapter-tertiary.jpeg');
+('crabadapter-main.png'),
+('crabadapter-secondary.png'),
+('crabadapter-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabadapter-main.jpeg', 23, 1),
-('crabadapter-secondary.jpeg', 23, 2),
-('crabadapter-tertiary.jpeg', 23, 3);
+('crabadapter-main.png', 23, 1),
+('crabadapter-secondary.png', 23, 2),
+('crabadapter-tertiary.png', 23, 3);
  
 ########################################################
 -- Wireless CrabCharger
@@ -755,14 +755,14 @@ VALUES
  NULL, 'Accessories', NULL);
  
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabchargerwireless-main.jpeg'),
-('crabchargerwireless-secondary.jpeg'),
-('crabchargerwireless-tertiary.jpeg');
+('crabchargerwireless-main.png'),
+('crabchargerwireless-secondary.png'),
+('crabchargerwireless-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabchargerwireless-main.jpeg', 24, 1),
-('crabchargerwireless-secondary.jpeg', 24, 2),
-('crabchargerwireless-tertiary.jpeg', 24, 3);
+('crabchargerwireless-main.png', 24, 1),
+('crabchargerwireless-secondary.png', 24, 2),
+('crabchargerwireless-tertiary.png', 24, 3);
  
 ########################################################
 -- CrabSleeve
@@ -778,22 +778,81 @@ VALUES
  NULL, 'Accessories', NULL);
 
 INSERT INTO ProductImage(imageUrl) VALUES
-('crabsleeve-main.jpeg'),
-('crabsleeve-secondary.jpeg'),
-('crabsleeve-tertiary.jpeg');
+('crabsleeve-main.png'),
+('crabsleeve-secondary.png'),
+('crabsleeve-tertiary.png');
  
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
-('crabsleeve-main.jpeg', 25, 1),
-('crabsleeve-secondary.jpeg', 25, 2),
-('crabsleeve-tertiary.jpeg', 25, 3);
+('crabsleeve-main.png', 25, 1),
+('crabsleeve-secondary.png', 25, 2),
+('crabsleeve-tertiary.png', 25, 3);
+
+########################################################
+-- CrabPad Max
+########################################################
+INSERT INTO Product (
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
+)
+VALUES 
+(26, 'CrabPad Max', 'High-performance tablet for professionals.',
+ 'The CrabPad Max is engineered for ultimate productivity and creativity, offering cutting-edge hardware and immersive visuals.',
+ 1299.00, '2024-12-01', 'Available', 
+ '{"CPU": "Apple M3 Pro Chip", "RAM": "16GB", "Storage Options": ["512GB", "1TB", "2TB"], "Color": ["Black", "Silver"], "Screen Size": "14.6 inch"}', 
+ NULL, 'CrabPad', NULL);
+
+INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
+('crabpad-main.png', 26, 1),
+('crabpad-secondary.png', 26, 2),
+('crabpad-tertiary.png', 26, 3);
+
+INSERT INTO Configurable (configurableId, name, icon, productId)
+VALUES 
+(32, 'Storage Options', 'storage.png', 26),
+(33, 'Color Options', 'color.png', 26);
+
+INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
+VALUES 
+(87, 1, '512GB', 0.00, 32),
+(88, 0, '1TB', 300.00, 32),
+(89, 0, '2TB', 600.00, 32),
+(90, 1, 'Black', 0.00, 33),
+(91, 0, 'Silver', 0.00, 33);
+
+########################################################
+-- CrabPods Max
+########################################################
+INSERT INTO Product (
+    productId, name, shortDescription, description, price, releaseDate, productStatus, specSheet, video, categoryName, discountId
+)
+VALUES 
+(27, 'CrabPods Max', 'Over-ear headphones with studio-quality sound.',
+ 'The CrabPods Max offer an immersive audio experience with superior comfort, ideal for professionals and audiophiles.',
+ 499.00, '2024-12-15', 'Upcoming', 
+ '{"Battery Life": "20 hours", "Bluetooth": "5.3", "Noise Cancellation": "CrabTech 3.0", "Color Options": ["Space Gray", "Silver", "Blue"]}', 
+ NULL, 'CrabPods', NULL);
+
+INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
+('crabpods-main.png', 27, 1),
+('crabpods-secondary.png', 27, 2),
+('crabpods-tertiary.png', 27, 3);
+
+INSERT INTO Configurable (configurableId, name, icon, productId)
+VALUES 
+(34, 'Color Options', 'color.png', 27);
+
+INSERT INTO ConfigurableOption (configurableOptionId, isDefault, details, price, configurableId)
+VALUES 
+(92, 1, 'Space Gray', 0.00, 34),
+(93, 0, 'Silver', 0.00, 34),
+(94, 0, 'Blue', 0.00, 34);
 
 -- ########################################################
 
 -- Insert Customers
 INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance)
 VALUES
-    ('John', 'Doe', 'john.doe@example.com', '2023-01-01', 'securepassword', 1000.00),
-    ('Jane', 'Smith', 'jane.smith@example.com', '2023-02-15', 'anothersecurepassword', 500.00);
+    ('John', 'Doe', 'john.doe@example.com', '2023-01-01', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC', 1000.00),
+    ('Jane', 'Smith', 'jane.smith@example.com', '2023-02-15', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC', 500.00);
 
 -- Custom Products
 INSERT INTO CustomProduct (customProductId, configuredPrice, finalPrice, productId)
