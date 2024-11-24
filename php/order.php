@@ -4,7 +4,6 @@ require_once("bootstrap.php");
 $templateParams["title"] = "Crabstore - Order";
 $templateParams["main-content"] = "template/order-detail.php";
 $email="jane.smith@example.com"; // An example
-$orderId = 2;
 if (isset($_GET["email"])) {
     $email = $_GET["email"];
 }
