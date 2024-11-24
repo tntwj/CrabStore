@@ -8,9 +8,9 @@
                 <div class="card">
                     <img src="<?php echo UPLOAD_DIR.$product["images"][0]["imageUrl"]; ?>" 
                          class="card-img-top" 
-                         alt="<?php echo $product["information"][0]["name"]; ?>">
+                         alt="<?php echo $product["information"]["name"]; ?>">
                     <div class="card-body">
-                        <h4 class="card-title"><?php echo $product["information"][0]["name"]; ?></h4>
+                        <h4 class="card-title"><?php echo $product["information"]["name"]; ?></h4>
                         <p class="card-text"><strong>Price:</strong> $<?php echo $product["finalPrice"]; ?></p>
                         <p class="card-text"><strong>Quantity:</strong> <?php echo $product["amount"]; ?></p>
                     </div>
