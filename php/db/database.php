@@ -142,6 +142,16 @@ class DatabaseHelper {
      * REGISTER AND LOGIN QUERIES *
      ******************************/
 
+    public function customerExists($email) {
+        $query = "SELECT email FROM Customer WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+        return $result->num_rows != 0;
+    }
+
     // Registers a customer and hashes his password before storing it.
     public function registerCustomer($firstname, $lastName, $email, $password) {
         $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
