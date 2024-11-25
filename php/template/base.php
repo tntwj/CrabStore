@@ -9,45 +9,20 @@
 <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <div class="container-fluid">
-        <button
-            class="navbar-toggler d-lg-none"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId"
-        >
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
             <span class="navbar-toggler-icon "></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">🦀</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CrabBooks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CrabPhones</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CrabPads</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CrabWatch</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CrabPods</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Accessories</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="index.php">🦀</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CrabBooks</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CrabPhones</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CrabPads</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CrabWatch</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">CrabPods</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Accessories</a></li>
                 <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="dropdownId"
-                        data-bs-toggle="dropdown"
-                        >More</a
-                    >
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown">More</a>
                     <div class="dropdown-menu">
                         <?php
                             if (!isUserLoggedIn()) {
