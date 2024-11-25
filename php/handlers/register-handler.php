@@ -10,8 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
 
-    $dbh->registerCustomer($firstname, $lastname, $email, $password);
-    header("Location: ./../index.php");
-    exit();
+    if (!$dbh->customerExists($email)) {
+        $dbh->registerCustomer($firstname, $lastname, $email, $password);
+        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::SUCCESS;
+        header("Location: ./../index.php");
+        exit();
+    } else {
+        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::USER_EXISTS;
+        header("Location: ./../register.php");
+        exit();
+    }
 }
 ?>
