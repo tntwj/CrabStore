@@ -70,10 +70,17 @@
         </div>
     </nav>
     <?php
-    if (session_status() === PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::LOGIN_OUTCOME] ?? null) === LoginOutcome::SUCCESS)) {
+    if (session_status() == PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::REGISTER_OUTCOME] ?? null) == RegisterOutcome::SUCCESS)) {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong> You have been registered successfully.
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>';
+        unset($_SESSION[SessionKey::REGISTER_OUTCOME]);
+    }
+    if (session_status() == PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::LOGIN_OUTCOME] ?? null) == LoginOutcome::SUCCESS)) {
         echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>Success!</strong> You have logged in successfully.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>';
         unset($_SESSION[SessionKey::LOGIN_OUTCOME]);
     };
