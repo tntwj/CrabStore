@@ -10,8 +10,8 @@ if (isset($_GET["email"])) {
 $cartProducts = $dbh->getCartProductsOfCustomer($email);
 
 foreach ($cartProducts as &$product) {
-    $productId = $product['productId'];
-    $product['image'] = $dbh->getProductImages($productId);
+    $productId = $product["productId"];
+    $product["image"] = $dbh->getProductImages($productId);
 }
 
 $templateParams["products-cart"] = $cartProducts;

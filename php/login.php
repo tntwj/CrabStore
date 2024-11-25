@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once('bootstrap.php');
+require_once("bootstrap.php");
 
-$templateParams['title'] = 'Crabstore - Login';
-$templateParams['main-content'] = 'template/login-form.php';
+$templateParams["title"] = "Crabstore - Login";
+$templateParams["main-content"] = "template/login-form.php";
 
-require_once('template/base.php');
+require_once("template/base.php");
 ?>

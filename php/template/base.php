@@ -69,25 +69,25 @@
     <main>
     <?php
     // Display success or error alert based on auth_status
-    if (isset($_SESSION['auth_status'])) {
-        if ($_SESSION['auth_status'] === 'success') {
-            echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    if (isset($_SESSION["auth_status"])) {
+        if ($_SESSION["auth_status"] == Login::SUCCESS->value) {
+            echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>
                     <strong>Success!</strong> You have logged in successfully.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
-        } elseif ($_SESSION['auth_status'] === 'failed - wrong password') {
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                  </div>";
+        } elseif ($_SESSION["auth_status"] == Login::WRONG_PASSWORD->value) {
+            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
                     <strong>Error:</strong> Incorrect password. Please try again.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
-        } elseif ($_SESSION['auth_status'] === 'failed - no user found') {
-            echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                  </div>";
+        } elseif ($_SESSION["auth_status"] == Login::NO_USER_FOUND->value) {
+            echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
                     <strong>Error:</strong> No user found with that email address.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>';
+                    <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                  </div>";
         }
         // Clear the session variable after displaying the message
-        unset($_SESSION['auth_status']);
+        unset($_SESSION["auth_status"]);
     }
     ?>
     <?php
@@ -98,6 +98,6 @@
     </aside>
     <footer class="mt-5 p-4 bg-dark text-white text-center">
         <p>CrabStore Copyright 2025</p>
-</footer>
+    </footer>
 </body>
 </html>
