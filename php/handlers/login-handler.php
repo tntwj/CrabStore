@@ -9,18 +9,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $storedHashedPassword = $dbh->getCustomerPasswordByEmail($email);
 
     if ($storedHashedPassword === null) {
-        $_SESSION["auth_status"] = Login::NO_USER_FOUND->value;
+        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::NO_USER_FOUND;
         header("Location: ./../login.php");
-        exit(); // Return would not be a wise choice since it just goes out of scope the script flow proceeds.
+        exit();
     }
     if (password_verify($password, $storedHashedPassword)) {
-        $_SESSION["auth_status"] = Login::SUCCESS->value;
-        $_SESSION["user_email"] = $email;
+        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::SUCCESS;
+        $_SESSION[SessionKey::LOGIN_STATUS] = LoginStatus::LOGGED_IN;
+        $_SESSION[SessionKey::CUSTOMER_EMAIL] = $email;
         // TODO handle the remember me button
         header("Location: ./../index.php");
         exit();
     } else {
-        $_SESSION["auth_status"] = Login::WRONG_PASSWORD->value;
+        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::WRONG_PASSWORD;
         header("Location: ./../login.php");
         exit();
     }

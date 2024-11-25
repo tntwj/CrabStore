@@ -1,5 +1,4 @@
 <?php
-session_start();
 $totalPrice = 0;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $totalPrice = floatval($_POST["totalPrice"]);
