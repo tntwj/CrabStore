@@ -25,6 +25,6 @@ class SessionKey {
 }
 
 function isUserLoggedIn() {
-    return session_status() === PHP_SESSION_ACTIVE && ($_SESSION[SessionKey::LOGIN_STATUS] ?? null) == LoginStatus::LOGGED_IN;
+    return session_status() === PHP_SESSION_ACTIVE && ($_SESSION[SessionKey::LOGIN_STATUS] ?? null) === LoginStatus::LOGGED_IN;
 }
 ?>

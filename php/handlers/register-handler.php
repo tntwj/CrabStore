@@ -1,10 +1,12 @@
 <?php
 require_once("./../bootstrap.php");
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // There is a lot more to be done here.
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $firstname = $_POST["firstname"];

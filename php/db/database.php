@@ -142,7 +142,6 @@ class DatabaseHelper {
      * REGISTER AND LOGIN QUERIES *
      ******************************/
 
-
     public function customerExists($email) {
         $query = "SELECT email FROM Customer WHERE email = ?";
         $stmt = $this->db->prepare($query);

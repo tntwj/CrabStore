@@ -1,5 +1,8 @@
 <?php
 require_once("bootstrap.php");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $templateParams["title"] = "Crabstore - Cart";
 $templateParams["main-content"] = "customer-cart.php";
