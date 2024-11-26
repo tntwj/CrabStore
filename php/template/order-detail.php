@@ -11,6 +11,9 @@
                          alt="<?php echo $product["information"]["name"]; ?>">
                     <div class="card-body">
                         <h4 class="card-title"><?php echo $product["information"]["name"]; ?></h4>
+                        <?php foreach($product["options"] as $option): ?>
+                        <p class="card-text"><strong><?php echo $option["name"] ?>:</strong> <?php echo $option["details"] ?></p>
+                        <?php endforeach ?>
                         <p class="card-text"><strong>Price:</strong> $<?php echo $product["finalPrice"]; ?></p>
                         <p class="card-text"><strong>Quantity:</strong> <?php echo $product["amount"]; ?></p>
                     </div>

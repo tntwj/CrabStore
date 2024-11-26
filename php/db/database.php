@@ -84,9 +84,9 @@ class DatabaseHelper {
 
     // Returns the configurable options of a custom product configured.
     public function getCustomProductConfigurableOptions($customProductId) {
-        $query = "SELECT co.isDefault, co.details, co.price
-                    FROM customproduct cp, configuration c, configurableoption co
-                    WHERE cp.customProductId=c.customProductId AND c.configurableOptionId=co.configurableOptionId 
+        $query = "SELECT co.isDefault, co.details, co.price, configurable.name
+                    FROM customproduct cp, configuration c, configurableoption co, configurable
+                    WHERE cp.customProductId=c.customProductId AND c.configurableOptionId=co.configurableOptionId  AND co.configurableId=configurable.configurableId
                     AND cp.customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $customProductId);
@@ -240,7 +240,7 @@ class DatabaseHelper {
     }
 
     public function getOrderProducts($orderId) {
-        $query = "SELECT cp.finalPrice, op.amount, cp.productId
+        $query = "SELECT cp.finalPrice, op.amount, cp.productId, cp.customProductId
                 FROM `order` o, orderproduct op, customproduct cp
                 WHERE o.orderId=op.orderId AND cp.customProductId=op.customProductId AND o.orderId = ?";
         $stmt = $this->db->prepare($query);
