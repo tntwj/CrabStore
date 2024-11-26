@@ -194,6 +194,15 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getTotalCustomerOrders($email) {
+        $query = "SELECT COUNT(orderId) AS totalCustomerOrders FROM `order` WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_row()[0];
+    }
+
     /**************************
      * CART AND ORDER QUERIES *
      **************************/
