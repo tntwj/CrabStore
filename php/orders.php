@@ -6,9 +6,11 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $templateParams["title"] = "Crabstore - Orders";
 $templateParams["main-content"] = "customer-orders.php";
-$email="jane.smith@example.com";
-if (isset($_GET["email"])) {
-    $email = $_GET["email"];
+if (isUserLoggedIn()) {
+    $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
+} else {
+    header('Location: login.php');
+    exit;
 }
 $templateParams["orders"] = $dbh->getOrdersOfCustomer($email);
 

@@ -6,9 +6,11 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $templateParams["title"] = "Crabstore - Cart";
 $templateParams["main-content"] = "customer-cart.php";
-$email="jane.smith@example.com";
-if (isset($_GET["email"])) {
-    $email = $_GET["email"];
+if (isUserLoggedIn()) {
+    $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
+} else {
+    header('Location: login.php');
+    exit;
 }
 $cartProducts = $dbh->getCartProductsOfCustomer($email);
 

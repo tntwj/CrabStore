@@ -20,3 +20,9 @@
         <?php endforeach ?>
     </div>
 </div>
+
+<style>
+.card:hover {
+    background-color: #f8f9fa; /* Light gray background */
+}
+</style>
