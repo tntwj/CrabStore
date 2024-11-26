@@ -68,8 +68,14 @@
     <!-- Secondary stuff goes here (News, interesting things, etc)-->
     </aside>
     <footer class="mt-5 p-4 bg-dark text-white text-center">
-        <p>CrabStore Copyright 2025</p>
-    </footer>
+    <p>CrabStore &copy; 2025</p>
+    <nav>
+        <a href="#" class="text-white me-3">About Us</a>
+        <a href="#" class="text-white me-3">Contact</a>
+        <a href="#" class="text-white me-3">FAQ</a>
+        <a href="#" class="text-white">Support</a>
+    </nav>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
