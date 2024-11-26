@@ -6,9 +6,11 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $templateParams["title"] = "Crabstore - Order";
 $templateParams["main-content"] = "template/order-detail.php";
-$email="jane.smith@example.com"; // An example
-if (isset($_GET["email"])) {
-    $email = $_GET["email"];
+if (isUserLoggedIn()) {
+    $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
+} else {
+    header('Location: login.php');
+    exit;
 }
 if (isset($_GET["orderId"])) {
     $orderId = $_GET["orderId"];

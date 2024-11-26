@@ -272,9 +272,13 @@ class DatabaseHelper {
         $result = $stmt->execute();
     }
 
+    /**
+     * Create an order.
+     * Return orderId created.
+     */
     public function addOrder($email) {
-        $query = "INSERT INTO `Order` (orderStatus, orderDate, deliveryDate, email)
-                    VALUES (Ordered, NOW(), NULL, ?)";
+        $query = "INSERT INTO `order` (orderStatus, orderDate, deliveryDate, email)
+                    VALUES ('Ordered', NOW(), NULL, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -283,8 +287,7 @@ class DatabaseHelper {
     }
 
     public function addOrderProduct($customProductId, $orderId, $amount) {
-        $query "INSERT INTO orderProduct (customProductId, amount, orderId)
-                VALUES (?, ?, ?)";
+        $query = "INSERT INTO orderProduct (customProductId, amount, orderId) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $customProductId, $orderId, $amount);
         $stmt->execute();

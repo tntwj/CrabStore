@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <div class="container mt-5">
     <h2 class="text-center mb-4">Payment</h2>
     <p class="text-center">Total price: <strong>$<?php echo number_format($totalPrice, 2); ?></strong></p>
-    <form action="process_payment.php" method="POST" class="mx-auto" style="max-width: 400px;">
+    <form action="process-order.php" method="POST" class="mx-auto" style="max-width: 400px;">
         <div class="mb-3">
             <label for="cardNumber" class="form-label">Number of card:</label>
             <input type="text" 
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                    placeholder="123" 
                    required>
         </div>
-        <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
-        <button type="submit" class="btn btn-primary w-100">Pay now</button>
+            <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
+            <button type="submit" class="btn btn-primary w-100">Pay now</button>
     </form>
 </div>
