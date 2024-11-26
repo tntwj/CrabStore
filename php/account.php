@@ -1,10 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 if (!isUserLoggedIn()) {
     setFlashMessage("Please login to view your account details.");
     header("Location: login.php");

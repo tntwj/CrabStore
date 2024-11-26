@@ -1,8 +1,5 @@
 <?php
 require_once("./../bootstrap.php");
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = $_POST["email"];
@@ -17,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     if (password_verify($password, $storedHashedPassword)) {
         setFlashMessage("You logged in succesfully", MessageType::SUCCESS);
-        $_SESSION[SessionKey::LOGIN_STATUS] = LoginStatus::LOGGED_IN;
+        $_SESSION[SessionKey::LOGGED_IN] = true;
         $_SESSION[SessionKey::CUSTOMER_EMAIL] = $email;
         // TODO handle the remember me button
         header("Location: ./../index.php");

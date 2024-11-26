@@ -1,13 +1,8 @@
 <?php
 // Contains useful functions used when adding scripts to html files
 
-class LoginStatus {
-    public const LOGGED_IN = "logged_in";
-    public const LOGGED_OUT = "logged_out";
-};
-
 class SessionKey {
-    public const LOGIN_STATUS = "login_status";
+    public const LOGGED_IN = "logged_in";
     public const CUSTOMER_NAME = "customer_name";
     public const CUSTOMER_EMAIL = "customer_email";
 }
@@ -39,6 +34,6 @@ function displayFlashMessage() {
 }
 
 function isUserLoggedIn() {
-    return session_status() === PHP_SESSION_ACTIVE && ($_SESSION[SessionKey::LOGIN_STATUS] ?? null) === LoginStatus::LOGGED_IN;
+    return session_status() === PHP_SESSION_ACTIVE && ($_SESSION[SessionKey::LOGGED_IN] ?? null) === true;
 }
 ?>

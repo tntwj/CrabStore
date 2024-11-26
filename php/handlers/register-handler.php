@@ -1,8 +1,5 @@
 <?php
 require_once("./../bootstrap.php");
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
 
 // There is a lot more to be done here.
 
