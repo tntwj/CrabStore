@@ -24,34 +24,25 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu">
-                            <?php if (!isUserLoggedIn()) { echo "<a class='dropdown-item' href='login.php'>Sign in</a>"; };?>
+                            <?php if (!isUserLoggedIn()) {
+                                echo "<a class='dropdown-item' href='login.php'>Sign in</a>";
+                                };
+                            ?>
                             <a class="dropdown-item" href="account.php">Account</a>
                             <a class="dropdown-item" href="notifications.php">Notifications</a>
                             <a class="dropdown-item" href="cart.php">Cart</a>
                             <a class="dropdown-item" href="orders.php">Orders</a>
-                            <?php if (isUserLoggedIn()) { echo "<a class='dropdown-item' href=" . HANDLERS_DIR . "logout-handler.php>Logout</a>";} ;?>
+                            <?php if (isUserLoggedIn()) {
+                                echo "<a class='dropdown-item' href=" . HANDLERS_DIR . "logout-handler.php>Logout</a>";
+                                };
+                            ?>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <?php
-    if (session_status() == PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::REGISTER_OUTCOME] ?? null) == RegisterOutcome::SUCCESS)) {
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> You have been registered successfully.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>';
-        unset($_SESSION[SessionKey::REGISTER_OUTCOME]);
-    }
-    if (session_status() == PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::LOGIN_OUTCOME] ?? null) == LoginOutcome::SUCCESS)) {
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> You have logged in successfully.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>';
-        unset($_SESSION[SessionKey::LOGIN_OUTCOME]);
-    };
-    ?>
+    <?php displayFlashMessage(); ?>
     <main>
         <?php require($templateParams["main-content"]); ?>
     </main>

@@ -11,19 +11,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $storedHashedPassword = $dbh->getCustomerPasswordByEmail($email);
 
     if ($storedHashedPassword === null) {
-        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::NO_USER_FOUND;
+        setFlashMessage("No user was found", MessageType::FAIL);
         header("Location: ./../login.php");
         exit();
     }
     if (password_verify($password, $storedHashedPassword)) {
-        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::SUCCESS;
+        setFlashMessage("You logged in succesfully", MessageType::SUCCESS);
         $_SESSION[SessionKey::LOGIN_STATUS] = LoginStatus::LOGGED_IN;
         $_SESSION[SessionKey::CUSTOMER_EMAIL] = $email;
         // TODO handle the remember me button
         header("Location: ./../index.php");
         exit();
     } else {
-        $_SESSION[SessionKey::LOGIN_OUTCOME] = LoginOutcome::WRONG_PASSWORD;
+        setFlashMessage("The password you entered is wrong", MessageType::FAIL);
         header("Location: ./../login.php");
         exit();
     }

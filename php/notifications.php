@@ -5,6 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isUserLoggedIn()) {
+    setFlashMessage("Please login to view your notifications.");
     header("Location: login.php");
     exit();
 }

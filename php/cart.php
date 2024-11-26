@@ -9,6 +9,7 @@ $templateParams["main-content"] = "customer-cart.php";
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
+    setFlashMessage("Please login to view your cart.");
     header('Location: login.php');
     exit;
 }

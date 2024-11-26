@@ -6,6 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
+    setFlashMessage("Something went wrong, please login.");
     header('Location: login.php');
     exit;
 }

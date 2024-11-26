@@ -14,11 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (!$dbh->customerExists($email)) {
         $dbh->registerCustomer($firstname, $lastname, $email, $password);
-        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::SUCCESS;
+        setFlashMessage("You have registered successfully.", MessageType::SUCCESS);
         header("Location: ./../index.php");
         exit();
     } else {
-        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::USER_EXISTS;
+        setFlashMessage("The email is already registered.", MessageType::FAIL);
         header("Location: ./../register.php");
         exit();
     }
