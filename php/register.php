@@ -1,5 +1,8 @@
 <?php
 require_once("bootstrap.php");
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $templateParams["title"] = "Crabstore - Register";
 $templateParams["main-content"] = "register-form.php";
