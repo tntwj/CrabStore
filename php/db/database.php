@@ -88,7 +88,7 @@ class DatabaseHelper {
 
     // Returns all the notifications related to a user.
     public function getUserNotifications($email) {
-        $query = "SELECT notificationId, subject, description, date, isRead, email FROM notification WHERE email = ?";
+        $query = "SELECT notificationId, subject, description, date, isRead, email FROM notification WHERE email = ? ORDER BY date DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); // bind $email as a string
         $stmt->execute();
