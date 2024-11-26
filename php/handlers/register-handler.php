@@ -1,24 +1,44 @@
 <?php
 require_once("./../bootstrap.php");
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-// There is a lot more to be done here.
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
+    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    $password = trim($_POST["password"]);
+    $firstname = trim($_POST["firstname"]);
+    $lastname = trim($_POST["lastname"]);
+
+    $errors = [];
+
+    if (empty($firstname)) {
+        $errors[] = "First name is required.";
+    }
+
+    if (empty($lastname)) {
+        $errors[] = "Last name is required.";
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+
+    if (empty($password)) {
+        $errors[] = "Password is required.";
+    }
+
+    if (!empty($errors)) {
+        setFlashMessage("Errors: " . implode(" ", $errors), MessageType::FAIL);
+        header("Location: ./../register.php");
+        exit();
+    }
 
     if (!$dbh->customerExists($email)) {
-        $dbh->registerCustomer($firstname, $lastname, $email, $password);
-        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::SUCCESS;
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $dbh->registerCustomer($firstname, $lastname, $email, $hashedPassword);
+        setFlashMessage("You have registered successfully.", MessageType::SUCCESS);
         header("Location: ./../index.php");
         exit();
     } else {
-        $_SESSION[SessionKey::REGISTER_OUTCOME] = RegisterOutcome::USER_EXISTS;
+        setFlashMessage("The email is already registered.", MessageType::FAIL);
         header("Location: ./../register.php");
         exit();
     }

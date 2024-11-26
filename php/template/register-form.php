@@ -1,12 +1,3 @@
-<?php
-if (session_status() == PHP_SESSION_ACTIVE && (($_SESSION[SessionKey::REGISTER_OUTCOME] ?? null) == RegisterOutcome::USER_EXISTS)) {
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Error:</strong> The user is already registered.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>';
-        unset($_SESSION[SessionKey::REGISTER_OUTCOME]);
-    }
-?>
 <div class="container d-flex flex-column align-items-center mt-3">
     <h1>Create you Crab Store account</h1>
     <form action="<?php echo HANDLERS_DIR;?>register-handler.php" method="post">
