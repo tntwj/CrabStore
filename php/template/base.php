@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
     <div class="container-fluid">
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
-            <span class="navbar-toggler-icon "></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
             <ul class="navbar-nav mt-2 mt-lg-0">
@@ -29,7 +29,7 @@
                                 echo "<a class='dropdown-item' href='login.php'>Sign in</a>";
                             };
                         ?>
-                        <a class="dropdown-item" href="#">Account</a>
+                        <a class="dropdown-item" href="account.php">Account</a>
                         <a class="dropdown-item" href="notifications.php">Notifications</a>
                         <a class="dropdown-item" href="cart.php">Cart</a>
                         <a class="dropdown-item" href="orders.php">Orders</a>

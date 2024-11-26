@@ -56,9 +56,9 @@ class DatabaseHelper {
         return $result->fetch_assoc();
     }
 
-    /********************************
-     * PRODUCT CONFIGURATION QUERIES*
-     ********************************/
+    /*********************************
+     * PRODUCT CONFIGURATION QUERIES *
+     *********************************/
 
     // Returns the configurables of a product
     public function getProductConfigurables($productid) {
@@ -82,9 +82,9 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    /************************
-     * NOTIFICATIONS QUERIES*
-     ************************/
+    /*************************
+     * NOTIFICATIONS QUERIES *
+     *************************/
 
     // Returns all the notifications related to a user.
     public function getUserNotifications($email) {
@@ -181,6 +181,28 @@ class DatabaseHelper {
         }
     }
 
+    /***********
+     * ACCOUNT *
+     ***********/
+
+    public function getCustomerDetails($email) {
+        $query = "SELECT firstName, lastName, email, joinDate, balance FROM customer WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getTotalCustomerOrders($email) {
+        $query = "SELECT COUNT(orderId) AS totalCustomerOrders FROM `order` WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_row()[0];
+    }
+
     /**************************
      * CART AND ORDER QUERIES *
      **************************/
@@ -249,7 +271,5 @@ class DatabaseHelper {
         $stmt->bind_param("is", $customProductId, $email);
         $result = $stmt->execute();
     }
-
-    
 }
 ?>
