@@ -55,10 +55,12 @@
     <main>
         <?php require($templateParams["main-content"]); ?>
     </main>
-    <!-- Optional
-    <aside class="col-md-4 mt-4">
-    </aside>
-    -->
+    <?php if (!empty($templateParams["aside-content"])) {
+        echo "<aside>";
+        require($templateParams["aside-content"]);
+        echo "</aside>";
+    };
+    ?>
     <footer class="mt-5 p-4 bg-dark text-white text-center">
         <p>CrabStore &copy; 2025</p>
         <nav>
