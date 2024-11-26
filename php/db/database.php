@@ -271,5 +271,41 @@ class DatabaseHelper {
         $stmt->bind_param("is", $customProductId, $email);
         $result = $stmt->execute();
     }
+
+    public function addOrder($email) {
+        $query = "INSERT INTO `Order` (orderStatus, orderDate, deliveryDate, email)
+                    VALUES (Ordered, NOW(), NULL, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $orderId = $this->db->insert_id;
+        return $orderId;
+    }
+
+    public function addOrderProduct($customProductId, $orderId, $amount) {
+        $query "INSERT INTO orderProduct (customProductId, amount, orderId)
+                VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("iii", $customProductId, $orderId, $amount);
+        $stmt->execute();
+    }
+
+    /**
+     * Remove all the products from the cart.
+     * Return all the products of the cart.
+     */
+    public function switchProductsFromCartToOrder($email) {
+        $query = "SELECT customProductId, amount FROM cartProduct cp, customer c WHERE cp.email = c.email AND c.email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email); 
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $query = "DELETE FROM cartProduct WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
