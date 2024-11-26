@@ -6,6 +6,7 @@
     <ul class="list-group">
         <?php
         $totalPrice = 0;
+        $customPrice = 0;
         ?>
         <?php foreach($templateParams["products-cart"] as $product): ?>
         <li class="list-group-item d-flex align-items-center justify-content-between">
@@ -15,7 +16,13 @@
                         class="img-thumbnail me-3" 
                         style="width: 100px; height: auto;">
                 <div>
-                    <h5 class="mb-1"><?php echo $product["name"]; ?></h5>
+                    <h5 class="mb-1"><?php 
+                    echo $product["name"]; 
+                    foreach($product["options"] as $option) {
+                        echo " ".$option["details"];
+                        $customPrice += $option["price"];
+                    }
+                    ?></h5>
                     <input type="number" 
                             id="quantity" 
                             name="quantity" 
@@ -28,7 +35,7 @@
             <p class="mb-0"><strong><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></strong></p>
         </li>
         <?php 
-        $totalPrice += $product["finalPrice"] * $product["amount"]; 
+        $totalPrice += (($product["finalPrice"] * $product["amount"]) + $customPrice); 
         ?>
         <?php endforeach ?>
     </ul>

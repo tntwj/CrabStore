@@ -82,6 +82,20 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    // Returns the configurable options of a custom product configured.
+    public function getCustomProductConfigurableOptions($customProductId) {
+        $query = "SELECT co.isDefault, co.details, co.price
+                    FROM customproduct cp, configuration c, configurableoption co
+                    WHERE cp.customProductId=c.customProductId AND c.configurableOptionId=co.configurableOptionId 
+                    AND cp.customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $customProductId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /*************************
      * NOTIFICATIONS QUERIES *
      *************************/
@@ -209,7 +223,7 @@ class DatabaseHelper {
 
     // Return the products in the customer's shopping cart.
     public function getCartProductsOfCustomer($email) {
-        $query = "SELECT name, amount, finalPrice, product.productId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
+        $query = "SELECT name, amount, finalPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); 
         $stmt->execute();

@@ -17,6 +17,7 @@ $cartProducts = $dbh->getCartProductsOfCustomer($email);
 foreach ($cartProducts as &$product) {
     $productId = $product["productId"];
     $product["image"] = $dbh->getProductImages($productId);
+    $product["options"] = $dbh->getCustomProductConfigurableOptions($product["customProductId"]);
 }
 
 $templateParams["products-cart"] = $cartProducts;
