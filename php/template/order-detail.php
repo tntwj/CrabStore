@@ -1,6 +1,9 @@
 <?php $order = $templateParams["order"]; ?>
 <h2 class="text-center my-4">Order #<?php echo $orderId; ?></h2>
-
+<?php
+$totalPrice = 0;
+$customPrice = 0;
+?>
 <div class="container">
     <div class="row">
         <?php foreach($templateParams["order-products"] as $product): ?>
@@ -12,13 +15,19 @@
                     <div class="card-body">
                         <h4 class="card-title"><?php echo $product["information"]["name"]; ?></h4>
                         <?php foreach($product["options"] as $option): ?>
-                        <p class="card-text"><strong><?php echo $option["name"] ?>:</strong> <?php echo $option["details"] ?></p>
+                        <p class="card-text"><strong><?php echo strtok($option["name"], ' ') ?>:</strong> <?php echo $option["details"] ?></p>
+                        <?php $customPrice += $option["price"]; ?>
                         <?php endforeach ?>
-                        <p class="card-text"><strong>Price:</strong> $<?php echo $product["finalPrice"]; ?></p>
+
+                        <p class="card-text"><strong>Price:</strong> $<?php echo $product["finalPrice"] + $customPrice; ?></p>
                         <p class="card-text"><strong>Quantity:</strong> <?php echo $product["amount"]; ?></p>
                     </div>
                 </div>
             </div>
+            <?php 
+            $totalPrice += (($product["finalPrice"] * $product["amount"]) + $customPrice); 
+            $customPrice = 0;
+            ?>
         <?php endforeach ?>
     </div>
 
@@ -29,6 +38,7 @@
             <li class="list-group-item"><strong>Order Date:</strong> <?php echo $order["orderDate"]; ?></li>
             <li class="list-group-item"><strong>Delivery Date:</strong> <?php echo $order["deliveryDate"]; ?></li>
             <li class="list-group-item"><strong>Email:</strong> <?php echo $order["email"]; ?></li>
+            <li class="list-group-item"><strong>Total Price:</strong> <?php echo $totalPrice; ?></li>
         </ul>
     </div>
 </div>
