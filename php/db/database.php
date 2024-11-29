@@ -37,7 +37,7 @@ class DatabaseHelper {
 
     // Returns the images related to a product in order of priority
     public function getProductImages($productId) {
-        $query = "SELECT priority, imageUrl FROM productimageusage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC";
+        $query = "SELECT priority, imageUrl FROM productimage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productId); // bind $productId as a integer
         $stmt->execute();
