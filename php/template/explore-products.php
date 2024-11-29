@@ -14,7 +14,7 @@
             $media = $dbh->getProductImages($products[$i]["productId"]);
             echo '<div class="col-sm-12 col-md-4 mb-3">';
             echo '<div class="card">';
-            echo '<img src="upload/'.$media[0]["imageUrl"].'" class="card-img-top w-50 h-auto" alt="'.$templateParams["product-category"].'">';
+            echo '<img src="./upload/categories/'.$media[0]["imageUrl"].'" class="card-img-top w-50 h-auto" alt="'.$templateParams["product-category"].'">';
             echo '<div class="card-body">
                         <h5 class="card-title">'.$products[$i]['name'].'</h5>
                         <p class="card-text">'.$products[$i]['shortDescription'].'</p>
