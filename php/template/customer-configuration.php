@@ -1,3 +1,15 @@
+<?php
+$colorMap = [
+    "Red" => "#FF0000",
+    "Blue" => "#0000FF",
+    "Green" => "#00FF00",
+    "Deep Blue" => "#001F54", // Custom color for "Deep Blue"
+    "Yellow" => "#FFFF00",
+    "Black" => "#000000",
+    "White" => "#FFFFFF",
+];
+?>
+
 <div class="container py-5">
     <h3 class="text-center mb-4">Buy <?php echo $templateParams['single-product-details']['name']; ?></h3>
 
@@ -19,15 +31,19 @@
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
                     <div class="row row-cols-1 row-cols-md-3 g-3">
-                        <?php foreach ($info as $index => $option): ?>
+                        <?php foreach ($info as $colorOption): 
+                            // Get color code from mapping or use a default (e.g., gray) if not found
+                            $colorCode = $colorMap[$colorOption] ?? "#CCCCCC"; 
+                        ?>
                             <div class="col text-center">
                                 <div class="d-inline-block">
                                     <!-- Circle for Color -->
                                     <span class="color-circle" 
-                                        style="background-color: <?php echo strtolower($option); ?>;"
-                                        title="<?php echo $option; ?>"></span>
+                                        style="background-color: <?php echo $colorCode; ?>;"
+                                        title="<?php echo $colorOption; ?>">
+                                    </span>
                                 </div>
-                                <p class="mt-2 mb-0"><?php echo $option; ?></p>
+                                <p class="mt-2 mb-0"><?php echo $colorOption; ?></p>
                             </div>
                         <?php endforeach; ?>
                     </div>
