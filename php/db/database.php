@@ -47,7 +47,7 @@ class DatabaseHelper {
     }
 
     public function getProductInformation($productId) {
-        $query = "SELECT `name` FROM  product P WHERE P.productId = ?";
+        $query = "SELECT name, P.description, price, releaseDate, productStatus, specSheet, P.video, discountId FROM product P, category C WHERE P.categoryName = C.categoryName ANd P.productId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productId); // bind $productId as a integer
         $stmt->execute();

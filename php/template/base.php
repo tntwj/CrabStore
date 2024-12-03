@@ -15,12 +15,12 @@
             <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
                 <ul class="navbar-nav mt-2 mt-lg-0">
                     <li class="nav-item"><a class="nav-link" href="index.php">🦀</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=CrabMac">CrabBooks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=CrabPhone">CrabPhones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=CrabPad">CrabPads</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=CrabWatch">CrabWatch</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=CrabPods">CrabPods</a></li>
-                    <li class="nav-item"><a class="nav-link" href="explore-products.php?page=Accessories">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabWatch">CrabWatch</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPods">CrabPods</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=Accessories">Accessories</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu">
