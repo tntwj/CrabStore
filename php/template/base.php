@@ -29,14 +29,14 @@
                                 };
                             ?>
                             <a class="dropdown-item" href="account.php">
-                                <img src="<?php echo $templateParams['menu-account']; ?>" alt="User Page" class="sm-2">Account
+                                <img src="./upload/template/user-page-icon.png" alt="User Page" />Account
                             </a>
                             <a class="dropdown-item" href="notifications.php">
-                                <img src="<?php echo $templateParams['notify-base']; ?>" alt="Notifications" />Notifications
+                                <img src="./upload/template/notify-base-icon.png" alt="Notifications" />Notifications
                             </a>
 
                             <a class="dropdown-item" href="cart.php">
-                                <img src="<?php echo $templateParams['menu-cart']; ?>" alt="Cart" />Cart
+                                <img src="./upload/template/cart-page-icon.png" alt="Cart" />Cart
                             </a>
                             <a class="dropdown-item" href="orders.php">Orders</a>
                             <?php if (isUserLoggedIn()) {
