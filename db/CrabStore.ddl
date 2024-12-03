@@ -3,7 +3,7 @@ USE CrabStore;
 
 CREATE TABLE CartProduct (
     customProductId INT NOT NULL,
-    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     amount INT NOT NULL,
     PRIMARY KEY (customProductId)
 );
@@ -43,14 +43,13 @@ CREATE TABLE Configuration (
 );
 
 CREATE TABLE Customer (
-    username VARCHAR(50) NOT NULL,
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     joinDate DATE NOT NULL,
     password VARCHAR(255) NOT NULL,
     balance DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-    PRIMARY KEY (username)
+    PRIMARY KEY (email)
 );
 
 CREATE TABLE CustomProduct (
@@ -74,7 +73,7 @@ CREATE TABLE Notification (
     description TEXT NOT NULL,
     date DATETIME NOT NULL,
     isRead BOOLEAN NOT NULL DEFAULT 0,
-    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     PRIMARY KEY (notificationId)
 );
 
@@ -83,13 +82,14 @@ CREATE TABLE `Order` (
     orderStatus VARCHAR(50) NOT NULL,
     orderDate DATETIME NOT NULL,
     deliveryDate DATETIME,
-    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     PRIMARY KEY (orderId)
 );
 
 CREATE TABLE Product (
     productId INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
+    subtype VARCHAR(50) DEFAULT NULL,
     shortDescription TEXT NOT NULL,
     description TEXT NOT NULL,
     price DECIMAL(10,2) NOT NULL,
@@ -103,10 +103,16 @@ CREATE TABLE Product (
 );
 
 CREATE TABLE ProductImage (
-    priority INT NOT NULL,
+    imageUrl VARCHAR(255) NOT NULL,
+    PRIMARY KEY (imageUrl)
+);
+
+CREATE TABLE ProductImageUsage (
     imageUrl VARCHAR(255) NOT NULL,
     productId INT NOT NULL,
-    PRIMARY KEY (productId, priority)
+    priority INT NOT NULL,
+    PRIMARY KEY (imageUrl, productId),
+    UNIQUE (productId, priority)
 );
 
 CREATE TABLE OrderProduct (
@@ -121,8 +127,8 @@ ALTER TABLE CartProduct ADD CONSTRAINT
     REFERENCES CustomProduct (customProductId);
 
 ALTER TABLE CartProduct ADD CONSTRAINT
-    FOREIGN KEY (username)
-    REFERENCES Customer (username);
+    FOREIGN KEY (email)
+    REFERENCES Customer (email);
 
 ALTER TABLE Configurable ADD CONSTRAINT
     FOREIGN KEY (productId)
@@ -145,12 +151,12 @@ ALTER TABLE CustomProduct ADD CONSTRAINT
     REFERENCES Product (productId);
 
 ALTER TABLE Notification ADD CONSTRAINT
-    FOREIGN KEY (username)
-    REFERENCES Customer (username);
+    FOREIGN KEY (email)
+    REFERENCES Customer (email);
 
 ALTER TABLE `Order` ADD CONSTRAINT
-    FOREIGN KEY (username)
-    REFERENCES Customer (username);
+    FOREIGN KEY (email)
+    REFERENCES Customer (email);
 
 ALTER TABLE Product ADD CONSTRAINT
     FOREIGN KEY (categoryName)
@@ -160,10 +166,6 @@ ALTER TABLE Product ADD CONSTRAINT
     FOREIGN KEY (discountId)
     REFERENCES Discount (discountId);
 
-ALTER TABLE ProductImage ADD CONSTRAINT
-    FOREIGN KEY (productId)
-    REFERENCES Product (productId);
-
 ALTER TABLE OrderProduct ADD CONSTRAINT
     FOREIGN KEY (orderId)
     REFERENCES `Order` (orderId);
@@ -171,3 +173,11 @@ ALTER TABLE OrderProduct ADD CONSTRAINT
 ALTER TABLE OrderProduct ADD CONSTRAINT
     FOREIGN KEY (customProductId)
     REFERENCES CustomProduct (customProductId);
+
+ALTER TABLE ProductImageUsage ADD CONSTRAINT
+    FOREIGN KEY (productId)
+    REFERENCES Product (productId);
+
+ALTER TABLE ProductImageUsage ADD CONSTRAINT
+    FOREIGN KEY (imageUrl)
+    REFERENCES ProductImage (imageUrl);
