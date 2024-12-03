@@ -15,10 +15,26 @@
                 <div class="mb-4">
                     <!-- Key Header -->
                     <h5 class="mb-3"><?php echo $key; ?> <span class="text-muted">(Select one)</span></h5>
-                    
-                    <!-- Option Cards -->
+
+                    <?php if($key == "Color Options") { ?>
+                    <!-- Color Options -->
                     <div class="row row-cols-1 row-cols-md-3 g-3">
                         <?php foreach ($info as $index => $option): ?>
+                            <div class="col text-center">
+                                <div class="d-inline-block">
+                                    <!-- Circle for Color -->
+                                    <span class="color-circle" 
+                                        style="background-color: <?php echo strtolower($option); ?>;"
+                                        title="<?php echo $option; ?>"></span>
+                                </div>
+                                <p class="mt-2 mb-0"><?php echo $option; ?></p>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <?php } else {?>
+                    <!-- Option Cards -->
+                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                        <?php foreach ($info as $option): ?>
                             <div class="col">
                                 <div class="card h-100 border-0 shadow-sm">
                                     <div class="card-body text-center">
@@ -28,6 +44,7 @@
                             </div>
                         <?php endforeach; ?>
                     </div>
+                    <?php } ?>
                 </div>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -39,3 +56,13 @@
     </form>
 </div>
 
+<style>
+.color-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ddd; /* Optional border for better visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+</style>
