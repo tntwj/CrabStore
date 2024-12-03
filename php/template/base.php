@@ -9,42 +9,35 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container-fluid">
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" href="index.php">🦀</a>
+            <div class="d-flex order-sm-last">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="btn-group ms-2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">🛍️</button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <?php if (!isUserLoggedIn()) {
+                            echo "<li><a class='dropdown-item' href='login.php'>Sign in</a></li>";
+                        } ?>
+                        <li><a class="dropdown-item" href="account.php"><!--<img src="./upload/template/user-page-icon.png" alt="User Page"/>-->Account</a></li>
+                        <li><a class="dropdown-item" href="notifications.php"><!--<img src="./upload/template/notify-base-icon.png" alt="Notifications"/>-->Notifications</a></li>
+                        <li><a class="dropdown-item" href="cart.php"><!--<img src="./upload/template/cart-page-icon.png" alt="Cart"/>-->Cart</a></li>
+                        <li><a class="dropdown-item" href="orders.php">Orders</a></li>
+                        <?php if (isUserLoggedIn()) {
+                            echo "<li><a class='dropdown-item' href=" . HANDLERS_DIR . "logout-handler.php>Logout</a></li>";
+                        } ?>
+                    </ul>
+                </div>
+            </div>
             <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
                 <ul class="navbar-nav mt-2 mt-lg-0">
-                    <li class="nav-item"><a class="nav-link" href="index.php">🦀</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabWatch">CrabWatch</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPods">CrabPods</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=Accessories">Accessories</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown">More</a>
-                        <div class="dropdown-menu">
-                            <?php if (!isUserLoggedIn()) {
-                                echo "<a class='dropdown-item' href='login.php'>Sign in</a>";
-                                };
-                            ?>
-                            <a class="dropdown-item" href="account.php">
-                                <img src="./upload/template/user-page-icon.png" alt="User Page" />Account
-                            </a>
-                            <a class="dropdown-item" href="notifications.php">
-                                <img src="./upload/template/notify-base-icon.png" alt="Notifications" />Notifications
-                            </a>
-
-                            <a class="dropdown-item" href="cart.php">
-                                <img src="./upload/template/cart-page-icon.png" alt="Cart" />Cart
-                            </a>
-                            <a class="dropdown-item" href="orders.php">Orders</a>
-                            <?php if (isUserLoggedIn()) {
-                                echo "<a class='dropdown-item' href=" . HANDLERS_DIR . "logout-handler.php>Logout</a>";
-                                };
-                            ?>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
