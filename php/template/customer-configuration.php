@@ -5,6 +5,7 @@ $colorMap = [
     "Green" => "#00FF00",
     "Deep Blue" => "#001F54", // Custom color for "Deep Blue"
     "Yellow" => "#FFFF00",
+    "Gold" => "#FFFF11",
     "Black" => "#000000",
     "White" => "#FFFFFF",
 ];
@@ -30,33 +31,31 @@ $colorMap = [
 
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
-                    <div class="row row-cols-1 row-cols-md-3 g-3">
+                    <div class="d-flex gap-3">
                         <?php foreach ($info as $colorOption): 
-                            // Get color code from mapping or use a default (e.g., gray) if not found
+                            // Map color name to color code using $colorMap, default to gray if not found
                             $colorCode = $colorMap[$colorOption] ?? "#CCCCCC"; 
                         ?>
-                            <div class="col text-center">
-                                <div class="d-inline-block">
-                                    <!-- Circle for Color -->
-                                    <span class="color-circle" 
-                                        style="background-color: <?php echo $colorCode; ?>;"
-                                        title="<?php echo $colorOption; ?>">
-                                    </span>
-                                </div>
-                                <p class="mt-2 mb-0"><?php echo $colorOption; ?></p>
-                            </div>
+                            <label class="color-circle-wrapper">
+                                <input type="radio" name="color" value="<?php echo $colorOption; ?>" class="form-check-input d-none" />
+                                <span class="color-circle" 
+                                    style="background-color: <?php echo $colorCode; ?>;"
+                                    title="<?php echo $colorOption; ?>">
+                                </span>
+                                <p class="text-center small mt-2"><?php echo $colorOption; ?></p>
+                            </label>
                         <?php endforeach; ?>
                     </div>
-                    <?php } else {?>
-                    <!-- Option Cards -->
-                    <div class="row row-cols-1 row-cols-md-3 g-3">
-                        <?php foreach ($info as $option): ?>
+
+                    <?php } else { ?>
+                    <!-- Model Options -->
+                    <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+                        <?php foreach ($info as $index => $modelOption): ?>
                             <div class="col">
-                                <div class="card h-100 border-0 shadow-sm">
-                                    <div class="card-body text-center">
-                                        <p class="card-text mb-0"><?php echo $option; ?></p>
-                                    </div>
-                                </div>
+                                <label class="option-card card h-100 p-3 border shadow-sm">
+                                    <input type="radio" name="<?php echo $key; ?>" value="<?php echo $modelOption; ?>" class="form-check-input " />
+                                    <h5 class="card-title mb-1"><?php echo $modelOption; ?></h5>
+                                </label>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -73,12 +72,43 @@ $colorMap = [
 </div>
 
 <style>
+
+/* For card options */
+/* Hide the default radio button */
+input[type="radio"].d-none {
+    display: none;
+}
+
+/* Add custom styles for the label */
+.option-card {
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+/* For color circles */
+.color-circle-wrapper {
+    text-align: center;
+    cursor: pointer;
+}
+
 .color-circle {
     display: inline-block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #ddd; /* Optional border for better visibility */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid transparent;
+    transition: all 0.3s;
 }
+
+input[type="radio"]:checked + .color-circle {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+.color-circle-wrapper:hover .color-circle {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
 </style>
