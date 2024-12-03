@@ -8,7 +8,7 @@
                     <div class="row d-flex align-items-center">
                         <p class="card-text col-4  mb-0">Price: <?php echo $templateParams['single-product-details']['price']?>€</p>
                         <p class="card-text col-4  mb-0"></p>
-                        <a href="#" class="col-4 btn btn-primary text-center">Buy Now</a>
+                        <a href="configuration.php?product=<?php echo $templateParams['single-product-details']['productId']; ?>.&media=<?php echo $templateParams['media']; ?>" class="col-4 btn btn-primary text-center">Buy Now</a>
                     </div>
                 </div>
             </div>
