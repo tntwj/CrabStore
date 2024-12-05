@@ -1,0 +1,8 @@
+body {
+    background-color: lightblue !important;
+}
+
+.navbar img {
+    width: 2vw;
+    height: auto;
+}
