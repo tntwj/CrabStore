@@ -27,7 +27,8 @@ $colorMap = [
             <?php if (is_array($info)): // Only process if $info is an array ?>
                 <div class="mb-4">
                     <!-- Key Header -->
-                    <h5 class="mb-3"><?php echo $key; ?> <span class="text-muted">(Select one)</span></h5>
+                    <?php $nameOptions = strtolower(explode(' ', $key)[0]); ?>
+                    <h5 class="mb-3"><?php echo $nameOptions; ?> <span class="text-muted">(Select one)</span></h5>
 
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
@@ -52,8 +53,15 @@ $colorMap = [
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
                         <?php foreach ($info as $index => $modelOption): ?>
                             <div class="col">
-                                <label class="option-card card h-100 p-3 border shadow-sm">
-                                    <input type="radio" name="<?php echo $key; ?>" value="<?php echo $modelOption; ?>" class="form-check-input " />
+                                <input 
+                                    type="radio" 
+                                    id="<?php echo $nameOptions; ?>-<?php echo $index; ?>" 
+                                    name="<?php echo $nameOptions; ?>" 
+                                    value="<?php echo $modelOption; ?>" 
+                                    class="card-options d-none" 
+                                    onchange="updateStyle(this)"
+                                />
+                                <label for="<?php echo $nameOptions; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm card-options">
                                     <h5 class="card-title mb-1"><?php echo $modelOption; ?></h5>
                                 </label>
                             </div>
@@ -71,8 +79,25 @@ $colorMap = [
     </form>
 </div>
 
-<style>
+<script>
+function updateStyle(radioInput, className) {
+    // Rimuovi gli stili precedenti da tutte le label
+    const allLabels = document.querySelectorAll("card-options");
+    allLabels.forEach(label => {
+        label.style.borderColor = 'transparent';
+        label.style.backgroundColor = '';
+    });
 
+    // Aggiungi stile alla label associata all'input selezionato
+    if (radioInput.checked) {
+        const label = radioInput.nextElementSibling; // Ottieni la label associata
+        label.style.borderColor = '#007bff';
+        label.style.backgroundColor = 'rgba(0, 123, 255, 0.1)';
+    }
+}
+</script>
+
+<style>
 /* For card options */
 /* Hide the default radio button */
 input[type="radio"].d-none {
@@ -85,6 +110,12 @@ input[type="radio"].d-none {
     text-align: center;
     border: 2px solid transparent;
     transition: all 0.3s;
+}
+
+/* Hover effect */
+label.option-card:hover {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
 /* For color circles */
