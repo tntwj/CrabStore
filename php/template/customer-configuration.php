@@ -1,15 +1,3 @@
-<?php
-$colorMap = [
-    "Red" => "#FF0000",
-    "Blue" => "#0000FF",
-    "Green" => "#00FF00",
-    "Deep Blue" => "#001F54", // Custom color for "Deep Blue"
-    "Yellow" => "#FFFF00",
-    "Gold" => "#FFFF11",
-    "Black" => "#000000",
-    "White" => "#FFFFFF",
-];
-?>
 
 <div class="container py-5">
     <h3 class="text-center mb-4">Buy <?php echo $templateParams['single-product-details']['name']; ?></h3>
@@ -35,7 +23,7 @@ $colorMap = [
                     <div class="d-flex gap-3">
                         <?php foreach ($info as $colorOption): 
                             // Map color name to color code using $colorMap, default to gray if not found
-                            $colorCode = $colorMap[$colorOption] ?? "#CCCCCC"; 
+                            $colorCode = getColorCode($colorOption); 
                         ?>
                             <label class="color-circle-wrapper">
                                 <input type="radio" name="color" value="<?php echo $colorOption; ?>" class="form-check-input d-none" />

@@ -36,4 +36,20 @@ function displayFlashMessage() {
 function isUserLoggedIn() {
     return session_status() === PHP_SESSION_ACTIVE && ($_SESSION[SessionKey::LOGGED_IN] ?? null) === true;
 }
+
+// Map color name to color code using $colorMap, default to gray if not found.
+function getColorCode($colorName) {
+    $colorMap = [
+        "Red" => "#FF0000",
+        "Blue" => "#0000FF",
+        "Green" => "#00FF00",
+        "Deep Blue" => "#001F54", // Custom color for "Deep Blue"
+        "Yellow" => "#FFFF00",
+        "Gold" => "#FFFF11",
+        "Black" => "#000000",
+        "White" => "#FFFFFF",
+    ];
+
+    return $colorMap[$colorName] ?? "#CCCCCC";
+}
 ?>
