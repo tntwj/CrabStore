@@ -7,33 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="./upload/template/crabapple-logo.png" width="30px" alt="brand logo"/>
-            </a>
-            <div class="d-flex order-sm-last">
-                <div class="btn-group">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">🛍️</button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <?php if (!isUserLoggedIn()) {
-                            echo "<a class='dropdown-item' href='login.php'>Sign in</a>";
-                        } ?>
-                        <a class="dropdown-item" href="account.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Account</a>
-                        <a class="dropdown-item" href="notifications.php"><img src="./upload/template/notify-base-icon.png" width="30px" alt="Notifications"/>Notifications</a>
-                        <a class='dropdown-item' href='cart.php'><img src="./upload/template/cart-page-icon.png" width="30px" alt="Cart"/>Cart</a>
-                        <a class='dropdown-item' href='orders.php'>Orders</a>
-                        <?php if (isUserLoggedIn()) {
-                            echo "<a class='dropdown-item' href=".HANDLERS_DIR."logout-handler.php>Logout</a>";
-                        ;} ?>
-                    </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
-                <ul class="navbar-nav mt-2 mt-lg-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid d-flex">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="collapsibleNav">
+                <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
@@ -42,8 +22,26 @@
                     <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=Accessories">Accessories</a></li>
                 </ul>
             </div>
+            <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount">
+                🛍️
+            </button>
         </div>
     </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAccount">
+        <div class="offcanvas-body">
+            <?php if (!isUserLoggedIn()) { ?>
+                <a class="dropdown-item" href="login.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Sign in</a>
+            <?php } ?>
+            <a class="dropdown-item" href="account.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Account</a>
+            <a class="dropdown-item" href="notifications.php"><img src="./upload/template/notify-base-icon.png" width="30px" alt="Notifications"/>Notifications</a>
+            <a class="dropdown-item" href="cart.php"><img src="./upload/template/cart-page-icon.png" width="30px" alt="Cart"/>Cart</a>
+            <a class="dropdown-item" href="orders.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Orders</a>
+            <?php if (isUserLoggedIn()) { ?>
+                <a class="dropdown-item" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Logout</a>
+            <?php } ?>
+        </div>
+    </div>
 
     <?php displayFlashMessage(); ?>
     <main>

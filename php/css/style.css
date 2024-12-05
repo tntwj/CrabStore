@@ -1,3 +1,14 @@
 body {
     background-color: lightblue !important;
 }
+
+@media (max-width: 991px) { /* Bootstrap large screen breakpoint*/
+
+    button[data-bs-target="#offcanvasAccount"] {
+        order: -1;
+    }
+
+    button[data-bs-target="#collapsibleNav"] {
+        order: -2;
+    }
+}
