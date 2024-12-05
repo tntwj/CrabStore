@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?php echo $templateParams["title"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">🦀</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="./upload/template/crabapple-logo.png" width="30px" alt="brand logo"/>
+            </a>
             <div class="d-flex order-sm-last">
+                <div class="btn-group">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">🛍️</button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <?php if (!isUserLoggedIn()) {
+                            echo "<a class='dropdown-item' href='login.php'>Sign in</a>";
+                        } ?>
+                        <a class="dropdown-item" href="account.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Account</a>
+                        <a class="dropdown-item" href="notifications.php"><img src="./upload/template/notify-base-icon.png" width="30px" alt="Notifications"/>Notifications</a>
+                        <a class='dropdown-item' href='cart.php'><img src="./upload/template/cart-page-icon.png" width="30px" alt="Cart"/>Cart</a>
+                        <a class='dropdown-item' href='orders.php'>Orders</a>
+                        <?php if (isUserLoggedIn()) {
+                            echo "<a class='dropdown-item' href=".HANDLERS_DIR."logout-handler.php>Logout</a>";
+                        ;} ?>
+                    </div>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="btn-group ms-2">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">🛍️</button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                        <?php if (!isUserLoggedIn()) {
-                            echo "<li><a class='dropdown-item' href='login.php'>Sign in</a></li>";
-                        } ?>
-                        <li><a class="dropdown-item" href="account.php"><!--<img src="./upload/template/user-page-icon.png" alt="User Page"/>-->Account</a></li>
-                        <li><a class="dropdown-item" href="notifications.php"><!--<img src="./upload/template/notify-base-icon.png" alt="Notifications"/>-->Notifications</a></li>
-                        <li><a class="dropdown-item" href="cart.php"><!--<img src="./upload/template/cart-page-icon.png" alt="Cart"/>-->Cart</a></li>
-                        <li><a class="dropdown-item" href="orders.php">Orders</a></li>
-                        <?php if (isUserLoggedIn()) {
-                            echo "<li><a class='dropdown-item' href=" . HANDLERS_DIR . "logout-handler.php>Logout</a></li>";
-                        } ?>
-                    </ul>
-                </div>
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavId">
                 <ul class="navbar-nav mt-2 mt-lg-0">
@@ -54,7 +56,7 @@
     };
     ?>
 
-    <footer class="mt-5 py-4 bg-dark text-white text-center">
+    <footer class="mt-5 pt-4 bg-dark text-light text-center">
         <div class="container-fluid justify-content-center text-secondary">
             <p class="text-center text-break">
                 Crabapple offers a free 1 day shipping for all items. Once bought the order can't be cancelled.<br/>
@@ -68,11 +70,11 @@
             </p >
             <p class="text-center">Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean</p>
         </div>
-        <nav>
-            <a href="#" class="text-white me-3">About Us</a>
-            <a href="#" class="text-white me-3">Contact</a>
-            <a href="#" class="text-white me-3">FAQ</a>
-            <a href="#" class="text-white">Support</a>
+        <nav class="d-flex justify-content-center gap-3">
+            <a href="#" class="text-light text-decoration-none">About Us</a>
+            <a href="#" class="text-light text-decoration-none">Contact</a>
+            <a href="#" class="text-light text-decoration-none">FAQ</a>
+            <a href="#" class="text-light text-decoration-none">Support</a>
         </nav>
         <div class="py-3">
             <p class="text-center">CrabStore &copy; 2025</p>
