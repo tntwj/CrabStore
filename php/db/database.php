@@ -131,7 +131,18 @@ class DatabaseHelper {
         $query = "INSERT INTO configuration (customProductId, configurableOptionId) VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt = bind_param("ii", $customProductId, $configurableOptionId);
+
+        $configurableOptionPrice = getConfigurableOptionPrice($configurableOptionId);
+        increaseConfiguredPrice($customProductId, $configurableOptionPrice);
     }
+
+    private function increaseConfiguredPrice($customProductId, $configurableOptionPrice) {
+        $query = "UPDATE CustomProduct SET configuredPrice = ? WHERE customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $configurableOptionPrice, $customProductId);
+        $stmt->execute();
+    }
+    
 
 
     /*************************
@@ -308,12 +319,11 @@ class DatabaseHelper {
         $result = $stmt->execute();
     }
     
-    public function addProductToCart($customProductId, $email, $amount) {
+    public function addProductToCart($customProductId, $email) {
         $query = "INSERT INTO CartProduct (customProductId, email, amount) 
-                  VALUES (?, ?, ?) 
-                  ON DUPLICATE KEY UPDATE amount = amount + ?";
+                  VALUES (?, ?, 1)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("isi", $customProductId, $email, $amount);
+        $stmt->bind_param("is", $customProductId, $email);
         $result = $stmt->execute();
     }
 
