@@ -53,15 +53,8 @@ $colorMap = [
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
                         <?php foreach ($info as $index => $modelOption): ?>
                             <div class="col">
-                                <input 
-                                    type="radio" 
-                                    id="<?php echo $nameOptions; ?>-<?php echo $index; ?>" 
-                                    name="<?php echo $nameOptions; ?>" 
-                                    value="<?php echo $modelOption; ?>" 
-                                    class="card-options d-none" 
-                                    onchange="updateStyle(this)"
-                                />
-                                <label for="<?php echo $nameOptions; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm card-options">
+                                <input type="radio" id="<?php echo $key; ?>-<?php echo $index; ?>" name="<?php echo $key; ?>" value="<?php echo $modelOption; ?>" class="form-check-input d-none" />
+                                <label for="<?php echo $key; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm option-card">
                                     <h5 class="card-title mb-1"><?php echo $modelOption; ?></h5>
                                 </label>
                             </div>
@@ -79,23 +72,6 @@ $colorMap = [
     </form>
 </div>
 
-<script>
-function updateStyle(radioInput, className) {
-    // Rimuovi gli stili precedenti da tutte le label
-    const allLabels = document.querySelectorAll("card-options");
-    allLabels.forEach(label => {
-        label.style.borderColor = 'transparent';
-        label.style.backgroundColor = '';
-    });
-
-    // Aggiungi stile alla label associata all'input selezionato
-    if (radioInput.checked) {
-        const label = radioInput.nextElementSibling; // Ottieni la label associata
-        label.style.borderColor = '#007bff';
-        label.style.backgroundColor = 'rgba(0, 123, 255, 0.1)';
-    }
-}
-</script>
 
 <style>
 /* For card options */
@@ -104,18 +80,17 @@ input[type="radio"].d-none {
     display: none;
 }
 
-/* Add custom styles for the label */
-.option-card {
+/* Stili di base per l'opzione */
+label.option-card {
     cursor: pointer;
     text-align: center;
     border: 2px solid transparent;
     transition: all 0.3s;
 }
 
-/* Hover effect */
-label.option-card:hover {
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+/* Quando l'input radio è selezionato, applica lo stile al genitore label */
+input[type="radio"]:checked + label.option-card {
+    background-color: rgba(0, 123, 255, 0.1);
 }
 
 /* For color circles */
