@@ -96,6 +96,44 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getConfigurableOptionPrice($configurableOptionId) {
+        $query = "SELECT price FROM configurableoption WHERE configurableOptionId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $configurableOptionId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc()['price'];
+    }
+
+    /**
+     * Return custom product ID created.
+     */
+    public function configureCustomProduct($productId) {
+        $price = getProductInformation($productId)['price'];
+        $query = "INSERT INTO customProduct (configuredPrice, finalPrice, productId) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt = bind_param("iii", $price, $price, $productId);
+        $stmt->execute();
+
+        $lastInsertIdQuery = "SELECT LAST_INSERT_ID() AS lastCustomProductId";
+        $result = $this->db->query($lastInsertIdQuery);
+
+        if ($result) {
+            $row = $result->fetch_assoc();
+            $lastCustomProductId = $row['lastCustomProductId'];
+            return $lastCustomProductId;
+        } else {
+            echo "Errore nel recupero dell'ultimo ID inserito.";
+        }
+    }
+
+    public function configureOptionToCustomProduct($customProductId, $configurableOptionId) {
+        $query = "INSERT INTO configuration (customProductId, configurableOptionId) VALUES (?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt = bind_param("ii", $customProductId, $configurableOptionId);
+    }
+
+
     /*************************
      * NOTIFICATIONS QUERIES *
      *************************/
