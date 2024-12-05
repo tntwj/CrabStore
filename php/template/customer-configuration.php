@@ -28,7 +28,7 @@ $colorMap = [
                 <div class="mb-4">
                     <!-- Key Header -->
                     <?php $nameOptions = strtolower(explode(' ', $key)[0]); ?>
-                    <h5 class="mb-3"><?php echo $nameOptions; ?> <span class="text-muted">(Select one)</span></h5>
+                    <h5 class="mb-3"><?php echo explode(' ', $key)[0]; ?> <span class="text-muted"></span></h5>
 
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
