@@ -25,7 +25,7 @@
                             $colorCode = getColorCode($colorOption); 
                         ?>
                             <label class="color-circle-wrapper">
-                                <input type="radio" name="color" value="<?php echo $colorOption; ?>" class="form-check-input d-none" />
+                                <input type="radio" name="<?php echo $key; ?>" value="<?php echo $colorOption; ?>" class="form-check-input d-none" />
                                 <span class="color-circle" 
                                     style="background-color: <?php echo $colorCode; ?>;"
                                     title="<?php echo $colorOption; ?>">
