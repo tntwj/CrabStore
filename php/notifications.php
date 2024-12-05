@@ -2,7 +2,7 @@
 require_once("bootstrap.php");
 
 if (!isUserLoggedIn()) {
-    setFlashMessage("Please login to view your notifications.");
+    setFlashMessage("Please login to view your notifications.", MessageType::FAIL);
     header("Location: login.php");
     exit();
 }

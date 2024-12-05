@@ -2,7 +2,7 @@
 require_once("bootstrap.php");
 
 if (!isUserLoggedIn()) {
-    setFlashMessage("Please login to view your account details.");
+    setFlashMessage("Please login to view your account details.", MessageType::FAIL);
     header("Location: login.php");
     exit();
 }
