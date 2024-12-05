@@ -9,6 +9,10 @@ body {
     }
 
     button[data-bs-target="#collapsibleNav"] {
+        order: -3;
+    }
+
+    .navbar-brand {
         order: -2;
     }
 }

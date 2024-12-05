@@ -9,6 +9,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
+            <a class="navbar-brand" href="index.php">🦀</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -29,16 +30,38 @@
     </nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAccount">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Account Options</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
         <div class="offcanvas-body">
             <?php if (!isUserLoggedIn()) { ?>
-                <a class="dropdown-item" href="login.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Sign in</a>
+                <a class="dropdown-item d-flex align-items-center" href="login.php">
+                    <img src="./upload/template/user-page-icon.png" width="30px" alt="User Page" class="me-2"/>
+                    <span>Sign in</span>
+                </a>
             <?php } ?>
-            <a class="dropdown-item" href="account.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Account</a>
-            <a class="dropdown-item" href="notifications.php"><img src="./upload/template/notify-base-icon.png" width="30px" alt="Notifications"/>Notifications</a>
-            <a class="dropdown-item" href="cart.php"><img src="./upload/template/cart-page-icon.png" width="30px" alt="Cart"/>Cart</a>
-            <a class="dropdown-item" href="orders.php"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Orders</a>
+            <a class="dropdown-item d-flex align-items-center" href="account.php">
+                <img src="./upload/template/user-page-icon.png" width="30px" alt="User Page" class="me-2"/>
+                <span>Account</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="notifications.php">
+                <img src="./upload/template/notify-base-icon.png" width="30px" alt="Notifications" class="me-2"/>
+                <span>Notifications</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="cart.php">
+                <img src="./upload/template/cart-page-icon.png" width="30px" alt="Cart" class="me-2"/>
+                <span>Cart</span>
+            </a>
+            <a class="dropdown-item d-flex align-items-center" href="orders.php">
+                <img src="./upload/template/user-page-icon.png" width="30px" alt="Orders" class="me-2"/>
+                <span>Orders</span>
+            </a>
             <?php if (isUserLoggedIn()) { ?>
-                <a class="dropdown-item" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>"><img src="./upload/template/user-page-icon.png" width="30px" alt="User Page"/>Logout</a>
+                <a class="dropdown-item d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
+                    <img src="./upload/template/user-page-icon.png" width="30px" alt="Logout" class="me-2"/>
+                    <span>Logout</span>
+                </a>
             <?php } ?>
         </div>
     </div>
