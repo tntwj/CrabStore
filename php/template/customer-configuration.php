@@ -8,7 +8,7 @@
              class="img-fluid rounded" style="max-width: 300px;">
     </div>
 
-    <form method="POST" action="add_to_cart.php">
+    <form method="POST" action="process-configuration.php">
         <?php 
         $data = json_decode($templateParams['single-product-details']['specSheet'], true);
         foreach ($data as $key => $info): ?>
@@ -22,7 +22,6 @@
                     <!-- Color Options -->
                     <div class="d-flex gap-3">
                         <?php foreach ($info as $colorOption): 
-                            // Map color name to color code using $colorMap, default to gray if not found
                             $colorCode = getColorCode($colorOption); 
                         ?>
                             <label class="color-circle-wrapper">
