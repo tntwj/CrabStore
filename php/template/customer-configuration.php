@@ -14,7 +14,7 @@
         foreach ($data as $key => $info): ?>
             <?php if (is_array($info)): // Only process if $info is an array ?>
                 <?php 
-                
+                $configOptions = $dbh->getProductConfigurableOptionsByConfigId($templateParams['single-product-details']['productId'], $key);
                 ?>
                 <div class="mb-4">
                     <!-- Key Header -->
@@ -25,9 +25,10 @@
                     <div class="d-flex gap-3">
                         <?php foreach ($info as $colorOption): 
                             $colorCode = getColorCode($colorOption); 
+                            $optionId = getConfigOptionId($configOptions, $colorOption);
                         ?>
                             <label class="color-circle-wrapper">
-                                <input type="radio" name="<?php echo $key; ?>" value="<?php echo $colorOption; ?>" class="form-check-input d-none" />
+                                <input type="radio" name="<?php echo $key; ?>" value="<?php echo $optionId; ?>" class="form-check-input d-none" />
                                 <span class="color-circle" 
                                     style="background-color: <?php echo $colorCode; ?>;"
                                     title="<?php echo $colorOption; ?>">
@@ -41,8 +42,9 @@
                     <!-- Model Options -->
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
                         <?php foreach ($info as $index => $modelOption): ?>
+                            <?php $optionId = getConfigOptionId($configOptions, $modelOption); ?>
                             <div class="col">
-                                <input type="radio" id="<?php echo $key; ?>-<?php echo $index; ?>" name="<?php echo $key; ?>" value="<?php echo $modelOption; ?>" class="form-check-input d-none" />
+                                <input type="radio" id="<?php echo $key; ?>-<?php echo $index; ?>" name="<?php echo $key; ?>" value="<?php echo $optionId; ?>" class="form-check-input d-none" />
                                 <label for="<?php echo $key; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm option-card">
                                     <h5 class="card-title mb-1"><?php echo $modelOption; ?></h5>
                                 </label>

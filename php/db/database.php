@@ -93,7 +93,7 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProductConfigurableOptions($productId, $nameConfigurable) {
+    public function getProductConfigurableOptionsByConfigId($productId, $nameConfigurable) {
         $query = "SELECT co.*
                 FROM product p, configurable c, configurableoption co
                 WHERE p.productId = c.productId AND co.configurableId = c.configurableId AND p.productId = ? AND c.name = ?";
