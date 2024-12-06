@@ -33,7 +33,7 @@
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAccount">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Account Options</h5>
+            <h2 class="offcanvas-title">Account Options</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body">
@@ -94,10 +94,8 @@
             <p class="text-center">Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean</p>
         </div>
         <nav class="d-flex justify-content-center gap-3">
-            <a href="#" class="text-light text-decoration-none">About Us</a>
-            <a href="#" class="text-light text-decoration-none">Contact</a>
-            <a href="#" class="text-light text-decoration-none">FAQ</a>
-            <a href="#" class="text-light text-decoration-none">Support</a>
+            <a href="about.php" class="text-light text-decoration-none">About Us</a>
+            <a href="#" class="text-light text-decoration-none">Cookies</a>
         </nav>
         <div class="py-3">
             <p class="text-center">CrabStore &copy; 2025</p>
