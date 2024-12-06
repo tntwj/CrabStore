@@ -2,10 +2,10 @@
 require_once("./../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $password = trim($_POST["password"]);
-    $firstname = trim($_POST["firstname"]);
-    $lastname = trim($_POST["lastname"]);
+    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+    $password = $_POST["password"];
+    $firstname = $_POST["firstname"];
+    $lastname = $_POST["lastname"];
 
     $errors = [];
 

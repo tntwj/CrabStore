@@ -232,24 +232,16 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-
         $result = $stmt->get_result();
         return $result->num_rows != 0;
     }
 
     // Registers a customer and hashes his password before storing it.
-    public function registerCustomer($firstname, $lastName, $email, $password) {
-        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
+    public function registerCustomer($firstname, $lastName, $email, $hashedPassword) {
         $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance) VALUES (?, ?, ?, NOW(), ?, 0.00)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedpassword);
+        $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedPassword);
         $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-            echo "Rows affected: " . $stmt->affected_rows;
-        } else {
-            echo "No rows were inserted.";
-        }
     }
 
     public function getCustomerPasswordByEmail($email) {
