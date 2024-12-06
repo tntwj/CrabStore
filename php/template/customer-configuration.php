@@ -13,9 +13,11 @@
         $data = json_decode($templateParams['single-product-details']['specSheet'], true);
         foreach ($data as $key => $info): ?>
             <?php if (is_array($info)): // Only process if $info is an array ?>
+                <?php 
+                
+                ?>
                 <div class="mb-4">
                     <!-- Key Header -->
-                    <?php $nameOptions = strtolower(explode(' ', $key)[0]); ?>
                     <h5 class="mb-3"><?php echo explode(' ', $key)[0]; ?> <span class="text-muted"></span></h5>
 
                     <?php if($key == "Color Options") { ?>
