@@ -48,7 +48,6 @@ CREATE TABLE Customer (
     email VARCHAR(255) NOT NULL,
     joinDate DATE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    balance DECIMAL(10,2) NOT NULL DEFAULT 0.00,
     PRIMARY KEY (email)
 );
 

@@ -849,10 +849,10 @@ VALUES
 -- ########################################################
 
 -- Insert Customers
-INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance)
+INSERT INTO Customer (firstName, lastName, email, joinDate, password)
 VALUES
-    ('John', 'Doe', 'john.doe@example.com', '2023-01-01', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC', 1000.00),
-    ('Jane', 'Smith', 'jane.smith@example.com', '2023-02-15', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC', 500.00);
+    ('John', 'Doe', 'john.doe@example.com', '2023-01-01', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC'),
+    ('Jane', 'Smith', 'jane.smith@example.com', '2023-02-15', '$2y$10$KmOkJ1BzWPZPbDnig4yZIu7iIKYEYKyrYc4r/qSfXWiYmN3vZPcMC');
 
 -- Custom Products
 INSERT INTO CustomProduct (customProductId, configuredPrice, finalPrice, productId)

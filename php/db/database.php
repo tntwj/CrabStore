@@ -238,7 +238,7 @@ class DatabaseHelper {
 
     // Registers a customer and hashes his password before storing it.
     public function registerCustomer($firstname, $lastName, $email, $hashedPassword) {
-        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance) VALUES (?, ?, ?, NOW(), ?, 0.00)";
+        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedPassword);
         $stmt->execute();
@@ -263,7 +263,7 @@ class DatabaseHelper {
      ***********/
 
     public function getCustomerDetails($email) {
-        $query = "SELECT firstName, lastName, email, joinDate, balance FROM customer WHERE email = ?";
+        $query = "SELECT firstName, lastName, email, joinDate FROM customer WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();

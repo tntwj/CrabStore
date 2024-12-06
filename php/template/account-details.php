@@ -23,8 +23,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Additional Information</h5>
                     <p><strong>Total Orders Made:</strong> <?php echo $totalOrders; ?></p>
-                    <p><strong>Credits:</strong> $<?php echo number_format($accountDetails["balance"], 2); ?></p>
-                    <button class="btn btn-primary">Top Up Credits</button>
                 </div>
             </div>
         </div>
