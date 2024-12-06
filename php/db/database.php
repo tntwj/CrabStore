@@ -131,10 +131,10 @@ class DatabaseHelper {
      * Return custom product ID created.
      */
     public function configureCustomProduct($productId) {
-        $price = getProductInformation($productId)['price'];
+        $price = $this->getProductInformation($productId)['price'];
         $query = "INSERT INTO customProduct (configuredPrice, finalPrice, productId) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt = bind_param("iii", $price, $price, $productId);
+        $stmt->bind_param("iii", $price, $price, $productId);
         $stmt->execute();
 
         $lastInsertIdQuery = "SELECT LAST_INSERT_ID() AS lastCustomProductId";
@@ -152,10 +152,10 @@ class DatabaseHelper {
     public function configureOptionToCustomProduct($customProductId, $configurableOptionId) {
         $query = "INSERT INTO configuration (customProductId, configurableOptionId) VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt = bind_param("ii", $customProductId, $configurableOptionId);
+        $stmt->bind_param("ii", $customProductId, $configurableOptionId);
 
-        $configurableOptionPrice = getConfigurableOptionPrice($configurableOptionId);
-        increaseConfiguredPrice($customProductId, $configurableOptionPrice);
+        $configurableOptionPrice = $this->getConfigurableOption($configurableOptionId)["price"];
+        $this->increaseConfiguredPrice($customProductId, $configurableOptionPrice);
     }
 
     private function increaseConfiguredPrice($customProductId, $configurableOption) {

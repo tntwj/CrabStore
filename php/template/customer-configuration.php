@@ -15,10 +15,11 @@
             <?php if (is_array($info)): // Only process if $info is an array ?>
                 <?php 
                 $configOptions = $dbh->getProductConfigurableOptionsByConfigId($templateParams['single-product-details']['productId'], $key);
+                var_dump($configOptions);
                 ?>
                 <div class="mb-4">
                     <!-- Key Header -->
-                    <h5 class="mb-3"><?php echo explode(' ', $key)[0]; ?> <span class="text-muted"></span></h5>
+                    <h5 class="mb-3"><?php echo $key; ?> <span class="text-muted"></span></h5>
 
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
