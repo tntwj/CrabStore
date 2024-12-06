@@ -2,7 +2,17 @@ body {
     background-color: lightblue !important;
 }
 
-.navbar img {
-    width: 2vw;
-    height: auto;
+@media (max-width: 991px) { /* Bootstrap large screen breakpoint*/
+
+    button[data-bs-target="#offcanvasAccount"] {
+        order: -1;
+    }
+
+    button[data-bs-target="#collapsibleNav"] {
+        order: -3;
+    }
+
+    .navbar-brand {
+        order: -2;
+    }
 }

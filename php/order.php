@@ -6,7 +6,7 @@ $templateParams["main-content"] = "template/order-detail.php";
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
-    setFlashMessage("Something went wrong, please login.");
+    setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
     header('Location: login.php');
     exit;
 }
