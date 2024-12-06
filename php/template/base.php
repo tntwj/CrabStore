@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
             <a class="navbar-brand" href="index.php">
-                <img src="./upload/template/crabapple-logo.png" width="30" height="30" alt="">
+                <img src="./upload/template/crabapple-logo.png" width="30" alt="brand logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
     </div>
 
     <?php displayFlashMessage(); ?>
-    <main class="flex-fill">
+    <main class="flex-fill overflow-hidden">
         <?php require($templateParams["main-content"]); ?>
     </main>
     <?php if (!empty($templateParams["aside-content"])) {
@@ -79,26 +79,24 @@
     };
     ?>
 
-    <footer class="mt-5 pt-4 bg-dark text-light text-center">
+    <footer class="mt-4 py-4 bg-dark text-center">
         <div class="container-fluid justify-content-center text-secondary">
-            <p class="text-center text-break">
-                Crabapple offers a free 1 day shipping for all items. Once bought the order can't be cancelled.<br/>
-                For any inconvenience or question you can call our 0h call service at the following number +99 000 000 0000.<br/>
-                Thank you for your cooperation.
+            <p>
+                Crabapple offers a free 1 day shipping for all items. Once bought, the order can't be cancelled.<br/>
+                For any inconvenience or question you can call our 0h call service at the following number +99 000 000 0000.
             </p>
-            <p class="text-center">
-                Unless otherwise indicated, all the names or products in this site are complete productions of Crabapple Inc.<br/> Any
-                resemblance to products or names of another hypothetical company is purely coincidental.<br/>Crabapple is in no way
-                responsible for any legal repercussions for any of the coincidences written above.
-            </p >
-            <p class="text-center">Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean</p>
-        </div>
-        <nav class="d-flex justify-content-center gap-3">
-            <a href="about.php" class="text-light text-decoration-none">About Us</a>
-            <a href="#" class="text-light text-decoration-none">Cookies</a>
-        </nav>
-        <div class="py-3">
-            <p class="text-center">CrabStore &copy; 2025</p>
+            <p>
+                Unless otherwise indicated, all the names or products in this site are complete productions of Crabapple Inc.<br/>
+                Any resemblance to products or names of another hypothetical company is purely coincidental.<br/>
+                Crabapple is in no way responsible for any legal repercussions for any of the coincidences written above.
+            </p>
+            <nav class="my-3 d-flex justify-content-center gap-4">
+                <a href="about.php" class="text-light text-decoration-none">About Us</a>
+                <a href="#" class="text-light text-decoration-none">Cookies</a>
+            </nav>
+            <p>
+                Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean
+            </p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
