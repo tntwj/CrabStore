@@ -118,13 +118,13 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getConfigurableOptionPrice($configurableOptionId) {
-        $query = "SELECT price FROM configurableoption WHERE configurableOptionId = ?";
+    public function getConfigurableOption($configurableOptionId) {
+        $query = "SELECT * FROM configurableoption WHERE configurableOptionId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $configurableOptionId);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_assoc()['price'];
+        return $result->fetch_assoc();
     }
 
     /**
@@ -158,10 +158,10 @@ class DatabaseHelper {
         increaseConfiguredPrice($customProductId, $configurableOptionPrice);
     }
 
-    private function increaseConfiguredPrice($customProductId, $configurableOptionPrice) {
+    private function increaseConfiguredPrice($customProductId, $configurableOption) {
         $query = "UPDATE CustomProduct SET configuredPrice = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $configurableOptionPrice, $customProductId);
+        $stmt->bind_param("ii", $configurableOption['price'], $customProductId);
         $stmt->execute();
     }
     
