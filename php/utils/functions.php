@@ -48,6 +48,9 @@ function getColorCode($colorName) {
         "Gold" => "#FFFF11",
         "Black" => "#000000",
         "White" => "#FFFFFF",
+        "Space Grey" => "#4A4A4A",
+        "Midnight Green" => "#004953",
+        "Silver" => "#C0C0C0"
     ];
 
     return $colorMap[$colorName] ?? "#CCCCCC";
