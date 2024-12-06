@@ -39,29 +39,29 @@
         <div class="offcanvas-body">
             <?php if (!isUserLoggedIn()) { ?>
                 <a class="dropdown-item d-flex align-items-center" href="login.php">
-                    <img src="./upload/template/user-page-icon.png" width="30" alt="User Page" class="me-2"/>
+                    <img src="./upload/template/user-page-icon.png" width="64" alt="User Page" class="me-2"/>
                     <span>Sign in</span>
                 </a>
             <?php } ?>
             <a class="dropdown-item d-flex align-items-center" href="account.php">
-                <img src="./upload/template/user-page-icon.png" width="30" alt="User Page" class="me-2"/>
+                <img src="./upload/template/user-page-icon.png" width="64" alt="User Page" class="me-2"/>
                 <span>Account</span>
             </a>
             <a class="dropdown-item d-flex align-items-center" href="notifications.php">
-                <img src="./upload/template/notify-base-icon.png" width="30" alt="Notifications" class="me-2"/>
+                <img src="./upload/template/notify-base-icon.png" width="64" alt="Notifications" class="me-2"/>
                 <span>Notifications</span>
             </a>
             <a class="dropdown-item d-flex align-items-center" href="cart.php">
-                <img src="./upload/template/cart-page-icon.png" width="30" alt="Cart" class="me-2"/>
+                <img src="./upload/template/cart-page-icon.png" width="64" alt="Cart" class="me-2"/>
                 <span>Cart</span>
             </a>
             <a class="dropdown-item d-flex align-items-center" href="orders.php">
-                <img src="./upload/template/user-page-icon.png" width="30" alt="Orders" class="me-2"/>
+                <img src="./upload/template/user-page-icon.png" width="64" alt="Orders" class="me-2"/>
                 <span>Orders</span>
             </a>
             <?php if (isUserLoggedIn()) { ?>
                 <a class="dropdown-item d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
-                    <img src="./upload/template/user-page-icon.png" width="30" alt="Logout" class="me-2"/>
+                    <img src="./upload/template/user-page-icon.png" width="64" alt="Logout" class="me-2"/>
                     <span>Logout</span>
                 </a>
             <?php } ?>
