@@ -9,7 +9,9 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
-            <a class="navbar-brand" href="index.php">🦀</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="./upload/template/crabapple-logo.png" width="30" height="30" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
