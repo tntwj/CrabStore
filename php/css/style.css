@@ -4,6 +4,14 @@ body {
 }
 */
 
+div.collapse > ul > li > a:hover {
+    background-color: grey;
+}
+
+div.offcanvas-body > nav > a:hover {
+    background-color: lightgray;
+}
+
 @media (max-width: 991px) { /* Bootstrap large screen breakpoint*/
 
     button[data-bs-target="#offcanvasAccount"] {

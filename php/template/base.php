@@ -9,62 +9,59 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
-            <a class="navbar-brand" href="index.php">
-                <img src="./upload/template/crabapple-logo.png" width="30" alt="brand logo">
-            </a>
+            <a class="navbar-brand" href="index.php"><img src="./upload/template/crabapple-logo.png" width="30" alt="brand logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="collapsibleNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabWatch">CrabWatch</a></li>
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=CrabPods">CrabPods</a></li>
-                    <li class="nav-item"><a class="nav-link" href="view-list-products.php?page=Accessories">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabWatch">CrabWatch</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPods">CrabPods</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 my-1" href="view-list-products.php?page=Accessories">Accessories</a></li>
                 </ul>
             </div>
-            <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount">
-                🛍️
-            </button>
+            <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount">🛍️</button>
         </div>
     </nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAccount">
         <div class="offcanvas-header">
-            <h2 class="offcanvas-title">Account Options</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-        <div class="offcanvas-body">
-            <?php if (!isUserLoggedIn()) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="login.php">
-                    <img src="./upload/template/user-page-icon.png" width="64" alt="User Page" class="me-2"/>
-                    <span>Sign in</span>
+        <div class="offcanvas-body p-0">
+            <nav class="nav flex-column">
+                <?php if (!isUserLoggedIn()) { ?>
+                    <a class="nav-link d-flex align-items-center" href="login.php">
+                        <img src="./upload/template/user-page-icon.png" width="48" alt="" class="me-2"/>
+                        <span class="text-dark">Sign in</span>
+                    </a>
+                <?php } ?>
+                <a class="nav-link d-flex align-items-center" href="account.php">
+                    <img src="./upload/template/user-page-icon.png" width="48" alt="" class="me-2"/>
+                    <span class="text-dark">Account</span>
                 </a>
-            <?php } ?>
-            <a class="dropdown-item d-flex align-items-center" href="account.php">
-                <img src="./upload/template/user-page-icon.png" width="64" alt="User Page" class="me-2"/>
-                <span>Account</span>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="notifications.php">
-                <img src="./upload/template/notify-base-icon.png" width="64" alt="Notifications" class="me-2"/>
-                <span>Notifications</span>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="cart.php">
-                <img src="./upload/template/cart-page-icon.png" width="64" alt="Cart" class="me-2"/>
-                <span>Cart</span>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="orders.php">
-                <img src="./upload/template/user-page-icon.png" width="64" alt="Orders" class="me-2"/>
-                <span>Orders</span>
-            </a>
-            <?php if (isUserLoggedIn()) { ?>
-                <a class="dropdown-item d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
-                    <img src="./upload/template/user-page-icon.png" width="64" alt="Logout" class="me-2"/>
-                    <span>Logout</span>
+                <a class="nav-link d-flex align-items-center" href="notifications.php">
+                    <img src="./upload/template/notify-base-icon.png" width="48" alt="" class="me-2"/>
+                    <span class="text-dark">Notifications</span>
                 </a>
-            <?php } ?>
+                <a class="nav-link d-flex align-items-center" href="cart.php">
+                    <img src="./upload/template/cart-page-icon.png" width="48" alt="" class="me-2"/>
+                    <span class="text-dark">Cart</span>
+                </a>
+                <a class="nav-link d-flex align-items-center" href="orders.php">
+                    <img src="./upload/template/user-page-icon.png" width="48" alt="" class="me-2"/>
+                    <span class="text-dark">Orders</span>
+                </a>
+                <?php if (isUserLoggedIn()) { ?>
+                    <a class="nav-link d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
+                        <img src="./upload/template/user-page-icon.png" width="48" alt="" class="me-2"/>
+                        <span class="text-dark">Logout</span>
+                    </a>
+                <?php } ?>
+            </nav>
         </div>
     </div>
 
@@ -72,12 +69,11 @@
     <main class="flex-fill overflow-hidden">
         <?php require($templateParams["main-content"]); ?>
     </main>
-    <?php if (!empty($templateParams["aside-content"])) {
-        echo "<aside>";
-        require($templateParams["aside-content"]);
-        echo "</aside>";
-    };
-    ?>
+    <?php if (!empty($templateParams["aside-content"])) { ?>
+        <aside>
+            <?php require($templateParams["aside-content"]); ?>
+        </aside>
+    <?php } ?>
 
     <footer class="mt-4 py-4 bg-dark text-center">
         <div class="container-fluid justify-content-center text-secondary">
