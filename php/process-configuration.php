@@ -6,11 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sanitized_key = htmlspecialchars($key, ENT_QUOTES, 'UTF-8');
         $option = $dbh->getConfigurableOption($value);
         var_dump($option);
-        
     }
 } else {
     echo "Errore: accesso non autorizzato.";
 }
-
-
 ?>

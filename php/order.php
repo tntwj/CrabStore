@@ -1,14 +1,14 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["title"] = "Crabstore - Order";
+$templateParams["title"] = "CrabStore - Order";
 $templateParams["main-content"] = "template/order-detail.php";
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
     setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
     header('Location: login.php');
-    exit;
+    exit();
 }
 if (isset($_GET["orderId"])) {
     $orderId = $_GET["orderId"];
