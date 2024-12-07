@@ -69,11 +69,11 @@
     <main class="flex-fill overflow-hidden">
         <?php require($templateParams["main-content"]); ?>
     </main>
-    <?php if (!empty($templateParams["aside-content"])) { ?>
+    <?php if (!empty($templateParams["aside-content"])): ?>
         <aside>
             <?php require($templateParams["aside-content"]); ?>
         </aside>
-    <?php } ?>
+    <?php endif; ?>
 
     <footer class="mt-4 py-4 bg-dark text-center">
         <div class="container-fluid justify-content-center text-secondary">
@@ -89,6 +89,11 @@
             <p>Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean</p>
         </div>
     </footer>
+    <?php if (!empty($templateParams["scripts"])): ?>
+        <?php foreach ($templateParams["scripts"] as $script): ?>
+            <script src="<?php echo $script; ?>"></script>
+        <?php endforeach; ?>
+    <?php endif; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

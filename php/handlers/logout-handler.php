@@ -6,3 +6,4 @@ unset($_SESSION[SessionKey::CUSTOMER_EMAIL]);
 
 header("Location: ./../index.php");
 exit();
+?>
