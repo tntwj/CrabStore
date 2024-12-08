@@ -10,7 +10,7 @@ if (!isUserLoggedIn()) {
 $templateParams["title"] = "CrabStore - Notifications";
 $templateParams["main-content"] = "template/customer-notifications.php";
 $templateParams["notifications"] = $dbh->getUserNotifications($_SESSION[SessionKey::CUSTOMER_EMAIL]);
-$templateParams["scripts"] = array("js/notification-mark.js", "js/notification-delete.js");
+$templateParams["scripts"] = array("js/notification-update.js");
 
 require_once("template/base.php");
 ?>
