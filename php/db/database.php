@@ -271,6 +271,13 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function changeCustomerDetails($email, $firstName, $lastName) {
+        $query = "UPDATE customer SET firstName = ?, lastName = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $firstName, $lastName, $email);
+        return $stmt->execute();
+    }
+
     public function getTotalCustomerOrders($email) {
         $query = "SELECT COUNT(orderId) AS totalCustomerOrders FROM `order` WHERE email = ?";
         $stmt = $this->db->prepare($query);
