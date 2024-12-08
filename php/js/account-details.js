@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Your First Name" required/>
                             </div>
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" required>
+                                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Your Last Name" required/>
                             </div>
                         </div>
                         <div class="modal-footer flex-column">
@@ -71,69 +71,80 @@ document.addEventListener("DOMContentLoaded", () => {
                 setError("Names must be at least 2 characters long.");
                 return;
             }
-            document.getElementById("changeDetailsForm").submit();
+            this.submit();
         }); 
     });
 
-    /*
     document.getElementById("btnChangePassword").addEventListener("click", () => {
-        showModal(
-            "changePasswordModal",
-            "Change Password",
-            `
-            <form id="changePasswordForm">
-                <div class="mb-3">
-                    <label for="currentPassword" class="form-label">Current Password</label>
-                    <input type="password" class="form-control" id="currentPassword" required>
+
+        mainContainer.insertAdjacentHTML("beforeend",
+        `
+        <div class="modal fade" id="changePasswordModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Change Password</h2>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <form id="changePasswordForm" method="POST" action="handlers/update-password.php">
+                        <div class="modal-body">
+                            <div class="mb-2">
+                                <label for="currentPassword" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" placeholder="Current Password" required/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="New Password"required/>
+                            </div>
+                            <div class="mb-2">
+                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required/>
+                            </div>
+                        </div>
+                        <div class="modal-footer flex-column">
+                            <div class="d-flex justify-content-start w-100" id="validationError">
+                            </div>
+                            <div class="d-flex justify-content-end w-100 gap-1">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <input type="submit" value="Change Password" class="btn btn-primary"/>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="newPassword" class="form-label">New Password</label>
-                    <input type="password" class="form-control" id="newPassword" required>
-                </div>
-                <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" required>
-                </div>
-            </form>`,
-            `
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" form="changePasswordForm" class="btn btn-primary">Change Password</button>`,
-            (form) => {
-                const currentPassword = form.querySelector("#currentPassword").value.trim();
-                const newPassword = form.querySelector("#newPassword").value.trim();
-                const confirmPassword = form.querySelector("#confirmPassword").value.trim();
-                const validationError = document.getElementById("validationError");
+            </div>
+        </div>`);
 
-                function setError(message) {
-                    validationError.innerHTML = `<p>${message}</p>`;
-                }
+        const modalElement = document.getElementById("changePasswordModal");
+        const modal = new bootstrap.Modal(modalElement);
 
-                if (!currentPassword || !newPassword || !confirmPassword) {
-                    setError("All fields are required.");
-                    return;
-                }
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            modalElement.remove();
+        });
 
-                if (newPassword !== confirmPassword) {
-                    setError("Passwords do not match.");
-                    return;
-                }
+        modal.show();
 
-                console.log("Change Password Form Submitted:", { currentPassword, newPassword });
+        document.getElementById("changePasswordForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const currentPassword = document.querySelector("#currentPassword").value.trim();
+            const newPassword = document.querySelector("#newPassword").value.trim();
+            const confirmPassword = document.querySelector("#confirmPassword").value.trim();
+            const validationErrorContainer = document.getElementById("validationError");
+
+            function setError(message) {
+                validationErrorContainer.innerHTML = `<p class="text-danger mb-3">${message}</p>`;
             }
-        );
-    });
 
-    document.getElementById("btnDeleteAccount").addEventListener("click", () => {
-        showModal(
-            "deleteAccountModal",
-            "Delete Account",
-            `<p>Are you sure you want to delete your account? This action cannot be undone.</p>`,
-            `
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <form method="POST" action="handlers/delete-account.php">
-                <button type="submit" class="btn btn-danger">Delete Account</button>
-            </form>`
-        );
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                setError("All fields are required.");
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                setError("Passwords do not match.");
+                return;
+            }
+
+            this.submit();
+        })
     });
-    */
 });

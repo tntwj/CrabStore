@@ -16,7 +16,6 @@
                     <div class="d-flex justify-content-center gap-2">
                         <button class="btn btn-primary" id="btnChangeDetails">Change Details</button>
                         <button class="btn btn-primary" id="btnChangePassword">Change Password</button>
-                        <button class="btn btn-danger" id="btnDeleteAccount">Delete Account</button>
                     </div>
                 </div>
             </div>
