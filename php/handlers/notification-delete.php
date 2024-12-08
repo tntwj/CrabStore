@@ -20,7 +20,6 @@ try {
     $dbh->deleteNotification($notificationId);
     echo json_encode(['success' => true]);
 } catch (Exception $e) {
-    error_log($e->getMessage());
     echo json_encode(['success' => false, 'error' => 'An error occurred']);
 }
 ?>

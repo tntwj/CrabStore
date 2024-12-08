@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     $errors = [];
 
     if (empty($firstname) || empty($lastname)) {
-        $errors[] = "Please fill out all fields.";
+        $errors[] = "All fields are required.";
     }
 
     $namePattern = '/^[a-zA-Z]+$/';
@@ -28,18 +28,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     }
 
     try {
-        $dbh->changeCustomerDetails($email, $firstname, $lastname);
-        setFlashMessage("Account Details changed successfully", MessageType::SUCCESS);
+        if ($dbh->changeCustomerDetails($email, $firstname, $lastname)) {
+            setFlashMessage("Account Details changed successfully.", MessageType::SUCCESS);
+        } else {
+            setFlashMessage("We were unable to change your personal details.", MessageType::FAIL);
+        }
         header("Location: ./../account.php");
         exit();
     } catch (Exception $e) {
-        error_log($e->getMessage());
-        setFlashMessage("Something went wrong during the process.", MessageType::FAIL);
+        setFlashMessage("Something went wrong during the personal details update process.", MessageType::FAIL);
         header("Location: ./../account.php");
         exit();
     }
 } else {
-    setFlashMessage("Something is wrong with the session.", MessageType::FAIL);
+    setFlashMessage("Invalid session or request.", MessageType::FAIL);
     header("Location: ./../account.php");
     exit();
 }

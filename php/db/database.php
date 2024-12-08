@@ -278,6 +278,13 @@ class DatabaseHelper {
         return $stmt->execute();
     }
 
+    public function changeCustomerPassword($email, $hashedPassword) {
+        $query = "UPDATE customer SET password = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $hashedPassword, $email);
+        return $stmt->execute();
+    }
+
     public function getTotalCustomerOrders($email) {
         $query = "SELECT COUNT(orderId) AS totalCustomerOrders FROM `order` WHERE email = ?";
         $stmt = $this->db->prepare($query);

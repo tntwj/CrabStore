@@ -90,15 +90,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="modal-body">
                             <div class="mb-2">
                                 <label for="currentPassword" class="form-label">Current Password</label>
-                                <input type="password" class="form-control" id="currentPassword" placeholder="Current Password" required/>
+                                <input type="password" class="form-control" id="currentPassword" name="currentPassword" placeholder="Current Password" required/>
                             </div>
                             <div class="mb-2">
                                 <label for="newPassword" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="New Password"required/>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword" placeholder="New Password"required/>
                             </div>
                             <div class="mb-2">
                                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required/>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required/>
                             </div>
                         </div>
                         <div class="modal-footer flex-column">
