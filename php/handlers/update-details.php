@@ -6,12 +6,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     $firstname = $_POST["firstName"];
     $lastname = $_POST["lastName"];
 
-    if (empty($firstname)) {
-        $errors[] = "First name is required.";
+    $errors = [];
+
+    if (empty($firstname) || empty($lastname)) {
+        $errors[] = "Please fill out all fields.";
     }
 
-    if (empty($lastname)) {
-        $errors[] = "Last name is required.";
+    $namePattern = '/^[a-zA-Z]+$/';
+    if (!preg_match($namePattern, $firstname) || !preg_match($namePattern, $lastname)) {
+        $errors[] = "Names can only contain letters.";
+    }
+
+    if (strlen($firstname) < 2 || strlen($lastname) < 2) {
+        $errors[] = "Names must be at least 2 characters long.";
     }
 
     if (!empty($errors)) {
@@ -19,19 +26,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
         header("Location: ./../account.php");
         exit();
     }
+
     try {
         $dbh->changeCustomerDetails($email, $firstname, $lastname);
         setFlashMessage("Account Details changed successfully", MessageType::SUCCESS);
         header("Location: ./../account.php");
         exit();
     } catch (Exception $e) {
-        setFlashMessage("Something went wrong during the process" . $e, MessageType::FAIL);
+        error_log($e->getMessage());
+        setFlashMessage("Something went wrong during the process.", MessageType::FAIL);
         header("Location: ./../account.php");
         exit();
     }
 } else {
-    setFlashMessage("Something went wrong.", MessageType::FAIL);
-    header("Location: ./../index.php");
+    setFlashMessage("Something is wrong with the session.", MessageType::FAIL);
+    header("Location: ./../account.php");
     exit();
 }
 ?>
