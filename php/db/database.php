@@ -73,23 +73,12 @@ class DatabaseHelper {
 
     // Returns the configurable options of a configurable of a product
     public function getConfigurableOptions($configurableId) {
-        $query = "SELECT configurableOptionid, isDefault, details, price, CO.configurableId FROM configurableoption CO, configurable C WHERE CO.configurableId = C.configurableId AND CO.configurableId = ?";
+        $query = "SELECT configurableOptionId, isDefault, details, price, CO.configurableId FROM configurableoption CO, configurable C WHERE CO.configurableId = C.configurableId AND CO.configurableId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $configurableId); // bind $configurableId as a integer
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getProductConfigurableOptions($productId) {
-        $query = "SELECT co.*
-                FROM product p, configurable c, configurableoption co
-                WHERE p.productId = c.productId AND co.configurableId = c.configurableId AND p.productId = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $productId);
-        $stmt->execute();
-        $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 

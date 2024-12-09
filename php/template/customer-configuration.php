@@ -10,12 +10,15 @@
 
     <form method="POST" action="process-configuration.php">
         <?php 
-        $data = json_decode($templateParams['single-product-details']['specSheet'], true);
+        $data = array();
+        foreach ($templateParams["product-configurables"] as $configurable) {
+            $data[$configurable["name"]] = $configurable["options"];
+        }
+        var_dump($data);
         foreach ($data as $key => $info): ?>
             <?php if (is_array($info)): // Only process if $info is an array ?>
                 <?php 
-                //$configOptions = $dbh->getProductConfigurableOptionsByConfigId($templateParams['single-product-details']['productId'], $key);
-                var_dump($configOptions);
+                $configOptions = $info;
                 ?>
                 <div class="mb-4">
                     <!-- Key Header -->
@@ -24,7 +27,8 @@
                     <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
                     <div class="d-flex gap-3">
-                        <?php foreach ($info as $colorOption): 
+                        <?php foreach ($info as $color): 
+                            $colorOption = $color["details"];
                             $colorCode = getColorCode($colorOption); 
                             $optionId = getConfigOptionId($configOptions, $colorOption);
                         ?>
@@ -47,7 +51,7 @@
                             <div class="col">
                                 <input type="radio" id="<?php echo $key; ?>-<?php echo $index; ?>" name="<?php echo $key; ?>" value="<?php echo $optionId; ?>" class="form-check-input d-none" />
                                 <label for="<?php echo $key; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm option-card">
-                                    <h5 class="card-title mb-1"><?php echo $modelOption; ?></h5>
+                                    <h5 class="card-title mb-1"><?php echo $modelOption["details"]; ?></h5>
                                 </label>
                             </div>
                         <?php endforeach; ?>
