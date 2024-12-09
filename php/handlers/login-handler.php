@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setFlashMessage("You logged in succesfully", MessageType::SUCCESS);
         $_SESSION[SessionKey::LOGGED_IN] = true;
         $_SESSION[SessionKey::CUSTOMER_EMAIL] = $email;
-        // TODO handle the remember me button
         header("Location: ./../index.php");
         exit();
     } else {

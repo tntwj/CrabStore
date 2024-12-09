@@ -9,11 +9,6 @@
             <label for="password">Password:</label>
             <input type="password" class="form-control" placeholder="Enter password" name="password">
         </div>
-        <div class="form-check d-flex justify-content-center mb-3">
-            <label for="form-check-label">
-                <input type="checkbox" class="form-check-input" name="remember">Remember me
-            </label>
-        </div>
         <div class="d-flex justify-content-center mb-3">
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
