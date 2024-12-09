@@ -14,7 +14,7 @@
         foreach ($data as $key => $info): ?>
             <?php if (is_array($info)): // Only process if $info is an array ?>
                 <?php 
-                $configOptions = $dbh->getProductConfigurableOptionsByConfigId($templateParams['single-product-details']['productId'], $key);
+                //$configOptions = $dbh->getProductConfigurableOptionsByConfigId($templateParams['single-product-details']['productId'], $key);
                 var_dump($configOptions);
                 ?>
                 <div class="mb-4">

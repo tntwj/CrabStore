@@ -93,17 +93,6 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getProductConfigurableOptionsByConfigId($productId, $nameConfigurable) {
-        $query = "SELECT co.*
-                FROM product p, configurable c, configurableoption co
-                WHERE p.productId = c.productId AND co.configurableId = c.configurableId AND p.productId = ? AND c.name = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param("is", $productId, $nameConfigurable);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     // Returns the configurable options of a custom product configured.
     public function getCustomProductConfigurableOptions($customProductId) {
         $query = "SELECT co.isDefault, co.details, co.price, configurable.name
