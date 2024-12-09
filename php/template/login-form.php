@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column align-items-center mt-3">
-    <h1>Sign in to Crab Store</h1>
+    <h1>Sign in to CrabStore</h1>
     <form action="<?php echo HANDLERS_DIR;?>login-handler.php" method="post">
         <div class="my-3">
             <label for="email">Email:</label>
@@ -18,5 +18,5 @@
             <input type="submit" class="btn btn-primary" value="Login">
         </div>
     </form>
-    <a href="register.php">Don't have an account? Create yours now.</a>
+    <a href="register.php">Don't have an account? Create one now.</a>
 </div>

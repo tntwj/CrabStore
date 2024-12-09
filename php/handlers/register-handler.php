@@ -4,26 +4,10 @@ require_once("./../bootstrap.php");
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $password = $_POST["password"];
-    $firstname = $_POST["firstname"];
-    $lastname = $_POST["lastname"];
+    $firstname = trim($_POST["first-name"]);
+    $lastname = trim($_POST["last-name"]);
 
-    $errors = [];
-
-    if (empty($firstname)) {
-        $errors[] = "First name is required.";
-    }
-
-    if (empty($lastname)) {
-        $errors[] = "Last name is required.";
-    }
-
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email format.";
-    }
-
-    if (empty($password)) {
-        $errors[] = "Password is required.";
-    }
+    $errors = validateRegistration($firstname, $lastname, $email, $password);
 
     if (!empty($errors)) {
         setFlashMessage("Errors: " . implode(" ", $errors), MessageType::FAIL);
@@ -31,9 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit();
     }
 
-    if (!$dbh->customerExists($email)) {
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $dbh->registerCustomer($firstname, $lastname, $email, $hashedPassword);
+    if (registerUser($firstname, $lastname, $email, $password, $dbh)) {
         setFlashMessage("You have registered successfully.", MessageType::SUCCESS);
         header("Location: ./../index.php");
         exit();
@@ -42,5 +24,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./../register.php");
         exit();
     }
+}
+
+function validateRegistration($firstname, $lastname, $email, $password) {
+    $errors = [];
+
+    if (empty($firstname) || empty($lastname) || empty($email) || empty($password)) {
+        $errors[] = "All fields are required.";
+    }
+
+    if (strlen($firstname) < 2 || strlen($lastname) < 2) {
+        $errors[] = "Names must be at least 2 characters long.";
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+
+    return $errors;
+}
+
+function registerUser($firstname, $lastname, $email, $password, $dbh) {
+    if ($dbh->customerExists($email)) {
+        return false;
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $dbh->registerCustomer($firstname, $lastname, $email, $hashedPassword);
+    return true;
 }
 ?>
