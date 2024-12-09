@@ -75,18 +75,17 @@
         </aside>
     <?php endif; ?>
 
-    <footer class="mt-4 py-4 bg-dark text-center">
+    <footer class="mt-3 py-4 bg-dark text-center">
         <div class="container-fluid justify-content-center text-secondary">
-            <p>Crabapple offers a free 1 day shipping for all items. Once bought, the order can't be cancelled.<br/>
+            <p>CrabApple offers a free 1 day shipping for all items. Once bought, the order can't be cancelled.<br/>
             For any inconvenience or question you can call our 0h call service at the following number +99 000 000 0000.</p>
             <p>Unless otherwise indicated, all the names or products in this site are complete productions of Crabapple Inc.<br/>
             Any resemblance to products or names of another hypothetical company is purely coincidental.<br/>
-            Crabapple is in no way responsible for any legal repercussions for any of the coincidences written above.</p>
-            <nav class="my-3 d-flex justify-content-center gap-4">
+            CrabApple is in no way responsible for any legal repercussions for any of the coincidences written above.</p>
+            <div class="mb-3">
                 <a href="about.php" class="text-light text-decoration-none">About Us</a>
-                <a href="#" class="text-light text-decoration-none">Cookies</a>
-            </nav>
-            <p>Copyright © 2024 Crabapple Inc. All rights reserved. | We offer no refunds. Deal with it | Atlantic Ocean</p>
+            </div>
+            <p>Copyright © 2024 Crabapple Inc. All rights reserved.</p>
         </div>
     </footer>
     <?php if (!empty($templateParams["scripts"])): ?>
