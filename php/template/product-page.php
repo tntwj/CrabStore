@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-12 col-md-4 mb-3">
             <div class="card">
-                <img src="./upload/categories/<?php echo $templateParams['media']?>" class="card-img-top w-250 h-auto" alt="<?php echo $templateParams['product-category']?>">
+                <img src="./upload/products/<?php echo $templateParams['media']?>" class="card-img-top w-250 h-auto" alt="<?php echo $templateParams['product-category']?>">
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
                         <p class="card-text col-4  mb-0">Price: <?php echo $templateParams['single-product-details']['price']?>€</p>
