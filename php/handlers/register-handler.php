@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (registerUser($firstname, $lastname, $email, $password, $dbh)) {
+        $dbh->insertNotification("Welcome Message", "Welcome, " . $firstname . "! We're excited to have you join us. Explore and enjoy everything we have to offer. If you have any questions, feel free to reach out!", $email);
         setFlashMessage("You have registered successfully.", MessageType::SUCCESS);
         header("Location: ./../login.php");
         exit();
