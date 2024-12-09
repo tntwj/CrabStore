@@ -1,8 +1,5 @@
 <div class="container my-4">
-    <div class="d-flex align-items-center gap-3 mb-4">
-        <h1 class="display-4">Inbox</h1>
-        <img src="upload/template/notify-base-icon.png" width="48" alt="notification bell">
-    </div>
+    <h1 class="display-4">Inbox</h1>
     <?php if (!empty($templateParams["notifications"])): ?>
         <div class="accordion" id="notificationsAccordion">
             <?php foreach ($templateParams["notifications"] as $index => $notification): ?>

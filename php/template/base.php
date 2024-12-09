@@ -9,7 +9,7 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
-            <a class="navbar-brand" href="index.php"><img src="./upload/ui-icons/crabapple-logo.png" width="30" alt="brand logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="./upload/logo/crabapple.png" width="30" alt="brand logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,19 +40,19 @@
                     </a>
                 <?php } ?>
                 <a class="nav-link d-flex align-items-center" href="account.php">
-                    <img src="./upload/ui-icons/user-page-icon.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/user.png" width="48" alt="" class="me-2"/>
                     <span class="text-dark">Account</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="notifications.php">
-                    <img src="./upload/ui-icons/notify-base-icon.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/notifications.png" width="48" alt="" class="me-2"/>
                     <span class="text-dark">Notifications</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="cart.php">
-                    <img src="./upload/ui-icons/cart-page-icon.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/cart.png" width="48" alt="" class="me-2"/>
                     <span class="text-dark">Cart</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="orders.php">
-                    <img src="./upload/ui-icons/order.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/orders.png" width="48" alt="" class="me-2"/>
                     <span class="text-dark">Orders</span>
                 </a>
                 <?php if (isUserLoggedIn()) { ?>
