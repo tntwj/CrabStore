@@ -1,7 +1,13 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["title"] = "Crabstore";
+$templateParams["title"] = "CrabStore - Home";
+
+if (isUserLoggedIn() && isset($_SESSION[SessionKey::CUSTOMER_EMAIL])) {
+    $accountDetails = $dbh->getCustomerDetails($_SESSION[SessionKey::CUSTOMER_EMAIL]);
+    $templateParams["first-name"] = $accountDetails[0]["firstName"];
+}
+
 $templateParams["main-content"] = "template/landing-page-content.php";
 
 require_once("template/base.php");

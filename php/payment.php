@@ -6,10 +6,10 @@ if (isUserLoggedIn()) {
 } else {
     setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
     header('Location: login.php');
-    exit;
+    exit();
 }
 
-$templateParams["title"] = "Crabstore - Payment";
+$templateParams["title"] = "CrabStore - Payment";
 $templateParams["main-content"] = "process-payment.php";
 
 require_once("template/base.php");

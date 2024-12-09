@@ -6,7 +6,7 @@ if (isUserLoggedIn()) {
 } else {
     setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
     header('Location: login.php');
-    exit;
+    exit();
 }
 $products = $dbh->switchProductsFromCartToOrder($email);
 $orderId = $dbh->addOrder($email);

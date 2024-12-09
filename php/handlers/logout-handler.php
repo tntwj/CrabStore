@@ -1,8 +1,9 @@
 <?php
 require_once("./../bootstrap.php");
 
-$_SESSION[SessionKey::LOGGED_IN] = false;
-unset($_SESSION[SessionKey::CUSTOMER_EMAIL]);
+session_regenerate_id(true);
+session_destroy();
 
 header("Location: ./../index.php");
 exit();
+?>

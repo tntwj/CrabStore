@@ -4,7 +4,7 @@ $pageCategory = isset($_GET['page']) ? $_GET['page'] : "";
 
 $products = $dbh->getProductsOfCategory($pageCategory);
 
-$templateParams["title"] = "Crabstore - " . $pageCategory;
+$templateParams["title"] = "CrabStore - " . $pageCategory;
 $templateParams["main-content"] = "template/explore-products.php";
 $templateParams["product-category"] = $pageCategory;
 $templateParams["products-details"] = $products;

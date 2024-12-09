@@ -2,29 +2,21 @@
     $accountDetails = $templateParams["account-details"][0];
     $totalOrders = $templateParams["total-orders"];
 ?>
-
 <div class="container mt-4">
-    <div class="row">
-        <div class="col-12 col-md-6">
-            <div class="card mb-3">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-6">
+            <div class="card shadow border">
                 <div class="card-body">
-                    <h5 class="card-title">Account Details</h5>
-                    <p><strong>First Name:</strong> <?php echo $accountDetails["firstName"]; ?></p>
-                    <p><strong>Last Name:</strong> <?php echo $accountDetails["lastName"]; ?></p>
-                    <p><strong>Email:</strong> <?php echo $accountDetails["email"]; ?></p>
-                    <p><strong>Joined On:</strong> <?php echo $accountDetails["joinDate"]; ?></p>
-                    <button class="btn btn-primary">Edit Profile</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 col-md-6">
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">Additional Information</h5>
-                    <p><strong>Total Orders Made:</strong> <?php echo $totalOrders; ?></p>
-                    <p><strong>Credits:</strong> $<?php echo number_format($accountDetails["balance"], 2); ?></p>
-                    <button class="btn btn-primary">Top Up Credits</button>
+                    <h1 class="card-title display-4 mb-4 text-center">Account Details</h1>
+                    <p><span class="fw-bold">First Name: </span><?php echo $accountDetails["firstName"]; ?></p>
+                    <p><span class="fw-bold">Last Name: </span><?php echo $accountDetails["lastName"]; ?></p>
+                    <p><span class="fw-bold">Email: </span><?php echo $accountDetails["email"]; ?></p>
+                    <p><span class="fw-bold">Joined On: </span><?php echo $accountDetails["joinDate"]; ?></p>
+                    <p><span class="fw-bold">Total Orders Made: </span><?php echo $totalOrders; ?></p>
+                    <div class="d-flex justify-content-center gap-2">
+                        <button class="btn btn-primary" id="btnChangeDetails">Change Details</button>
+                        <button class="btn btn-primary" id="btnChangePassword">Change Password</button>
+                    </div>
                 </div>
             </div>
         </div>

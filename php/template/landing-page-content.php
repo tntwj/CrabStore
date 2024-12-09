@@ -1,4 +1,8 @@
-<h1 class="display-2 text-center mt-3">Welcome to CrabStore!</h1>
+<?php if (!empty($templateParams["first-name"])): ?>
+    <h1 class="display-2 text-center mt-3">Welcome back, <?php echo $templateParams["first-name"]; ?>!</h1>
+<?php else: ?>
+    <h1 class="display-2 text-center mt-3">Welcome to CrabStore!</h1>
+<?php endif; ?>
 <!-- Featured Products Section -->
 <section class="container mt-5">
     <h2 class="text-center mb-4">Featured Products</h2>

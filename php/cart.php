@@ -1,14 +1,14 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["title"] = "Crabstore - Cart";
+$templateParams["title"] = "CrabStore - Cart";
 $templateParams["main-content"] = "customer-cart.php";
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
     setFlashMessage("Please login to view your cart.", MessageType::FAIL);
     header('Location: login.php');
-    exit;
+    exit();
 }
 $cartProducts = $dbh->getCartProductsOfCustomer($email);
 

@@ -222,24 +222,16 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-
         $result = $stmt->get_result();
         return $result->num_rows != 0;
     }
 
     // Registers a customer and hashes his password before storing it.
-    public function registerCustomer($firstname, $lastName, $email, $password) {
-        $hashedpassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password, balance) VALUES (?, ?, ?, NOW(), ?, 0.00)";
+    public function registerCustomer($firstname, $lastName, $email, $hashedPassword) {
+        $query = "INSERT INTO Customer (firstName, lastName, email, joinDate, password) VALUES (?, ?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedpassword);
+        $stmt->bind_param("ssss", $firstname, $lastName, $email, $hashedPassword);
         $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-            echo "Rows affected: " . $stmt->affected_rows;
-        } else {
-            echo "No rows were inserted.";
-        }
     }
 
     public function getCustomerPasswordByEmail($email) {
@@ -261,12 +253,26 @@ class DatabaseHelper {
      ***********/
 
     public function getCustomerDetails($email) {
-        $query = "SELECT firstName, lastName, email, joinDate, balance FROM customer WHERE email = ?";
+        $query = "SELECT firstName, lastName, email, joinDate FROM customer WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function changeCustomerDetails($email, $firstName, $lastName) {
+        $query = "UPDATE customer SET firstName = ?, lastName = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sss", $firstName, $lastName, $email);
+        return $stmt->execute();
+    }
+
+    public function changeCustomerPassword($email, $hashedPassword) {
+        $query = "UPDATE customer SET password = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $hashedPassword, $email);
+        return $stmt->execute();
     }
 
     public function getTotalCustomerOrders($email) {
