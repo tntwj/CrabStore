@@ -9,48 +9,38 @@
     </div>
 
     <form method="POST" action="process-configuration.php">
-        <?php 
-        $data = array();
-        foreach ($templateParams["product-configurables"] as $configurable) {
-            $data[$configurable["name"]] = $configurable["options"];
-        }
-        var_dump($data);
-        foreach ($data as $key => $info): ?>
-            <?php if (is_array($info)): // Only process if $info is an array ?>
-                <?php 
-                $configOptions = $info;
+        <?php
+        foreach ($templateParams["product-configurables"] as &$configurable): 
+            if (count($configurable["options"]) > 1): 
                 ?>
                 <div class="mb-4">
                     <!-- Key Header -->
-                    <h5 class="mb-3"><?php echo $key; ?> <span class="text-muted"></span></h5>
+                    <h5 class="mb-3"><?php echo $configurable["name"]; ?> <span class="text-muted"></span></h5>
 
-                    <?php if($key == "Color Options") { ?>
                     <!-- Color Options -->
+                    <?php if($configurable["name"] == "Color Options") { ?>
                     <div class="d-flex gap-3">
-                        <?php foreach ($info as $color): 
-                            $colorOption = $color["details"];
-                            $colorCode = getColorCode($colorOption); 
-                            $optionId = getConfigOptionId($configOptions, $colorOption);
+                        <?php foreach ($configurable["options"] as $colorOption): 
+                            $colorCode = getColorCode($colorOption["details"]); 
                         ?>
                             <label class="color-circle-wrapper">
-                                <input type="radio" name="<?php echo $key; ?>" value="<?php echo $optionId; ?>" class="form-check-input d-none" />
+                                <input type="radio" name="<?php echo $configurable["name"]; ?>" value="<?php echo $colorOption["configurableOptionId"]; ?>" class="form-check-input d-none" />
                                 <span class="color-circle" 
                                     style="background-color: <?php echo $colorCode; ?>;"
-                                    title="<?php echo $colorOption; ?>">
+                                    title="<?php echo $colorOption["details"]; ?>">
                                 </span>
-                                <p class="text-center small mt-2"><?php echo $colorOption; ?></p>
+                                <p class="text-center small mt-2"><?php echo $colorOption["details"]; ?></p>
                             </label>
                         <?php endforeach; ?>
                     </div>
 
-                    <?php } else { ?>
                     <!-- Model Options -->
+                    <?php } else { ?>
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
-                        <?php foreach ($info as $index => $modelOption): ?>
-                            <?php $optionId = getConfigOptionId($configOptions, $modelOption); ?>
+                        <?php foreach ($configurable["options"] as $modelOption): ?>
                             <div class="col">
-                                <input type="radio" id="<?php echo $key; ?>-<?php echo $index; ?>" name="<?php echo $key; ?>" value="<?php echo $optionId; ?>" class="form-check-input d-none" />
-                                <label for="<?php echo $key; ?>-<?php echo $index; ?>" class="card h-100 p-3 border shadow-sm option-card">
+                                <input type="radio" id="<?php echo $modelOption["configurableOptionId"]; ?>" name="<?php echo $configurable["name"]; ?>" value="<?php echo $modelOption["configurableOptionId"]; ?>" class="form-check-input d-none" />
+                                <label for="<?php echo $modelOption["configurableOptionId"]; ?>" class="card h-100 p-3 border shadow-sm option-card">
                                     <h5 class="card-title mb-1"><?php echo $modelOption["details"]; ?></h5>
                                 </label>
                             </div>
