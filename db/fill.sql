@@ -829,7 +829,7 @@ VALUES
  'The CrabPods Max offer an immersive audio experience with superior comfort, ideal for professionals and audiophiles.',
  499.00, '2024-12-15', 'Upcoming', 
  '{"Battery Life": "20 hours", "Bluetooth": "5.3", "Noise Cancellation": "CrabTech 3.0", "Color Options": ["Space Gray", "Silver", "Blue"]}', 
- NULL, 'CrabPods', NULL);
+ 'crabpodsmax-teaser.mp4', 'CrabPods', NULL);
 
 INSERT INTO ProductImageUsage(imageUrl, productId, priority) VALUES
 ('crabpods-main.png', 27, 1),
