@@ -3,45 +3,40 @@
 <?php else: ?>
     <h1 class="display-2 text-center mt-3">Welcome to CrabStore!</h1>
 <?php endif; ?>
-<!-- Featured Products Section -->
-<section class="container mt-5">
-    <h2 class="text-center mb-4">Featured Products</h2>
-    <div class="row">
-        <!-- Featured Product 1 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="upload/crabphone-main.png" class="card-img-top w-50 h-auto" alt="CrabPhone">
-                <div class="card-body">
-                    <h5 class="card-title">CrabPhone 14</h5>
-                    <p class="card-text">Experience cutting-edge technology with the CrabPhone 14. Powerful, sleek, and ready for anything!</p>
-                    <a href="#" class="btn btn-primary">View Product</a>
-                </div>
-            </div>
+
+<div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto" style="width: 480px;">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+            <img src="upload/products/crabmacdesktop-main.png" class="d-block w-100" alt="...">
         </div>
-        <!-- Featured Product 2 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="upload/crabpad-main.png" class="card-img-top w-50 h-auto" alt="CrabPad">
-                <div class="card-body">
-                    <h5 class="card-title">CrabPad Pro</h5>
-                    <p class="card-text">Take your productivity to the next level with the CrabPad Pro. A tablet that's as powerful as it is portable.</p>
-                    <a href="#" class="btn btn-primary">View Product</a>
-                </div>
-            </div>
+        <div class="carousel-item" data-bs-interval="2000">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+            <img src="upload/products/crabpad-main.png" class="d-block w-100" alt="...">
         </div>
-        <!-- Featured Product 3 -->
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <img src="upload/crabwatch-main.png" class="card-img-top w-50 h-auto" alt="CrabWatch">
-                <div class="card-body">
-                    <h5 class="card-title">CrabWatch Series 7</h5>
-                    <p class="card-text">Stay connected and track your fitness with the latest CrabWatch Series 7. Smart, stylish, and functional!</p>
-                    <a href="#" class="btn btn-primary">View Product</a>
-                </div>
-            </div>
+        <div class="carousel-item">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+            <img src="upload/products/crabphone-main.png" class="d-block w-100" alt="...">
         </div>
     </div>
-</section>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
 <section class="container mt-5">
     <h2 class="text-center mb-4">Customer Reviews</h2>
     <div class="row">
