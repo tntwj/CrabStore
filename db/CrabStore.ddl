@@ -13,9 +13,8 @@ CREATE TABLE Category (
     shortDescription TEXT NOT NULL,
     description TEXT NOT NULL,
     icon VARCHAR(255) NOT NULL,
-    mainImage VARCHAR(255) NOT NULL,
-    secondaryImage VARCHAR(255) NOT NULL,
-    video VARCHAR(255) NOT NULL,
+    mainImage VARCHAR(255),
+    secondaryImage VARCHAR(255),
     PRIMARY KEY (categoryName)
 );
 
