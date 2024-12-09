@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (registerUser($firstname, $lastname, $email, $password, $dbh)) {
         setFlashMessage("You have registered successfully.", MessageType::SUCCESS);
-        header("Location: ./../index.php");
+        header("Location: ./../login.php");
         exit();
     } else {
         setFlashMessage("The email is already registered.", MessageType::FAIL);
