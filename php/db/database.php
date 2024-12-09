@@ -136,17 +136,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $price, $price, $productId);
         $stmt->execute();
-
-        $lastInsertIdQuery = "SELECT LAST_INSERT_ID() AS lastCustomProductId";
-        $result = $this->db->query($lastInsertIdQuery);
-
-        if ($result) {
-            $row = $result->fetch_assoc();
-            $lastCustomProductId = $row['lastCustomProductId'];
-            return $lastCustomProductId;
-        } else {
-            echo "Errore nel recupero dell'ultimo ID inserito.";
-        }
+        return $stmt->insert_id;
     }
 
     public function configureOptionToCustomProduct($customProductId, $configurableOptionId) {
@@ -346,7 +336,8 @@ class DatabaseHelper {
                   VALUES (?, ?, 1)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("is", $customProductId, $email);
-        $result = $stmt->execute();
+        $stmt->execute();
+        return $stmt->insert_id;
     }
 
     public function removeProductFromCart($customProductId, $email) {
@@ -366,8 +357,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
-        $orderId = $this->db->insert_id;
-        return $orderId;
+        return $stmt->insert_id;
     }
 
     public function addOrderProduct($customProductId, $orderId, $amount) {
@@ -375,6 +365,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $customProductId, $orderId, $amount);
         $stmt->execute();
+        return $stmt->insert_id;
     }
 
     /**
