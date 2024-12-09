@@ -61,7 +61,7 @@ class DatabaseHelper {
      *********************************/
 
     // Returns the configurables of a product
-    public function getProductConfigurables($productid) {
+    public function getProductConfigurables($productId) {
         $query = "SELECT configurableId, C.name, icon, C.productId FROM configurable C, product P WHERE C.productId = P.productId AND C.productId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productId); // bind $productId as a integer
