@@ -26,3 +26,46 @@ div.offcanvas-body > nav > a:hover {
         order: -2;
     }
 }
+
+/* For card options */
+/* Hide the default radio button */
+input[type="radio"].d-none {
+    display: none;
+}
+
+/* Stili di base per l'opzione */
+label.option-card {
+    cursor: pointer;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+/* Quando l'input radio è selezionato, applica lo stile al genitore label */
+input[type="radio"]:checked + label.option-card {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+/* For color circles */
+.color-circle-wrapper {
+    text-align: center;
+    cursor: pointer;
+}
+
+.color-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+input[type="radio"]:checked + .color-circle {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.7);
+}
+
+.color-circle-wrapper:hover .color-circle {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
