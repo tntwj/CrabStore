@@ -1,13 +1,23 @@
 <?php
 require_once("bootstrap.php");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    foreach ($_POST as $key => $value) {
-        $sanitized_key = htmlspecialchars($key, ENT_QUOTES, 'UTF-8');
-        $option = $dbh->getConfigurableOption($value);
-        var_dump($option);
-    }
+if (isUserLoggedIn()) {
+    $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
-    echo "Errore: accesso non autorizzato.";
+    setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
+    header('Location: login.php');
+    exit();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST["productId"])) {
+        $customProductId = $dbh->configureCustomProduct($_POST["productId"]);
+    }
+    foreach ($_POST as $key => $value) {
+        if ($value !== $_POST["productId"]) {
+            $option = $dbh->getConfigurableOption($value);  
+            $dbh->configureOptionToCustomProduct($customProductId, $option["configurableOptionId"], $_POST["productId"]);
+        }
+    }
 }
 ?>

@@ -55,7 +55,7 @@
             <?php endif; ?>
         <?php endforeach; ?>
         
-
+        <input type = "hidden" name="productId" value="<?php echo $templateParams['single-product-details']['productId']; ?>" />
         <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
         </div>

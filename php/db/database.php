@@ -117,19 +117,29 @@ class DatabaseHelper {
         return $stmt->insert_id;
     }
 
-    public function configureOptionToCustomProduct($customProductId, $configurableOptionId) {
+    public function getCustomProduct($customProductId) {
+        $query = "SELECT * FROM customproduct cp WHERE cp.customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $customProductId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
+
+    public function configureOptionToCustomProduct($customProductId, $configurableOptionId, $productId) {
         $query = "INSERT INTO configuration (customProductId, configurableOptionId) VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $customProductId, $configurableOptionId);
 
         $configurableOptionPrice = $this->getConfigurableOption($configurableOptionId)["price"];
-        $this->increaseConfiguredPrice($customProductId, $configurableOptionPrice);
+        $newConfigPrice = $this->getCustomProduct($customProductId)['configuredPrice'] + $configurableOptionPrice;
+        $this->updateConfiguredPrice($customProductId, $newConfigPrice);
     }
 
-    private function increaseConfiguredPrice($customProductId, $configurableOption) {
+    private function updateConfiguredPrice($customProductId, $newConfigPrice) {
         $query = "UPDATE CustomProduct SET configuredPrice = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $configurableOption['price'], $customProductId);
+        $stmt->bind_param("ii", $newConfigPrice, $customProductId);
         $stmt->execute();
     }
     
