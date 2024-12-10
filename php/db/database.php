@@ -56,6 +56,23 @@ class DatabaseHelper {
         return $result->fetch_assoc();
     }
 
+    // Returns up to three random upcoming products with an image.
+    public function getThreeUpcomingProducts() {
+        $query = "SELECT P.productId, P.name, P.shortDescription, P.price, PI.imageUrl
+            FROM product P, productImage PI, productImageUsage PIM
+            WHERE P.productStatus = 'Upcoming'
+            AND P.productId = PIM.productId
+            AND PI.imageUrl = PIM.imageUrl
+            AND PIM.priority = 1
+            ORDER BY RAND()
+            LIMIT 3";
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /*********************************
      * PRODUCT CONFIGURATION QUERIES *
      *********************************/

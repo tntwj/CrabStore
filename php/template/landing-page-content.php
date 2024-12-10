@@ -1,44 +1,44 @@
 <?php if (!empty($templateParams["first-name"])): ?>
-    <h1 class="display-2 text-center mt-3">Welcome back, <?php echo $templateParams["first-name"]; ?>!</h1>
+    <h1 class="display-1 text-center my-3">Welcome back, <?php echo $templateParams["first-name"]; ?>!</h1>
 <?php else: ?>
-    <h1 class="display-2 text-center mt-3">Welcome to CrabStore!</h1>
+    <h1 class="display-1 text-center my-3">Welcome to CrabStore!</h1>
 <?php endif; ?>
 
-<div id="carouselExampleDark" class="carousel carousel-dark slide mx-auto" style="width: 480px;">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<section>
+    <h2 class="text-center mb-5">Check out our upcoming products! Pre-order now!</h2>
+    <div id="upcomingProductsCarousel" class="carousel carousel-dark slide mx-auto" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <?php $setActive = true ?>
+            <?php foreach($templateParams["upcoming-products"] as $product): ?>
+                <div class="carousel-item<?php echo $setActive ? ' active' : ''; ?>" data-bs-interval="5000">
+                    <h3 class="display-6 text-center mb-2"><?php echo $product["name"]; ?></h2>
+                    <p class="lead text-center mb-3"><?php echo $product["shortDescription"]; ?></p>
+                    <p class="h4 text-center text-primary"><?php echo "Starting at: " . $product["price"]; ?></p>
+                    <a href="view-product.php?product=<?php echo $product["productId"]?>">
+                        <img src="upload/products/<?php echo $product["imageUrl"]; ?>" class="d-block w-100" alt="Picture of a <?php echo $product["name"]?>">
+                    </a>
+                </div>
+                <?php $setActive = false; ?>
+            <?php endforeach; ?>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="10000">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-            <img src="upload/products/crabmacdesktop-main.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="2000">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-            <img src="upload/products/crabpad-main.png" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-            <img src="upload/products/crabphone-main.png" class="d-block w-100" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+</section>
 
 <section class="container mt-5">
-    <h2 class="text-center mb-4">Customer Reviews</h2>
+    <h2 class="text-center mb-4">What Our Customers Say About Our Products</h2>
     <div class="row">
         <div class="col-md-4 mb-2">
             <div class="card">

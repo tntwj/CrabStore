@@ -1,9 +1,4 @@
-/*
-body {
-    background-color: lightblue !important;
-}
-*/
-
+/* Base navbars */
 div.collapse > ul > li > a:hover {
     background-color: grey;
 }
@@ -12,7 +7,25 @@ div.offcanvas-body > nav > a:hover {
     background-color: lightgray;
 }
 
-@media (max-width: 991px) { /* Bootstrap large screen breakpoint*/
+/* Landing page carousel */
+span.carousel-control-prev-icon {
+    background-image: url('./../php/upload/ui-icons/previous.png');
+}
+
+span.carousel-control-next-icon {
+    background-image: url('./../php/upload/ui-icons/next.png');
+}
+
+div.carousel-indicators {
+    bottom: -20px;
+}
+
+#upcomingProductsCarousel {
+    width: 480px;
+}
+
+/* Base navbar breakpoint*/
+@media (max-width: 991px) {
 
     button[data-bs-target="#offcanvasAccount"] {
         order: -1;

@@ -35,29 +35,29 @@
             <nav class="nav flex-column">
                 <?php if (!isUserLoggedIn()) { ?>
                     <a class="nav-link d-flex align-items-center" href="login.php">
-                        <img src="./upload/ui-icons/sign-in.png" width="48" alt="" class="me-2"/>
+                        <img src="./upload/ui-icons/sign-in.png" width="48" alt="sign-in icon" class="me-2"/>
                         <span class="text-dark">Sign in</span>
                     </a>
                 <?php } ?>
                 <a class="nav-link d-flex align-items-center" href="account.php">
-                    <img src="./upload/ui-icons/user.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/user.png" width="48" alt="account icon" class="me-2"/>
                     <span class="text-dark">Account</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="notifications.php">
-                    <img src="./upload/ui-icons/notifications.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/notifications.png" width="48" alt="notification icon" class="me-2"/>
                     <span class="text-dark">Notifications</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="cart.php">
-                    <img src="./upload/ui-icons/cart.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/cart.png" width="48" alt="cart icon" class="me-2"/>
                     <span class="text-dark">Cart</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="orders.php">
-                    <img src="./upload/ui-icons/orders.png" width="48" alt="" class="me-2"/>
+                    <img src="./upload/ui-icons/orders.png" width="48" alt="order notepad icon" class="me-2"/>
                     <span class="text-dark">Orders</span>
                 </a>
                 <?php if (isUserLoggedIn()) { ?>
                     <a class="nav-link d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
-                        <img src="./upload/ui-icons/logout.png" width="48" alt="" class="me-2"/>
+                        <img src="./upload/ui-icons/logout.png" width="48" alt="logout icon" class="me-2"/>
                         <span class="text-dark">Logout</span>
                     </a>
                 <?php } ?>
