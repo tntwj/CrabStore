@@ -30,10 +30,12 @@
                                 class="form-control form-control-sm w-50">
                     </div>
                 </div>
-                <p class="mb-0"><strong><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></strong></p>
+                <p class="mb-0"><strong><?php echo "$".$product["configuredPrice"] * $product["amount"]; ?></strong></p>
                 <?php 
                 // If product has discount:
                 if($product["discount"]): 
+                    $newFinalPrice = $product["configuredPrice"] - $product["discount"]["amount"];
+                    $dbh->updateFinalPrice($product["customProductId"], $newFinalPrice);
                 ?>
                     <p><?php echo "$".$product["discount"]["amount"]; ?></p>
                     <p class="mb-0"><strong><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></strong></p>

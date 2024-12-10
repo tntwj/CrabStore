@@ -143,6 +143,13 @@ class DatabaseHelper {
         $stmt->bind_param("ii", $newConfigPrice, $customProductId);
         $stmt->execute();
     }
+
+    public function updateFinalPrice($customProductId, $newFinalPrice) {
+        $query = "UPDATE CustomProduct SET finalPrice = ? WHERE customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ii", $newFinalPrice, $customProductId);
+        $stmt->execute();
+    }
     
     public function getProductDiscount($productId) {
         $query = "SELECT * FROM discount d, product p WHERE d.discountId = p.discountId AND p.productId = ?";
@@ -287,7 +294,7 @@ class DatabaseHelper {
 
     // Return the products in the customer's shopping cart.
     public function getCartProductsOfCustomer($email) {
-        $query = "SELECT name, amount, finalPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
+        $query = "SELECT name, amount, finalPrice, configuredPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); 
         $stmt->execute();
