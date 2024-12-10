@@ -139,7 +139,8 @@ ALTER TABLE ConfigurableOption ADD CONSTRAINT
 
 ALTER TABLE Configuration ADD CONSTRAINT
     FOREIGN KEY (customProductId)
-    REFERENCES CustomProduct (customProductId);
+    REFERENCES CustomProduct (customProductId)
+    ON DELETE CASCADE;
 
 ALTER TABLE Configuration ADD CONSTRAINT
     FOREIGN KEY (configurableOptionId)
@@ -175,7 +176,8 @@ ALTER TABLE OrderProduct ADD CONSTRAINT
 
 ALTER TABLE OrderProduct ADD CONSTRAINT
     FOREIGN KEY (customProductId)
-    REFERENCES CustomProduct (customProductId);
+    REFERENCES CustomProduct (customProductId)
+    ON DELETE CASCADE;
 
 ALTER TABLE ProductImageUsage ADD CONSTRAINT
     FOREIGN KEY (productId)
