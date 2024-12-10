@@ -18,7 +18,7 @@
                 <div class="carousel-item<?php echo $setActive ? ' active' : ''; ?>" data-bs-interval="5000">
                     <h3 class="display-6 text-center mb-2"><?php echo $product["name"]; ?></h2>
                     <p class="lead text-center mb-3"><?php echo $product["shortDescription"]; ?></p>
-                    <p class="h4 text-center text-primary"><?php echo "Starting at: " . $product["price"]; ?></p>
+                    <p class="h4 text-center text-primary"><?php echo "Starting at: $" . $product["price"]; ?></p>
                     <a href="view-product.php?product=<?php echo $product["productId"]?>">
                         <img src="upload/products/<?php echo $product["imageUrl"]; ?>" class="d-block w-100" alt="Picture of a <?php echo $product["name"]?>">
                     </a>
