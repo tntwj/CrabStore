@@ -30,6 +30,7 @@
                                     title="<?php echo $colorOption["details"]; ?>">
                                 </span>
                                 <p class="text-center small mt-2"><?php echo $colorOption["details"]; ?></p>
+                                <p class="text-center small mt-1 text-success"><?php echo "+" . $colorOption["price"]; ?></p>
                             </label>
                         <?php endforeach; ?>
                     </div>
@@ -41,7 +42,10 @@
                             <div class="col">
                                 <input type="radio" id="<?php echo $modelOption["configurableOptionId"]; ?>" name="<?php echo $configurable["name"]; ?>" value="<?php echo $modelOption["configurableOptionId"]; ?>" class="form-check-input d-none" />
                                 <label for="<?php echo $modelOption["configurableOptionId"]; ?>" class="card h-100 p-3 border shadow-sm option-card">
-                                    <h5 class="card-title mb-1"><?php echo $modelOption["details"]; ?></h5>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="card-title mb-1"><?php echo $modelOption["details"]; ?></h5>
+                                        <p class="card-price mb-1 text-success"><?php echo "+" . $modelOption["price"]; ?></p>
+                                    </div>
                                 </label>
                             </div>
                         <?php endforeach; ?>

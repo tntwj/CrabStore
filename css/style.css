@@ -41,6 +41,14 @@ label.option-card {
     transition: all 0.3s;
 }
 
+label > h5.card-title {
+    text-align: left;
+}
+
+label > p.card-price {
+    text-align: right;
+}
+
 /* Quando l'input radio è selezionato, applica lo stile al genitore label */
 input[type="radio"]:checked + label.option-card {
     background-color: rgba(0, 123, 255, 0.1);
