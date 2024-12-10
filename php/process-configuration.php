@@ -19,5 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $dbh->configureOptionToCustomProduct($customProductId, $option["configurableOptionId"], $_POST["productId"]);
         }
     }
+    $dbh->addProductToCart($customProductId, $email);
+    setFlashMessage("Product added to cart correctly!", MessageType::SUCCESS);
+    header('Location: cart.php');
 }
 ?>
