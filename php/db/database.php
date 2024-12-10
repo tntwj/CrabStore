@@ -131,14 +131,14 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $customProductId, $configurableOptionId);
         $stmt->execute();
-        
+
         $configurableOptionPrice = $this->getConfigurableOption($configurableOptionId)["price"];
         $newConfigPrice = $this->getCustomProduct($customProductId)['configuredPrice'] + $configurableOptionPrice;
         $this->updateConfiguredPrice($customProductId, $newConfigPrice);
     }
 
     private function updateConfiguredPrice($customProductId, $newConfigPrice) {
-        $query = "UPDATE CustomProduct SET configuredPrice = ? WHERE customProductId = ?";
+        $query = "UPDATE CustomProduct SET configuredPrice = ?, finalPrice = configuredPrice WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $newConfigPrice, $customProductId);
         $stmt->execute();
