@@ -24,7 +24,7 @@
                             $colorCode = getColorCode($colorOption["details"]); 
                         ?>
                             <label class="color-circle-wrapper">
-                                <input type="radio" name="<?php echo $configurable["name"]; ?>" value="<?php echo $colorOption["configurableOptionId"]; ?>" class="form-check-input d-none" />
+                                <input type="radio" name="<?php echo $configurable["name"]; ?>" value="<?php echo $colorOption["configurableOptionId"]; ?>" class="form-check-input d-none" required/>
                                 <span class="color-circle" 
                                     style="background-color: <?php echo $colorCode; ?>;"
                                     title="<?php echo $colorOption["details"]; ?>">
@@ -40,7 +40,7 @@
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
                         <?php foreach ($configurable["options"] as $modelOption): ?>
                             <div class="col">
-                                <input type="radio" id="<?php echo $modelOption["configurableOptionId"]; ?>" name="<?php echo $configurable["name"]; ?>" value="<?php echo $modelOption["configurableOptionId"]; ?>" class="form-check-input d-none" />
+                                <input type="radio" id="<?php echo $modelOption["configurableOptionId"]; ?>" name="<?php echo $configurable["name"]; ?>" value="<?php echo $modelOption["configurableOptionId"]; ?>" class="form-check-input d-none" required/>
                                 <label for="<?php echo $modelOption["configurableOptionId"]; ?>" class="card h-100 p-3 border shadow-sm option-card">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <h5 class="card-title mb-1"><?php echo $modelOption["details"]; ?></h5>
