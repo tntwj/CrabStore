@@ -18,7 +18,7 @@
                     <h5 class="mb-3"><?php echo $configurable["name"]; ?> <span class="text-muted"></span></h5>
 
                     <!-- Color Options -->
-                    <?php if($configurable["name"] == "Color Options") { ?>
+                    <?php if($configurable["name"] == "Color") { ?>
                     <div class="d-flex gap-3">
                         <?php foreach ($configurable["options"] as $colorOption): 
                             $colorCode = getColorCode($colorOption["details"]); 
