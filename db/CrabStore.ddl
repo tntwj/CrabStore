@@ -126,7 +126,8 @@ ALTER TABLE CartProduct ADD CONSTRAINT
 
 ALTER TABLE CartProduct ADD CONSTRAINT
     FOREIGN KEY (email)
-    REFERENCES Customer (email);
+    REFERENCES Customer (email)
+    ON DELETE CASCADE;
 
 ALTER TABLE Configurable ADD CONSTRAINT
     FOREIGN KEY (productId)
@@ -150,11 +151,13 @@ ALTER TABLE CustomProduct ADD CONSTRAINT
 
 ALTER TABLE Notification ADD CONSTRAINT
     FOREIGN KEY (email)
-    REFERENCES Customer (email);
+    REFERENCES Customer (email)
+    ON DELETE CASCADE;
 
 ALTER TABLE `Order` ADD CONSTRAINT
     FOREIGN KEY (email)
-    REFERENCES Customer (email);
+    REFERENCES Customer (email)
+    ON DELETE CASCADE;
 
 ALTER TABLE Product ADD CONSTRAINT
     FOREIGN KEY (categoryName)
@@ -162,11 +165,13 @@ ALTER TABLE Product ADD CONSTRAINT
 
 ALTER TABLE Product ADD CONSTRAINT
     FOREIGN KEY (discountId)
-    REFERENCES Discount (discountId);
+    REFERENCES Discount (discountId)
+    ON DELETE SET NULL;
 
 ALTER TABLE OrderProduct ADD CONSTRAINT
     FOREIGN KEY (orderId)
-    REFERENCES `Order` (orderId);
+    REFERENCES `Order` (orderId)
+    ON DELETE CASCADE;
 
 ALTER TABLE OrderProduct ADD CONSTRAINT
     FOREIGN KEY (customProductId)
