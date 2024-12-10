@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST as $key => $value) {
         if ($value !== $_POST["productId"]) {
             $option = $dbh->getConfigurableOption($value);  
-            $dbh->configureOptionToCustomProduct($customProductId, $option["configurableOptionId"], $_POST["productId"]);
+            $dbh->configureOptionToCustomProduct($customProductId, $option["configurableOptionId"]);
         }
     }
     $dbh->addProductToCart($customProductId, $email);

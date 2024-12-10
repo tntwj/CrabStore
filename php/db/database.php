@@ -126,11 +126,12 @@ class DatabaseHelper {
         return $result->fetch_assoc();
     }
 
-    public function configureOptionToCustomProduct($customProductId, $configurableOptionId, $productId) {
+    public function configureOptionToCustomProduct($customProductId, $configurableOptionId) {
         $query = "INSERT INTO configuration (customProductId, configurableOptionId) VALUES (?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $customProductId, $configurableOptionId);
-
+        $stmt->execute();
+        
         $configurableOptionPrice = $this->getConfigurableOption($configurableOptionId)["price"];
         $newConfigPrice = $this->getCustomProduct($customProductId)['configuredPrice'] + $configurableOptionPrice;
         $this->updateConfiguredPrice($customProductId, $newConfigPrice);
