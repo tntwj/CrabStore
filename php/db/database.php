@@ -144,6 +144,14 @@ class DatabaseHelper {
         $stmt->execute();
     }
     
+    public function getProductDiscount($productId) {
+        $query = "SELECT * FROM discount d, product p WHERE d.discountId = p.discountId AND p.productId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $productId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
 
 
     /*************************

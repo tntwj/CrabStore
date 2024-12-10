@@ -31,6 +31,13 @@
                     </div>
                 </div>
                 <p class="mb-0"><strong><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></strong></p>
+                <?php 
+                // If product has discount:
+                if($product["discount"]): 
+                ?>
+                    <p><?php echo "$".$product["discount"]["amount"]; ?></p>
+                    <p class="mb-0"><strong><?php echo "$".$product["finalPrice"] * $product["amount"]; ?></strong></p>
+                <?php endif; ?>
             </li>
             <?php 
             $totalPrice += ($product["finalPrice"] * $product["amount"]); 
