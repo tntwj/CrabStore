@@ -9,7 +9,7 @@ $customPrice = 0;
         <?php foreach($templateParams["order-products"] as $product): ?>
             <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card">
-                    <img src="<?php echo UPLOAD_DIR.$product["images"][0]["imageUrl"]; ?>" 
+                    <img src="<?php echo UPLOAD_DIR."products/".$product["images"][0]["imageUrl"]; ?>" 
                          class="card-img-top" 
                          alt="<?php echo $product["information"]["name"]; ?>">
                     <div class="card-body">

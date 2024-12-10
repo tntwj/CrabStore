@@ -11,7 +11,7 @@
         <?php foreach($templateParams["products-cart"] as $product): ?>
         <li class="list-group-item d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img src="<?php echo UPLOAD_DIR.$product["image"][0]["imageUrl"]; ?>" 
+                <img src="<?php echo UPLOAD_DIR."products/".$product["image"][0]["imageUrl"]; ?>" 
                         alt="<?php echo $product["name"]; ?>" 
                         class="img-thumbnail me-3" 
                         style="width: 100px; height: auto;">

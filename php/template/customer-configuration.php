@@ -3,7 +3,7 @@
     <h3 class="text-center mb-4">Buy <?php echo $templateParams['single-product-details']['name']; ?></h3>
 
     <div class="text-center mb-4">
-        <img src="./upload/categories/<?php echo $templateParams['media']; ?>" 
+        <img src="<?php echo UPLOAD_DIR?>products/<?php echo $templateParams['media']; ?>" 
              alt="<?php echo $templateParams['single-product-details']['name']; ?>" 
              class="img-fluid rounded" style="max-width: 300px;">
     </div>
