@@ -16,6 +16,7 @@ foreach ($cartProducts as &$product) {
     $productId = $product["productId"];
     $product["image"] = $dbh->getProductImages($productId);
     $product["options"] = $dbh->getCustomProductConfigurableOptions($product["customProductId"]);
+    $product["discount"] = $dbh->getProductDiscount($productId);
 }
 
 $templateParams["products-cart"] = $cartProducts;
