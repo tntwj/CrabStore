@@ -20,6 +20,7 @@ foreach ($cartProducts as &$product) {
 }
 
 $templateParams["products-cart"] = $cartProducts;
+$templateParams["scripts"] = ["js/customer-cart.js"];
 
 require_once("template/base.php");
 ?>
