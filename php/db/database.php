@@ -193,7 +193,7 @@ class DatabaseHelper {
         $query = "DELETE FROM customProduct WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $customProductId);
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     /*************************
@@ -385,11 +385,12 @@ class DatabaseHelper {
         return $stmt->insert_id;
     }
 
-    public function removeProductFromCart($customProductId, $email) {
-        $query = "DELETE FROM CartProduct WHERE customProductId = ? AND email = ?";
+    public function removeProductFromCart($customProductId) {
+        $query = "DELETE FROM CartProduct WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("is", $customProductId, $email);
+        $stmt->bind_param("i", $customProductId);
         $result = $stmt->execute();
+        return $result;
     }
 
     /**
