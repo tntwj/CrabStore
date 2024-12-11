@@ -369,11 +369,11 @@ class DatabaseHelper {
     }
 
     // Update the quantity of product in the customer's shopping cart.
-    public function updateQtaOfProductCart($customProductId, $email, $n) {
-        $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ? AND email = ?";
+    public function updateQtaOfProductCart($customProductId, $n) {
+        $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("iis", $n, $customProductId, $email);
-        $result = $stmt->execute();
+        $stmt->bind_param("ii", $n, $customProductId);
+        return $result = $stmt->execute();
     }
     
     public function addProductToCart($customProductId, $email) {

@@ -26,7 +26,7 @@
                         <div class="input-group input-group-sm w-50">
                             <label for="quantity" class="input-group-text">Qty:</label>
                             <input type="number" 
-                                   id="quantity" 
+                                   id="qta-<?php echo $product["customProductId"]; ?>"
                                    name="quantity" 
                                    min="1" max="6" 
                                    step="1" 
