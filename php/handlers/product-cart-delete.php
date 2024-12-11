@@ -9,11 +9,24 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     if (isset($data["customProductId"])) {
         $customProductId = $data["customProductId"];
         if ($dbh->removeProductFromCart($customProductId)) {
-            
+            $options = $dbh->getCustomProductConfigurableOptions($customProductId);
+            foreach ($options as $option) {
+                if (!$dbh->removeConfiguration($customProductId)) {
+                    echo json_encode(['success' => false, 'message' => 'Unable to remove product.']);
+                }
+            }
+            if ($dbh->removeCustomProduct($customProductId)) {
+                echo json_encode(['success' => true]);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Unable to remove product.']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'Unable to remove product.']);
         }
+    } else {
+        echo json_encode(['success' => false, 'message' => 'Product ID missing.']);
     }
+} else {
+    echo json_encode(['success' => false, 'message' => 'Invalid request method.']);
 }
-
-
-
 ?>
