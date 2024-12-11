@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartList = document.getElementById('cart-list');
     if (cartList !== null) {
         cartList.addEventListener("change", async (event) => {
-            if (event.target.classList.contains(input-group-text)) {
+            if (event.target.name === "quantity") {
                 const productItem = event.target.closest("li");
                 const customProductId = productItem.getAttribute("data-product-id");
                 const qta = event.target.value;
                 try {
-                    const response = await fetch("handlers/update-cart-qta.php", {
+                    const response = await fetch("handlers/update-product-qta.php", {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({customProductId: customProductId, quantity: qta})
