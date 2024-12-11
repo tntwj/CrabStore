@@ -184,6 +184,11 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
+    /**
+     * Before use this function, be sure that all associations with custom product are removed.
+     * cart-product and configuration can be removed.
+     * orderProduct cannot be removed.
+    */
     public function removeCustomProduct($customProductId) {
         $query = "DELETE FROM customProduct WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
