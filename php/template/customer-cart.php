@@ -52,7 +52,7 @@
             <?php $totalPrice += ($product["finalPrice"] * $product["amount"]); ?>
         <?php endforeach; ?>
     </ul>
-    <p class="text-end mt-3"><strong>Your bag total is: $<?php echo $totalPrice; ?></strong></p>
+    <p class="text-end mt-3 total"><strong>Your bag total is: $<?php echo $totalPrice; ?></strong></p>
     <form action="payment.php" method="POST" class="text-end">
         <input type="hidden" name="totalPrice" value="<?php echo $totalPrice; ?>">
         <button type="submit" class="btn btn-primary">Checkout</button>
