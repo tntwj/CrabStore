@@ -1,24 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartList = document.getElementById('cart-list');
-    cartList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('remove-product')) {
-            const productItem = event.target.closest('li');
-            const productId = productItem.getAttribute('data-product-id');
-            
-            // Send a request to remove the product from the cart (AJAX or form submission logic needed here)
-            // For demo purposes, just remove the item from the DOM
-            productItem.remove();
-            
-            // Optionally, recalculate the total price dynamically
-            let totalPrice = 0;
-            document.querySelectorAll('#cart-list li').forEach(item => {
-                const totalElement = item.querySelector('.text-end strong:last-child');
-                if (totalElement) {
-                    const productTotal = parseFloat(totalElement.textContent.replace('$', ''));
-                    totalPrice += productTotal;
+    cartList.addEventListener('click', async (event) => {
+        if (event.target.classList.contains("remove-product")) {
+            const productItem = event.target.closest("li");
+            const customProductId = productItem.getAttribute("data-product-id");
+
+            try {
+                const response = await fetch("handlers/product-cart-delete.php", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({customProductId: customProductId})
+                });
+                const result = await response.json;
+                if (result.success) {
+                    productItem.remove();
+                    alert('Product removed successfully!');
+                } else {
+                    alert('Failed to remove the product.');
                 }
-            });
-            document.querySelector('.text-end strong').textContent = `Your bag total is: $${totalPrice.toFixed(2)}`;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while removing the product.');
+            }
         }
     });
 });
