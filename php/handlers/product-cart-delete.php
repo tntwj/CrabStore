@@ -14,8 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             }
             if ($dbh->removeCustomProduct($customProductId)) {
                 echo json_encode(['success' => true]);
-            } else {
-                echo json_encode(['success' => false, 'message' => 'Unable to remove product.']);
             }
         } else {
             echo json_encode(['success' => false, 'message' => 'Unable to remove product.']);
