@@ -1,7 +1,7 @@
 
 <div class="container py-5">
     <h3 class="text-center mb-4">Buy <?php echo $templateParams['single-product-details']['name']; ?></h3>
-
+    <p class="text-center mb-4"><?php echo " (From $" . $templateParams['single-product-details']["price"] . ")"; ?></p>
     <div class="text-center mb-4">
         <img src="<?php echo UPLOAD_DIR?>products/<?php echo $templateParams['media']; ?>" 
              alt="<?php echo $templateParams['single-product-details']['name']; ?>" 
@@ -54,7 +54,6 @@
                 </div>
             <?php endif; ?>
         <?php endforeach; ?>
-        
         <input type = "hidden" name="productId" value="<?php echo $templateParams['single-product-details']['productId']; ?>" />
         <div class="text-center mt-4">
             <button type="submit" class="btn btn-primary btn-lg">Add to Cart</button>
