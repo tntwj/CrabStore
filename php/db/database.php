@@ -177,6 +177,19 @@ class DatabaseHelper {
         return $result->fetch_assoc();
     }
 
+    public function removeConfiguration($customProductId) {
+        $query = "DELETE FROM `configuration` WHERE customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $customProductId);
+        $stmt->execute();
+    }
+
+    public function removeCustomProduct($customProductId) {
+        $query = "DELETE FROM customProduct WHERE customProductId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $customProductId);
+        $stmt->execute();
+    }
 
     /*************************
      * NOTIFICATIONS QUERIES *
