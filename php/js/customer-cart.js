@@ -9,18 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch("handlers/product-cart-delete.php", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({customProductId: customProductId})
+                    body: JSON.stringify({customProductId: customProductId}), 
                 });
-                const result = await response.json;
+                const result = await response.json();
                 if (result.success) {
                     productItem.remove();
                     alert('Product removed successfully!');
                 } else {
-                    alert('Failed to remove the product.');
+                    alert(result.message);
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred while removing the product.');
+                alert(error.message);
             }
         }
     });
