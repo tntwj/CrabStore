@@ -9,7 +9,7 @@
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid d-flex">
-            <a class="navbar-brand" href="index.php"><img src="./upload/logo/crabapple.png" width="30" alt="brand logo"></a>
+            <a class="navbar-brand" href="index.php"><img src="./upload/logo/crabapple.png" width="32" alt="brand logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -75,18 +75,15 @@
         </aside>
     <?php endif; ?>
 
-    <footer class="mt-3 py-3 bg-dark text-center">
-        <div class="container-fluid justify-content-center text-secondary">
-            <p>CrabApple offers a free 1 day shipping for all items. Once bought, the order can't be cancelled.<br/>
-            For any inconvenience or question you can call our 0h call service at the following number +99 000 000 0000.</p>
-            <p>Unless otherwise indicated, all the names or products in this site are complete productions of Crabapple Inc.<br/>
-            Any resemblance to products or names of another hypothetical company is purely coincidental.<br/>
-            CrabApple is in no way responsible for any legal repercussions for any of the coincidences written above.</p>
-            <div class="mb-3">
-                <a href="about.php" class="text-light text-decoration-none">About Us</a>
-            </div>
-            <p>Copyright © 2024 Crabapple Inc. All rights reserved.</p>
+    <footer class="mt-3 py-4 bg-dark text-center">
+    <div class="container-fluid justify-content-center text-secondary">
+        <p>Any resemblance to products or names of another hypothetical company is purely coincidental.</p>
+        <p>This website does not use cookies or track user data.</p>
+        <div class="mb-3">
+            <a href="about.php" class="text-light text-decoration-none">About Us</a>
         </div>
+        <p>Copyright © 2024 Crabapple Inc. All rights reserved.</p>
+    </div>
     </footer>
     <?php if (!empty($templateParams["scripts"])): ?>
         <?php foreach ($templateParams["scripts"] as $script): ?>
