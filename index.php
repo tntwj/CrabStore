@@ -5,7 +5,7 @@ $templateParams["title"] = "CrabStore - Home";
 
 if (isUserLoggedIn() && isset($_SESSION[SessionKey::CUSTOMER_EMAIL])) {
     $accountDetails = $dbh->getCustomerDetails($_SESSION[SessionKey::CUSTOMER_EMAIL]);
-    $templateParams["first-name"] = $accountDetails[0]["firstName"];
+    $templateParams["first-name"] = $accountDetails["firstName"];
 }
 
 $templateParams["upcoming-products"] = $dbh->getThreeUpcomingProducts();

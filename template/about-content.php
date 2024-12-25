@@ -1,6 +1,6 @@
 <header class="row justify-content-center align-items-center py-4 bg-secondary-subtle">
     <div class="col-auto">
-        <img src="./upload/logo/crabapple.png" alt="crabapple logo" width="50"/>
+        <img src="./upload/logo/crabapple.png" alt="crabapple logo" width="64" />
     </div>
     <div class="col-auto text-center">
         <h1 class="fw-bold text-uppercase">CrabApple</h1>

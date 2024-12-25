@@ -1,5 +1,5 @@
 <?php
-    $accountDetails = $templateParams["account-details"][0];
+    $accountDetails = $templateParams["account-details"];
     $totalOrders = $templateParams["total-orders"];
 ?>
 <div class="container mt-4">
@@ -14,8 +14,8 @@
                     <p><span class="fw-bold">Joined On: </span><?php echo $accountDetails["joinDate"]; ?></p>
                     <p><span class="fw-bold">Total Orders Made: </span><?php echo $totalOrders; ?></p>
                     <div class="d-flex justify-content-center gap-2">
-                        <button class="btn btn-primary" id="btnChangeDetails">Change Details</button>
-                        <button class="btn btn-primary" id="btnChangePassword">Change Password</button>
+                        <button class="btn btn-primary change-details-button">Change Details</button>
+                        <button class="btn btn-primary change-password-button">Change Password</button>
                     </div>
                 </div>
             </div>
