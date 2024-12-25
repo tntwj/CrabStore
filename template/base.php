@@ -75,7 +75,7 @@
         </aside>
     <?php endif; ?>
 
-    <footer class="mt-3 py-4 bg-dark text-center">
+    <footer class="mt-3 py-3 bg-dark text-center">
         <div class="container-fluid justify-content-center text-secondary">
             <p>CrabApple offers a free 1 day shipping for all items. Once bought, the order can't be cancelled.<br/>
             For any inconvenience or question you can call our 0h call service at the following number +99 000 000 0000.</p>
