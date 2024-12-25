@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php echo $templateParams["title"]; ?></title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 </head>
 <body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -26,7 +26,6 @@
             <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount">🛍️</button>
         </div>
     </nav>
-
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAccount">
         <div class="offcanvas-header">
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
@@ -64,7 +63,6 @@
             </nav>
         </div>
     </div>
-
     <?php displayFlashMessage(); ?>
     <main class="flex-fill overflow-hidden">
         <?php require($templateParams["main-content"]); ?>
@@ -74,7 +72,6 @@
             <?php require($templateParams["aside-content"]); ?>
         </aside>
     <?php endif; ?>
-
     <footer class="mt-3 py-4 bg-dark text-center">
     <div class="container-fluid justify-content-center text-secondary">
         <p>This website does not use cookies or track user data.</p>
