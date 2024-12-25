@@ -77,12 +77,11 @@
 
     <footer class="mt-3 py-4 bg-dark text-center">
     <div class="container-fluid justify-content-center text-secondary">
-        <p>Any resemblance to products or names of another hypothetical company is purely coincidental.</p>
         <p>This website does not use cookies or track user data.</p>
         <div class="mb-3">
             <a href="about.php" class="text-light text-decoration-none">About Us</a>
         </div>
-        <p>Copyright © 2024 Crabapple Inc. All rights reserved.</p>
+        <p>Copyright © <?php echo date("Y"); ?> Crabapple Inc. All rights reserved.</p>
     </div>
     </footer>
     <?php if (!empty($templateParams["scripts"])): ?>
