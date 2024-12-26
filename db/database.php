@@ -24,6 +24,17 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    // Returns the category details.
+    public function getCategoryDetails($category) {
+        $query = "SELECT categoryName, description, icon FROM category WHERE categoryName = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc();
+    }
+
     // Returns products of a set category.
     public function getProductsOfCategory($category) {
         $query = "SELECT productId, name, P.shortDescription, P.description, price, releaseDate, productStatus, specSheet, P.video, P.categoryName, discountId FROM product P, category C WHERE P.categoryName = C.categoryName ANd P.categoryName = ?";
@@ -36,10 +47,10 @@ class DatabaseHelper {
     }
 
     // Returns the images related to a product in order of priority
-    public function getProductImages($productId) {
-        $query = "SELECT priority, imageUrl FROM productimageusage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC";
+    public function getProductImages($productId, $limit = 3) {
+        $query = "SELECT priority, imageUrl FROM productimageusage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC LIMIT ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->bind_param("ii", $productId, $limit); // bind $productId as a integer
         $stmt->execute();
         $result = $stmt->get_result();
 

@@ -15,12 +15,12 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="collapsibleNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabMac">CrabBooks</a></li>
-                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPhone">CrabPhones</a></li>
-                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPad">CrabPads</a></li>
-                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabWatch">CrabWatch</a></li>
-                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="view-list-products.php?page=CrabPods">CrabPods</a></li>
-                    <li class="nav-item"><a class="nav-link p-2 my-1" href="view-list-products.php?page=Accessories">Accessories</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="product-category.php?category=CrabMac">CrabMacs</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="product-category.php?category=CrabPhone">CrabPhones</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="product-category.php?category=CrabPad">CrabPads</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="product-category.php?category=CrabWatch">CrabWatch</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 mt-1" href="product-category.php?category=CrabPods">CrabPods</a></li>
+                    <li class="nav-item"><a class="nav-link p-2 my-1" href="product-category.php?category=Accessories">Accessories</a></li>
                 </ul>
             </div>
             <button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAccount">🛍️</button>
