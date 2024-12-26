@@ -4,9 +4,9 @@ $category = isset($_GET["category"]) ? $_GET["category"] : "";
 
 $products = $dbh->getProductsOfCategory($category);
 
-foreach ($products as &$product) {
+foreach ($products as $key => $product) {
     $images = $dbh->getProductImages($product["productId"], 1)[0]["imageUrl"];
-    $product["image"] = isset($images[0]) ? UPLOAD_DIR . "products/" . $images : 'path/to/default-image.jpg'; 
+    $products[$key]["image"] = UPLOAD_DIR . "products/" . $images; 
 }
 
 $templateParams["title"] = "CrabStore - " . $category;
