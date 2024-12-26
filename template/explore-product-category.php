@@ -21,8 +21,8 @@
                             <div class="card-body d-flex flex-column">
                                 <h2 class="card-title"><?php echo $product["name"]; ?></h2>
                                 <p class="card-text"><?php echo $product["shortDescription"]; ?></p>
-                                <!-- mt-auto to pushes the button to the bottom -->
-                                <a href="product.php?productId=<?php echo $product['productId']; ?>" class="btn btn-primary mt-auto">View Product</a>
+                                <!-- mt-auto pushes the button to the bottom -->
+                                <a href="product.php?id=<?php echo $product["productId"]; ?>" class="btn btn-primary mt-auto">View Product</a>
                             </div>
                         </div>
                     </div>

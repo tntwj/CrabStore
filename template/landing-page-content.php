@@ -4,7 +4,7 @@
     <h1 class="display-1 text-center m-3">Welcome to CrabStore!</h1>
 <?php endif; ?>
 <section class="container">
-    <div class="container bg-secondary-subtle d-flex justify-content-center mb-3 p-2 rounded-pill">
+    <div class="container bg-secondary-subtle d-flex justify-content-center mb-3 p-2">
         <h2 class="text-center py-3">Check out our newest products!<br />Get them now!</h2>
     </div>
     <div id="upcomingProductsCarousel" class="carousel carousel-dark slide mx-auto" data-bs-ride="carousel">
@@ -19,8 +19,8 @@
                 <div class="carousel-item<?php echo $setActive ? ' active' : ''; ?>" data-bs-interval="5000">
                     <h3 class="display-6 text-center mb-2"><?php echo $product["name"]; ?></h2>
                     <p class="lead text-center mb-3"><?php echo $product["shortDescription"]; ?></p>
-                    <p class="h4 text-center text-primary"><?php echo "Starting at: $" . $product["price"]; ?></p>
-                    <a href="product.php?product=<?php echo $product["productId"]?>">
+                    <p class="h4 text-center text-primary"><?php echo "Starting at " . $product["price"] . "€"; ?></p>
+                    <a href="product.php?id=<?php echo $product["productId"]?>">
                         <img src="upload/products/<?php echo $product["imageUrl"]; ?>" class="d-block w-100" alt="<?php echo $product["name"]?>">
                     </a>
                 </div>

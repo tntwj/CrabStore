@@ -1,13 +1,19 @@
 <?php
 require_once("bootstrap.php");
-$productId = isset($_GET['product']) ? $_GET['product'] : "";
-$templateParams['product-category'] = isset($_GET['category']) ? $_GET['category'] : "";
-$templateParams['media'] = isset($_GET['media']) ? $_GET['media'] : "";
+$productId = isset($_GET["id"]) ? $_GET["id"] : "";
 
 $product = $dbh->getProductInformation($productId);
-$templateParams["title"] = "Product page";
+$images = $dbh->getProductImages($productId, 3);
+
+if (!empty($images)) {
+    $product["images"] = array_map(function($image) {
+        return UPLOAD_DIR . "products/" . $image["imageUrl"];
+    }, $images);
+}
+
+$templateParams["title"] = $product["name"];
 $templateParams["main-content"] = "template/product-page.php";
-$templateParams["single-product-details"] = $product;
+$templateParams["product-details"] = $product;
 
 require_once("template/base.php");
 ?>

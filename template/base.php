@@ -51,7 +51,7 @@
                     <span class="text-dark">Cart</span>
                 </a>
                 <a class="nav-link d-flex align-items-center" href="orders.php">
-                    <img src="./upload/ui-icons/orders.png" width="48" alt="order notepad icon" class="me-2"/>
+                    <img src="./upload/ui-icons/orders.png" width="48" alt="orders icon" class="me-2"/>
                     <span class="text-dark">Orders</span>
                 </a>
                 <?php if (isUserLoggedIn()) { ?>
