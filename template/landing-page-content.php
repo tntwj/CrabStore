@@ -1,11 +1,12 @@
 <?php if (!empty($templateParams["first-name"])): ?>
-    <h1 class="display-1 text-center my-3">Welcome back, <?php echo $templateParams["first-name"]; ?>!</h1>
+    <h1 class="display-1 text-center m-3">Welcome back, <?php echo $templateParams["first-name"]; ?>!</h1>
 <?php else: ?>
-    <h1 class="display-1 text-center my-3">Welcome to CrabStore!</h1>
+    <h1 class="display-1 text-center m-3">Welcome to CrabStore!</h1>
 <?php endif; ?>
-
-<section>
-    <h2 class="text-center mb-5">Check out our upcoming products! Pre-order now!</h2>
+<section class="container">
+    <div class="container bg-secondary-subtle d-flex justify-content-center mb-3 p-2 rounded-pill">
+        <h2 class="text-center py-3">Check out our newest products!<br />Get them now!</h2>
+    </div>
     <div id="upcomingProductsCarousel" class="carousel carousel-dark slide mx-auto" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#upcomingProductsCarousel" data-bs-slide-to="0" class="active"></button>
@@ -20,7 +21,7 @@
                     <p class="lead text-center mb-3"><?php echo $product["shortDescription"]; ?></p>
                     <p class="h4 text-center text-primary"><?php echo "Starting at: $" . $product["price"]; ?></p>
                     <a href="view-product.php?product=<?php echo $product["productId"]?>">
-                        <img src="upload/products/<?php echo $product["imageUrl"]; ?>" class="d-block w-100" alt="Picture of a <?php echo $product["name"]?>">
+                        <img src="upload/products/<?php echo $product["imageUrl"]; ?>" class="d-block w-100" alt="<?php echo $product["name"]?>">
                     </a>
                 </div>
                 <?php $setActive = false; ?>
@@ -45,7 +46,7 @@
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"The CrabPhone 14 is amazing! It's fast, sleek, and has an incredible camera. I can't recommend it enough!"</p>
-                        <footer class="blockquote-footer">Jane Doe, <cite title="Source">Verified Customer</cite></footer>
+                        <footer class="blockquote-footer">Jane Doe, <cite title="Jane Doe">Verified Customer</cite></footer>
                     </blockquote>
                 </div>
             </div>
@@ -55,7 +56,7 @@
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"I love my CrabPad! It's the perfect size for work and play. Plus, it's lightweight and easy to carry around."</p>
-                        <footer class="blockquote-footer">John Smith, <cite title="Source">Verified Customer</cite></footer>
+                        <footer class="blockquote-footer">John Smith, <cite title="John Smith">Verified Customer</cite></footer>
                     </blockquote>
                 </div>
             </div>
@@ -65,7 +66,7 @@
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"CrabWatch Series 7 is a game-changer. It tracks my workouts and keeps me connected, all in one sleek design!"</p>
-                        <footer class="blockquote-footer">Sarah Lee, <cite title="Source">Verified Customer</cite></footer>
+                        <footer class="blockquote-footer">Sarah Lee, <cite title="Sarah Lee">Verified Customer</cite></footer>
                     </blockquote>
                 </div>
             </div>

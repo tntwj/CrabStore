@@ -9,11 +9,11 @@ div.offcanvas-body > nav > a:hover {
 
 /* Landing page carousel */
 span.carousel-control-prev-icon {
-    background-image: url('./../php/upload/ui-icons/previous.png');
+    background-image: url('./../upload/ui-icons/previous.png');
 }
 
 span.carousel-control-next-icon {
-    background-image: url('./../php/upload/ui-icons/next.png');
+    background-image: url('./../upload/ui-icons/next.png');
 }
 
 div.carousel-indicators {
