@@ -14,9 +14,9 @@ $product = $templateParams["product-details"];
                     </div>
                     <div class="carousel-inner">
                         <?php foreach ($product["images"] as $index => $image): ?>
-                            <div class="carousel-item <?php echo $index === 0 ? "active" : ""; ?>">
-                                <img src="<?php echo $image; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]; ?>">
-                            </div>
+                        <div class="carousel-item <?php echo $index === 0 ? "active" : ""; ?>">
+                            <img src="<?php echo $image; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]; ?>">
+                        </div>
                         <?php endforeach; ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
@@ -54,21 +54,21 @@ $product = $templateParams["product-details"];
                     <h2 class="card-header">Specification Table</h2>
                     <ul class="list-group list-group-flush">
                         <?php 
-                            $data = json_decode($product["specSheet"], true);
-                            foreach ($data as $key => $info): 
+                        $data = json_decode($product["specSheet"], true);
+                        foreach ($data as $key => $info): 
                         ?>
-                            <li class="list-group-item">
-                                <?php 
-                                    echo $key.": ";
-                                    if (is_array($info)) {
-                                        foreach ($info as $value) {
-                                            echo '| '.$value.' ';
-                                        }                                
-                                    } else {
-                                        echo ($info);
-                                    }
-                                ?>
-                            </li>
+                        <li class="list-group-item">
+                            <?php 
+                            echo $key . ": ";
+                            if (is_array($info)) {
+                                foreach ($info as $value) {
+                                    echo "| " . $value . " ";
+                                }                                
+                            } else {
+                                echo ($info);
+                            }
+                            ?>
+                        </li>
                         <?php endforeach ?> 
                     </ul>
                 </div>

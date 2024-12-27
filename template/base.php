@@ -33,10 +33,10 @@
         <div class="offcanvas-body p-0">
             <nav class="nav flex-column">
                 <?php if (!isUserLoggedIn()): ?>
-                    <a class="nav-link d-flex align-items-center" href="login.php">
-                        <img src="./upload/ui-icons/sign-in.png" width="48" alt="sign-in icon" class="me-2"/>
-                        <span class="text-dark">Sign in</span>
-                    </a>
+                <a class="nav-link d-flex align-items-center" href="login.php">
+                    <img src="./upload/ui-icons/sign-in.png" width="48" alt="sign-in icon" class="me-2"/>
+                    <span class="text-dark">Sign in</span>
+                </a>
                 <?php endif; ?>
                 <a class="nav-link d-flex align-items-center" href="account.php">
                     <img src="./upload/ui-icons/user.png" width="48" alt="account icon" class="me-2"/>
@@ -55,10 +55,10 @@
                     <span class="text-dark">Orders</span>
                 </a>
                 <?php if (isUserLoggedIn()): ?>
-                    <a class="nav-link d-flex align-items-center" href="logout-handler.php">
-                        <img src="./upload/ui-icons/logout.png" width="48" alt="logout icon" class="me-2"/>
-                        <span class="text-dark">Logout</span>
-                    </a>
+                <a class="nav-link d-flex align-items-center" href="logout-handler.php">
+                    <img src="./upload/ui-icons/logout.png" width="48" alt="logout icon" class="me-2"/>
+                    <span class="text-dark">Logout</span>
+                </a>
                 <?php endif; ?>
             </nav>
         </div>
@@ -68,9 +68,9 @@
         <?php require($templateParams["main-content"]); ?>
     </main>
     <?php if (!empty($templateParams["aside-content"])): ?>
-        <aside>
-            <?php require($templateParams["aside-content"]); ?>
-        </aside>
+    <aside>
+    <?php require($templateParams["aside-content"]); ?>
+    </aside>
     <?php endif; ?>
     <footer class="mt-3 py-4 bg-dark text-center">
     <div class="container-fluid justify-content-center text-secondary">
@@ -82,9 +82,9 @@
     </div>
     </footer>
     <?php if (!empty($templateParams["scripts"])): ?>
-        <?php foreach ($templateParams["scripts"] as $script): ?>
-            <script src="<?php echo $script; ?>"></script>
-        <?php endforeach; ?>
+    <?php foreach ($templateParams["scripts"] as $script): ?>
+    <script src="<?php echo $script; ?>"></script>
+    <?php endforeach; ?>
     <?php endif; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

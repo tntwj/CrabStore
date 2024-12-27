@@ -2,7 +2,7 @@
     $accountDetails = $templateParams["account-details"];
     $totalOrders = $templateParams["total-orders"];
 ?>
-<div class="container mt-4">
+<section class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
             <div class="card shadow border">
@@ -21,4 +21,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>
