@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h2 class="modal-title">Change Details</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <form class="change-details-form" method="POST" action="handlers/update-details.php">
+                    <form class="change-details-form" method="POST" action="update-details.php">
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         <h2 class="modal-title">Change Password</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
-                    <form class="change-password-form" method="POST" action="handlers/update-password.php">
+                    <form class="change-password-form" method="POST" action="update-password.php">
                         <div class="modal-body">
                             <div class="mb-2">
                                 <label for="currentPassword" class="form-label">Current Password</label>

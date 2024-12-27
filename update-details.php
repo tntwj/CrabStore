@@ -1,5 +1,5 @@
 <?php
-require_once("./../bootstrap.php");
+require_once("bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
 
     if (!empty($errors)) {
         setFlashMessage("Errors: " . implode(" ", $errors), MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
 
@@ -33,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
         } else {
             setFlashMessage("We were unable to change your personal details.", MessageType::FAIL);
         }
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     } catch (Exception $e) {
         setFlashMessage("Something went wrong during the personal details update process.", MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
 } else {
     setFlashMessage("Invalid session or request.", MessageType::FAIL);
-    header("Location: ./../account.php");
+    header("Location: account.php");
     exit();
 }
 ?>

@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const customProductId = productItem.getAttribute("data-product-id");
     
                 try {
-                    const response = await fetch("handlers/product-cart-delete.php", {
+                    const response = await fetch("product-cart-delete.php", {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({customProductId: customProductId}), 
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const customProductId = productItem.getAttribute("data-product-id");
                 const qta = event.target.value;
                 try {
-                    const response = await fetch("handlers/update-product-qta.php", {
+                    const response = await fetch("update-product-qta.php", {
                         method: "POST",
                         headers: {"Content-Type": "application/json"},
                         body: JSON.stringify({customProductId: customProductId, quantity: qta})

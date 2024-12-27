@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            fetch("handlers/notification-mark.php", {
+            fetch("notification-mark.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
 
-            fetch("handlers/notification-delete.php", {
+            fetch("notification-delete.php", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

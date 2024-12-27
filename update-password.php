@@ -1,5 +1,5 @@
 <?php
-require_once("./../bootstrap.php");
+require_once("bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
@@ -9,34 +9,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
 
     if (!$currentPassword || !$newPassword || !$confirmPassword) {
         setFlashMessage("All fields are required.", MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
 
     if ($newPassword !== $confirmPassword) {
         setFlashMessage("New password and confirm password do not match.", MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
-
-    /*
-    If we are going to use this might as well be consistent on the js side validation too.
-
-    if (!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $newPassword)) {
-        setFlashMessage(
-            "Password must be at least 8 characters long and contain both letters and numbers.",
-            MessageType::FAIL
-        );
-        header("Location: ./../account.php");
-        exit();
-    }
-    */
 
     $storedHashedPassword = $dbh->getCustomerPasswordByEmail($email);
 
     if (!password_verify($currentPassword, $storedHashedPassword)) {
         setFlashMessage("Current password is incorrect.", MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
 
@@ -48,16 +35,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
         } else {
             setFlashMessage("We were unable to update your password.", MessageType::FAIL);
         }
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     } catch (Exception $e) {
         setFlashMessage("Something went wrong during the password update process.", MessageType::FAIL);
-        header("Location: ./../account.php");
+        header("Location: account.php");
         exit();
     }
 } else {
     setFlashMessage("Invalid session or request.", MessageType::FAIL);
-    header("Location: ./../account.php");
+    header("Location: account.php");
     exit();
 }
 ?>

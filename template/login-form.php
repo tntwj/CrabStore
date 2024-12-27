@@ -1,6 +1,6 @@
 <div class="container d-flex flex-column align-items-center mt-3">
     <h1>Sign in to CrabStore</h1>
-    <form action="<?php echo HANDLERS_DIR;?>login-handler.php" method="post">
+    <form action="login-handler.php" method="post">
         <div class="my-3">
             <label for="email">Email:</label>
             <input type="email" class="form-control" placeholder="Enter email" name="email">

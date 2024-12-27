@@ -32,12 +32,12 @@
         </div>
         <div class="offcanvas-body p-0">
             <nav class="nav flex-column">
-                <?php if (!isUserLoggedIn()) { ?>
+                <?php if (!isUserLoggedIn()): ?>
                     <a class="nav-link d-flex align-items-center" href="login.php">
                         <img src="./upload/ui-icons/sign-in.png" width="48" alt="sign-in icon" class="me-2"/>
                         <span class="text-dark">Sign in</span>
                     </a>
-                <?php } ?>
+                <?php endif; ?>
                 <a class="nav-link d-flex align-items-center" href="account.php">
                     <img src="./upload/ui-icons/user.png" width="48" alt="account icon" class="me-2"/>
                     <span class="text-dark">Account</span>
@@ -54,12 +54,12 @@
                     <img src="./upload/ui-icons/orders.png" width="48" alt="orders icon" class="me-2"/>
                     <span class="text-dark">Orders</span>
                 </a>
-                <?php if (isUserLoggedIn()) { ?>
-                    <a class="nav-link d-flex align-items-center" href="<?php echo HANDLERS_DIR . 'logout-handler.php'; ?>">
+                <?php if (isUserLoggedIn()): ?>
+                    <a class="nav-link d-flex align-items-center" href="logout-handler.php">
                         <img src="./upload/ui-icons/logout.png" width="48" alt="logout icon" class="me-2"/>
                         <span class="text-dark">Logout</span>
                     </a>
-                <?php } ?>
+                <?php endif; ?>
             </nav>
         </div>
     </div>
