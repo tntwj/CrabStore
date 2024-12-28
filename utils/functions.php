@@ -54,3 +54,25 @@ function getColorCode($colorName) {
     ];
     return $colorMap[$colorName] ?? "#CCCCCC";
 }
+
+function getBadgeClass($status) {
+    switch ($status) {
+        case "Ordered":
+            return "badge bg-primary";
+        case "Delivered":
+            return "badge bg-success";
+        case "In Transit":
+            return "badge bg-warning";
+        default:
+            return "badge bg-dark";
+    }
+}
+
+function formatPrice($price) {
+    return number_format($price, 2, ",", ".") . "€"; 
+}
+
+function formatDate($date) {
+    $formatter = new DateTime($date);
+    return $formatter->format("F j, Y g:i A");
+}

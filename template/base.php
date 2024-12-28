@@ -74,7 +74,7 @@
     <?php endif; ?>
     <footer class="mt-3 py-4 bg-dark text-center">
     <div class="container-fluid justify-content-center text-secondary">
-        <p>This website does not use cookies or track user data.</p>
+        <p>This website neither uses cookies nor tracks user data.</p>
         <div class="mb-3">
             <a href="about.php" class="text-light text-decoration-none">About Us</a>
         </div>

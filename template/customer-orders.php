@@ -9,36 +9,18 @@
                             <h2 class="card-title">Order #<?php echo $order["orderId"]; ?></h2>
                             <p class="card-text">
                                 <span class="fw-bold">Status:</span>
-                                <?php 
-                                    $statusClass = "";
-                                    switch ($order["orderStatus"]) {
-                                        case "Ordered":
-                                            $statusClass = "badge bg-primary";
-                                            break;
-                                        case "Delivered":
-                                            $statusClass = "badge bg-success";
-                                            break;
-                                        case "In Transit":
-                                            $statusClass = "badge bg-warning";
-                                            break;
-                                    }
-                                ?>
-                                <span class="<?php echo $statusClass; ?>"><?php echo $order["orderStatus"]; ?></span>
+                                <span class="<?php echo getBadgeClass($order["orderStatus"]); ?>"><?php echo $order["orderStatus"]; ?></span>
                             </p>
                             <p class="card-text">
                                 <span class="fw-bold">Order Date:</span> 
-                                <?php
-                                    $orderDate = new DateTime($order["orderDate"]);
-                                    echo $orderDate->format('F j, Y g:i A');
-                                ?>
+                                <?php echo formatDate($order["orderDate"]); ?>
                             </p>
                             <p class="card-text">
                                 <span class="fw-bold">Delivery Date:</span> 
                                 <?php
                                     $deliveryDate = $order["deliveryDate"];
                                     if ($deliveryDate) {
-                                        $deliveryDate = new DateTime();
-                                        echo $deliveryDate->format('F j, Y g:i A');
+                                        echo formatDate($deliveryDate);
                                     } else {
                                         echo "Yet to arrive";
                                     }

@@ -1,28 +1,27 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["title"] = "CrabStore - Order";
-$templateParams["main-content"] = "template/order-detail.php";
-if (isUserLoggedIn()) {
+if (isUserLoggedIn() && isset($_GET["id"])) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
     setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
-    header('Location: login.php');
+    header("Location: login.php");
     exit();
 }
-if (isset($_GET["id"])) {
-    $orderId = $_GET["id"];
-}
+
+$orderId = $_GET["id"];
 $products = $dbh->getOrderProducts($orderId);
 $order = $dbh->getOrder($orderId);
 
-foreach ($products as &$product) {
+foreach ($products as $index => $product) {
     $productId = $product["productId"];
-    $product["images"] = $dbh->getProductImages($productId);
-    $product["information"] = $dbh->getProductInformation($productId);
-    $product["options"] = $dbh->getCustomProductConfiguredOptions($product["customProductId"]);
+    $products[$index]["image"] = UPLOAD_DIR . "products/" . $dbh->getProductImages($productId, 1)[0]["imageUrl"];
+    $products[$index]["information"] = $dbh->getProductInformation($productId);
+    $products[$index]["options"] = $dbh->getCustomProductConfiguredOptions($product["customProductId"]);
 }
 
+$templateParams["title"] = "CrabStore - Order #" . $order["orderId"];
+$templateParams["main-content"] = "template/order-detail.php";
 $templateParams["order"] = $order;
 $templateParams["order-products"] = $products;
 

@@ -359,7 +359,7 @@ class DatabaseHelper {
     public function getOrderProducts($orderId) {
         $query = "SELECT cp.finalPrice, op.amount, cp.productId, cp.customProductId
                 FROM `order` o, orderproduct op, customproduct cp
-                WHERE o.orderId=op.orderId AND cp.customProductId=op.customProductId AND o.orderId = ?";
+                WHERE o.orderId = op.orderId AND cp.customProductId = op.customProductId AND o.orderId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $orderId); 
         $stmt->execute();
@@ -405,8 +405,7 @@ class DatabaseHelper {
     }
 
     /**
-     * Create an order.
-     * Return orderId created.
+     * Create an order and returns the id used.
      */
     public function addOrder($email) {
         $query = "INSERT INTO `order` (orderStatus, orderDate, deliveryDate, email)
@@ -426,10 +425,9 @@ class DatabaseHelper {
     }
 
     /**
-     * Remove all the products from the cart.
-     * Return all the products of the cart.
+     * Remove all the products from the cart and returns them.
      */
-    public function switchProductsFromCartToOrder($email) {
+    public function popCartProducts($email) {
         $query = "SELECT customProductId, amount FROM cartProduct cp, customer c WHERE cp.email = c.email AND c.email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); 
