@@ -4,7 +4,7 @@
         <?php foreach($templateParams["orders"] as $order): ?>
             <div class="col-12 col-md-6 col-lg-4">
                 <a href="order.php?id=<?php echo $order["orderId"]; ?>" class="text-decoration-none d-block">
-                    <div class="card h-100 order-card">
+                    <div class="card h-100 order-card shadow">
                         <div class="card-body">
                             <h2 class="card-title">Order #<?php echo $order["orderId"]; ?></h2>
                             <p class="card-text">

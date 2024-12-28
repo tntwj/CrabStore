@@ -13,14 +13,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["productId"])) {
         $customProductId = $dbh->configureCustomProduct($_POST["productId"]);
     }
+
     foreach ($_POST as $key => $value) {
-        if ($value !== $_POST["productId"]) {
-            $option = $dbh->getConfigurableOption($value);  
-            $dbh->configureOptionToCustomProduct($customProductId, $option["configurableOptionId"]);
+        if ($key === "productId") {
+            continue;
+        }
+        // Match keys with "config_" prefix
+        if (preg_match('/^config_(\d+)$/', $key, $matches)) {
+            $configurableId = $matches[1]; // Extract the configurable id
+            $dbh->configureOptionToCustomProduct($customProductId, $value);
         }
     }
     $dbh->addProductToCart($customProductId, $email);
-    setFlashMessage("Product added to your cart!", MessageType::SUCCESS);
     header("Location: cart.php");
 }
 ?>

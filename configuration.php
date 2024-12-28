@@ -21,5 +21,6 @@ foreach($templateParams["product-configurables"] as $index => $configurable) {
     $templateParams["product-configurables"][$index]["icon"] = UPLOAD_DIR . "configurable-icons/" . $configurable["icon"];
     $templateParams["product-configurables"][$index]["options"] = $dbh->getConfigurableOptions($configurable["configurableId"]);
 }
+
 require_once("template/base.php");
 ?>
