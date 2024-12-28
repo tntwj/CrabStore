@@ -20,7 +20,7 @@ foreach ($products as &$product) {
     $productId = $product["productId"];
     $product["images"] = $dbh->getProductImages($productId);
     $product["information"] = $dbh->getProductInformation($productId);
-    $product["options"] = $dbh->getCustomProductConfigurableOptions($product["customProductId"]);
+    $product["options"] = $dbh->getCustomProductConfiguredOptions($product["customProductId"]);
 }
 
 $templateParams["order"] = $order;

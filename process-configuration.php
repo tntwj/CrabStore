@@ -5,11 +5,11 @@ if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
     setFlashMessage("Something went wrong, please login.", MessageType::FAIL);
-    header('Location: login.php');
+    header("Location: login.php");
     exit();
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST["productId"])) {
         $customProductId = $dbh->configureCustomProduct($_POST["productId"]);
     }
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     $dbh->addProductToCart($customProductId, $email);
-    setFlashMessage("Product added to cart correctly!", MessageType::SUCCESS);
-    header('Location: cart.php');
+    setFlashMessage("Product added to your cart!", MessageType::SUCCESS);
+    header("Location: cart.php");
 }
 ?>

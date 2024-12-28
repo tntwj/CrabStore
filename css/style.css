@@ -77,3 +77,12 @@ input[type="radio"]:checked + .color-circle {
 .color-circle-wrapper:hover .color-circle {
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
+
+/* Cart page*/
+.quantity-selector {
+    max-width: 50px;
+}
+
+.cart-thumbnail {
+    max-width: 120px !important;
+}

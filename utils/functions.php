@@ -52,22 +52,5 @@ function getColorCode($colorName) {
         "Midnight Green" => "#004953",
         "Silver" => "#C0C0C0"
     ];
-
     return $colorMap[$colorName] ?? "#CCCCCC";
 }
-
-/**
- * @param configOptions is an array associative, which contains all configurables options of a configurable
- * @param optionDetails is a string represent a option
- *  Return configurableOptionId.
- */
-function getConfigOptionId($configOptions, $optionDetails) {
-    foreach ($configOptions as $option) {
-        if ($option["details"] == $optionDetails) {
-            return $option["configurableOptionId"];
-        }
-    }
-    return -1;  //Return -1 if option id is not found.
-}
-
-?>

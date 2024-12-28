@@ -13,7 +13,7 @@ $action = $data["action"] ?? null;
 $notificationId = $data["id"] ?? null;
 
 if (!$notificationId || !is_numeric($notificationId)) {
-    echo json_encode(["success" => false, "error" => "Invalid notification ID"]);
+    echo json_encode(["success" => false, "error" => "Invalid notification id"]);
     exit();
 }
 

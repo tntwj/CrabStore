@@ -110,8 +110,8 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns the configurable options of a custom product configured.
-    public function getCustomProductConfigurableOptions($customProductId) {
+    // Returns the selected options of a configured product.
+    public function getCustomProductConfiguredOptions($customProductId) {
         $query = "SELECT co.isDefault, co.details, co.price, configurable.name
                     FROM customproduct cp, configuration c, configurableoption co, configurable
                     WHERE cp.customProductId=c.customProductId AND c.configurableOptionId=co.configurableOptionId  AND co.configurableId=configurable.configurableId
@@ -137,7 +137,7 @@ class DatabaseHelper {
      * Return custom product ID created.
      */
     public function configureCustomProduct($productId) {
-        $price = $this->getProductInformation($productId)['price'];
+        $price = $this->getProductInformation($productId)["price"];
         $query = "INSERT INTO customProduct (configuredPrice, finalPrice, productId) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $price, $price, $productId);
@@ -161,7 +161,7 @@ class DatabaseHelper {
         $stmt->execute();
 
         $configurableOptionPrice = $this->getConfigurableOption($configurableOptionId)["price"];
-        $newConfigPrice = $this->getCustomProduct($customProductId)['configuredPrice'] + $configurableOptionPrice;
+        $newConfigPrice = $this->getCustomProduct($customProductId)["configuredPrice"] + $configurableOptionPrice;
         $this->updateConfiguredPrice($customProductId, $newConfigPrice);
     }
 
@@ -340,7 +340,7 @@ class DatabaseHelper {
 
     // Return the products in the customer's shopping cart.
     public function getCartProductsOfCustomer($email) {
-        $query = "SELECT name, amount, finalPrice, configuredPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ? ";
+        $query = "SELECT name, amount, finalPrice, configuredPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email); 
         $stmt->execute();
@@ -380,7 +380,7 @@ class DatabaseHelper {
     }
 
     // Update the quantity of product in the customer's shopping cart.
-    public function updateQtaOfProductCart($customProductId, $n) {
+    public function updateCartProductQuantity($customProductId, $n) {
         $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $n, $customProductId);

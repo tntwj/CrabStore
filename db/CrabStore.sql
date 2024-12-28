@@ -122,7 +122,8 @@ CREATE TABLE OrderProduct (
 
 ALTER TABLE CartProduct ADD CONSTRAINT
     FOREIGN KEY (customProductId)
-    REFERENCES CustomProduct (customProductId);
+    REFERENCES CustomProduct (customProductId)
+    ON DELETE CASCADE;
 
 ALTER TABLE CartProduct ADD CONSTRAINT
     FOREIGN KEY (email)

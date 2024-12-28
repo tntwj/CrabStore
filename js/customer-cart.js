@@ -1,55 +1,59 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cartList = document.getElementById('cart-list');
+document.addEventListener("DOMContentLoaded", () => {
+    const cartList = document.querySelector(".cart-product-list");
+
     if (cartList !== null) {
-        cartList.addEventListener('click', async (event) => {
+        cartList.addEventListener("click", async (event) => {
             if (event.target.classList.contains("remove-product")) {
                 const productItem = event.target.closest("li");
                 const customProductId = productItem.getAttribute("data-product-id");
-    
+
                 try {
-                    const response = await fetch("product-cart-delete.php", {
+                    const response = await fetch("cart-handler.php", {
                         method: "POST",
-                        headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify({customProductId: customProductId}), 
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            action: "removeProduct",
+                            customProductId: customProductId
+                        })
                     });
                     const result = await response.json();
+
                     if (result.success) {
                         location.reload();
                     } else {
-                        alert(result.message);
+                        console.error(result.message);
                     }
                 } catch (error) {
-                    console.error('Error:', error);
-                    alert(error.message);
+                    console.error("Error:", error);
                 }
             }
         });
-    }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cartList = document.getElementById('cart-list');
-    if (cartList !== null) {
         cartList.addEventListener("change", async (event) => {
             if (event.target.name === "quantity") {
                 const productItem = event.target.closest("li");
                 const customProductId = productItem.getAttribute("data-product-id");
-                const qta = event.target.value;
+                const quantity = event.target.value;
+
                 try {
-                    const response = await fetch("update-product-qta.php", {
+                    const response = await fetch("cart-handler.php", {
                         method: "POST",
-                        headers: {"Content-Type": "application/json"},
-                        body: JSON.stringify({customProductId: customProductId, quantity: qta})
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            action: "updateQuantity",
+                            customProductId: customProductId,
+                            quantity: quantity
+                        })
                     });
                     const result = await response.json();
+
                     if (result.success) {
                         location.reload();
                     } else {
-                        alert(result.message);
+                        console.error(result.message);
                     }
                 } catch (error) {
-                    console.error('Error:', error);
-                    alert(error.message);
+                    console.error("Error:", error);
                 }
             }
         });

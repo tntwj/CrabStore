@@ -7,19 +7,19 @@ if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
     setFlashMessage("Please login to view your cart.", MessageType::FAIL);
-    header('Location: login.php');
+    header("Location: login.php");
     exit();
 }
 $cartProducts = $dbh->getCartProductsOfCustomer($email);
 
-foreach ($cartProducts as &$product) {
+foreach ($cartProducts as $index => $product) {
     $productId = $product["productId"];
-    $product["image"] = $dbh->getProductImages($productId);
-    $product["options"] = $dbh->getCustomProductConfigurableOptions($product["customProductId"]);
-    $product["discount"] = $dbh->getProductDiscount($productId);
+    $cartProducts[$index]["image"] = UPLOAD_DIR . "products/" . $dbh->getProductImages($productId, 1)[0]["imageUrl"];
+    $cartProducts[$index]["options"] = $dbh->getCustomProductConfiguredOptions($product["customProductId"]);
+    $cartProducts[$index]["discount"] = $dbh->getProductDiscount($productId);
 }
 
-$templateParams["products-cart"] = $cartProducts;
+$templateParams["cart-products"] = $cartProducts;
 $templateParams["scripts"] = ["js/customer-cart.js"];
 
 require_once("template/base.php");
