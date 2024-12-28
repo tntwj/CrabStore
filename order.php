@@ -10,8 +10,8 @@ if (isUserLoggedIn()) {
     header('Location: login.php');
     exit();
 }
-if (isset($_GET["orderId"])) {
-    $orderId = $_GET["orderId"];
+if (isset($_GET["id"])) {
+    $orderId = $_GET["id"];
 }
 $products = $dbh->getOrderProducts($orderId);
 $order = $dbh->getOrder($orderId);

@@ -367,7 +367,7 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getOrdersOfCustomer($email) {
+    public function getCustomerOrders($email) {
         $query = "SELECT o.orderId, o.orderStatus, o.orderDate, o.deliveryDate
                 FROM `Order` o, customer c
                 WHERE o.email = c.email

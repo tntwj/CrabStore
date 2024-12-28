@@ -1,4 +1,4 @@
-<h1 class="text-center my-4">Cart</h1>
+<h1 class="text-center my-4 h2">Your Cart</h1>
 <?php if (empty($templateParams["cart-products"])): ?>
 <div class="text-center my-4">
     <h2 class="display-6">Nothing to show</h2>

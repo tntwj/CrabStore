@@ -86,3 +86,8 @@ input[type="radio"]:checked + .color-circle {
 .cart-thumbnail {
     max-width: 120px !important;
 }
+
+/* Orders */
+.order-card:hover {
+    background-color: darkgray;
+}
