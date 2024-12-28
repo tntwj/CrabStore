@@ -63,7 +63,8 @@ $product = $templateParams["product-details"];
                             if (is_array($info)) {
                                 foreach ($info as $value) {
                                     echo "| " . $value . " ";
-                                }                                
+                                }
+                                echo "|";
                             } else {
                                 echo ($info);
                             }
