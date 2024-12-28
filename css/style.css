@@ -41,13 +41,7 @@ div.carousel-indicators {
     }
 }
 
-/* For card options */
-/* Hide the default radio button */
-input[type="radio"].d-none {
-    display: none;
-}
-
-/* Stili di base per l'opzione */
+/* Styling for basic configurable options */
 label.option-card {
     cursor: pointer;
     text-align: center;
@@ -55,15 +49,7 @@ label.option-card {
     transition: all 0.3s;
 }
 
-label > h5.card-title {
-    text-align: left;
-}
-
-label > p.card-price {
-    text-align: right;
-}
-
-/* Quando l'input radio è selezionato, applica lo stile al genitore label */
+/* Once a radio button is selected the style is applied to the parent label */
 input[type="radio"]:checked + label.option-card {
     background-color: rgba(0, 123, 255, 0.1);
 }
@@ -76,8 +62,8 @@ input[type="radio"]:checked + label.option-card {
 
 .color-circle {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     border: 2px solid transparent;
     transition: all 0.3s;

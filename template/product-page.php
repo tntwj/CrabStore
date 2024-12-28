@@ -1,7 +1,7 @@
 <?php
 $product = $templateParams["product-details"];
 ?>
-<section class="container mt-5">
+<section class="container mt-4">
     <h1 class="text-start mb-4"><?php echo $product["name"]?></h1>
     <div class="row">
         <div class="col-md-4 mb-3">
@@ -31,7 +31,7 @@ $product = $templateParams["product-details"];
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center">
                         <p class="card-text mb-0">Starting at: <?php echo $product["price"]?>€</p>
-                        <a href="configuration.php?product=<?php echo $product["productId"]; ?>" class="col-4 btn btn-primary text-center">Buy Now</a>
+                        <a href="configuration.php?id=<?php echo $product["productId"]; ?>" class="col-4 btn btn-primary text-center">Buy Now</a>
                     </div>
                 </div>
             </div>

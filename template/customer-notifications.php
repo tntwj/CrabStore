@@ -1,5 +1,5 @@
-<section class="container mt-5">
-    <h1 class="display-4">Inbox</h1>
+<section class="container my-5">
+    <h1 class="display-4 text-center">Inbox</h1>
     <?php if (!empty($templateParams["notifications"])): ?>
     <div class="accordion" id="notificationsAccordion">
         <?php foreach ($templateParams["notifications"] as $index => $notification): ?>
