@@ -23,7 +23,7 @@
                             </p>
                             <div class="input-group input-group-sm col-auto w-auto">
                                 <label for="quantity-<?php echo $product["customProductId"]; ?>" class="input-group-text">Quantity:</label>
-                                <input type="number" id="quantity-<?php echo $product["customProductId"]; ?>" name="quantity" min="1" max="6" step="1" value="<?php echo $product["amount"]; ?>" class="form-control quantity-selector" />
+                                <input type="number" id="quantity-<?php echo $product["customProductId"]; ?>" name="quantity" min="1" step="1" value="<?php echo $product["amount"]; ?>" class="form-control quantity-selector" />
                             </div>
                         </div>
                         <div class="mt-3 ms-auto text-end text-md-end text-center w-100 w-md-auto">
