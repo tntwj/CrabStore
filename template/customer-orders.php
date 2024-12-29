@@ -10,7 +10,7 @@
                                 <h2 class="card-title">Order #<?php echo $order["orderId"]; ?></h2>
                                 <p class="card-text">
                                     <span class="fw-bold">Status:</span>
-                                    <span class="<?php echo getBadgeClass($order["orderStatus"]); ?>"><?php echo $order["orderStatus"]; ?></span>
+                                    <span class="<?php echo getOrderBadgeClass($order["orderStatus"]); ?>"><?php echo $order["orderStatus"]; ?></span>
                                 </p>
                                 <p class="card-text">
                                     <span class="fw-bold">Order Date:</span>

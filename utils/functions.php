@@ -55,7 +55,7 @@ function getColorCode($colorName) {
     return $colorMap[$colorName] ?? "#CCCCCC";
 }
 
-function getBadgeClass($status) {
+function getOrderBadgeClass($status) {
     switch ($status) {
         case "Ordered":
             return "badge bg-primary";
