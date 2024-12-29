@@ -91,6 +91,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -146,6 +147,7 @@ class DatabaseHelper {
         $stmt->bind_param("i", $configurableOptionId);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_assoc();
     }
 
@@ -158,6 +160,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $price, $price, $productId);
         $stmt->execute();
+
         return $stmt->insert_id;
     }
 
@@ -167,6 +170,7 @@ class DatabaseHelper {
         $stmt->bind_param("i", $customProductId);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_assoc();
     }
 
@@ -201,6 +205,7 @@ class DatabaseHelper {
         $stmt->bind_param("i", $productId);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_assoc();
     }
 
@@ -215,6 +220,7 @@ class DatabaseHelper {
         $query = "DELETE FROM customProduct WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $customProductId);
+
         return $stmt->execute();
     }
 
@@ -295,6 +301,7 @@ class DatabaseHelper {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->num_rows != 0;
     }
 
@@ -330,6 +337,7 @@ class DatabaseHelper {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_assoc();
     }
 
@@ -337,6 +345,7 @@ class DatabaseHelper {
         $query = "UPDATE customer SET firstName = ?, lastName = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sss", $firstName, $lastName, $email);
+
         return $stmt->execute();
     }
 
@@ -344,6 +353,7 @@ class DatabaseHelper {
         $query = "UPDATE customer SET password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ss", $hashedPassword, $email);
+
         return $stmt->execute();
     }
 
@@ -353,6 +363,7 @@ class DatabaseHelper {
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_row()[0];
     }
 
@@ -369,6 +380,7 @@ class DatabaseHelper {
         $stmt->bind_param("s", $email); 
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -377,6 +389,7 @@ class DatabaseHelper {
         $stmt->bind_param("i", $orderId); 
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_assoc();
     }
 
@@ -388,6 +401,7 @@ class DatabaseHelper {
         $stmt->bind_param("i", $orderId); 
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -400,6 +414,7 @@ class DatabaseHelper {
         $stmt->bind_param("s", $email); 
         $stmt->execute();
         $result = $stmt->get_result();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -408,7 +423,7 @@ class DatabaseHelper {
         $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("ii", $n, $customProductId);
-        return $result = $stmt->execute();
+        $stmt->execute();
     }
     
     public function addProductToCart($customProductId, $email) {
@@ -417,6 +432,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("is", $customProductId, $email);
         $stmt->execute();
+
         return $stmt->insert_id;
     }
 
@@ -425,6 +441,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $customProductId);
         $result = $stmt->execute();
+
         return $result;
     }
 
@@ -437,6 +454,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
+
         return $stmt->insert_id;
     }
 
@@ -445,6 +463,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("iii", $customProductId, $orderId, $amount);
         $stmt->execute();
+
         return $stmt->insert_id;
     }
 
@@ -462,6 +481,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("s", $email);
         $stmt->execute();
+
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 }
