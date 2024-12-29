@@ -16,7 +16,7 @@ if ($product["discountId"] !== null) {
 }
 
 $templateParams["title"] = $product["name"];
-$templateParams["main-content"] = "template/product-page.php";
+$templateParams["main-content"] = "template/product-details.php";
 $templateParams["product-details"] = $product;
 
 require_once("template/base.php");

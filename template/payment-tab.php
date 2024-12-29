@@ -1,12 +1,9 @@
 <?php
-$totalPrice = 0;
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $totalPrice = ($_POST["totalPrice"]);
-}
+$totalPrice = $templateParams["price"];
 ?>
-<div class="container mt-5">
+<section class="container my-5">
     <h1 class="text-center mb-4">Payment</h1>
-    <p class="text-center">You are about to pay: <span class="fw-bold"><?php echo number_format($totalPrice, 2, ".", ""); ?>€</span></p>
+    <p class="text-center">You are about to pay: <span class="fw-bold"><?php echo formatPrice($totalPrice); ?></span></p>
     <form action="process-order.php" method="POST" class="mx-auto col-sm-6 col-md-4">
         <div class="mb-3">
             <label for="cardNumber" class="form-label">Card number:</label>
@@ -25,4 +22,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit" class="btn btn-primary">Pay now</button>
         </div>
     </form>
-</div>
+</section>

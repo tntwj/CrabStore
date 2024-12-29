@@ -9,8 +9,17 @@ if (isUserLoggedIn()) {
     exit();
 }
 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["totalPrice"])) {
+    $templateParams["price"] = $_POST["totalPrice"];
+} else {
+    setFlashMessage("Something went wrong in the payment process", MessageType::FAIL);
+    header("Location: index.php");
+    exit();
+}
+
 $templateParams["title"] = "CrabStore - Payment";
-$templateParams["main-content"] = "process-payment.php";
+$templateParams["price"] = $_POST["totalPrice"];
+$templateParams["main-content"] = "payment-tab.php";
 
 require_once("template/base.php");
 ?>

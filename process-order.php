@@ -13,6 +13,7 @@ $orderId = $dbh->addOrder($email);
 foreach($products as $product) {
     $dbh->addOrderProduct($product["customProductId"], $product["amount"], $orderId);
 }
+setFlashMessage("You have successfully placed the order.", MessageType::INFO);
 header("Location: order.php?id=" . $orderId);
 exit();
 ?>

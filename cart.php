@@ -1,8 +1,6 @@
 <?php
 require_once("bootstrap.php");
 
-$templateParams["title"] = "CrabStore - Cart";
-$templateParams["main-content"] = "customer-cart.php";
 if (isUserLoggedIn()) {
     $email = $_SESSION[SessionKey::CUSTOMER_EMAIL];
 } else {
@@ -19,6 +17,8 @@ foreach ($cartProducts as $index => $product) {
     $cartProducts[$index]["discount"] = $dbh->getProductDiscount($productId);
 }
 
+$templateParams["title"] = "CrabStore - Cart";
+$templateParams["main-content"] = "customer-cart.php";
 $templateParams["cart-products"] = $cartProducts;
 $templateParams["scripts"] = ["js/customer-cart.js"];
 

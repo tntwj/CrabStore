@@ -41,7 +41,7 @@
     <h2 class="text-center mb-4">What Our Customers Say About Our Products</h2>
     <div class="row">
         <div class="col-md-4 mb-2">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"The CrabPhone 14 is amazing! It's fast, sleek, and has an incredible camera. I can't recommend it enough!"</p>
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-2">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"I love my CrabPad! It's the perfect size for work and play. Plus, it's lightweight and easy to carry around."</p>
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="col-md-4 mb-2">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body">
                     <blockquote class="blockquote">
                         <p>"CrabWatch Series 7 is a game-changer. It tracks my workouts and keeps me connected, all in one sleek design!"</p>

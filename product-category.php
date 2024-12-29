@@ -13,7 +13,7 @@ foreach ($products as $key => $product) {
 }
 
 $templateParams["title"] = "CrabStore - " . $category;
-$templateParams["main-content"] = "template/explore-product-category.php";
+$templateParams["main-content"] = "template/product-list.php";
 $templateParams["category-details"] = $dbh->getCategoryDetails($category);
 $templateParams["products"] = $products;
 

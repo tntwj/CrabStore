@@ -84,7 +84,7 @@ input[type="radio"]:checked + .color-circle {
 }
 
 .cart-thumbnail {
-    max-width: 120px !important;
+    max-width: 128px !important;
 }
 
 /* Orders */

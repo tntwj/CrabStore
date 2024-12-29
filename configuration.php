@@ -11,7 +11,7 @@ if (isUserLoggedIn()) {
 
 $productId = isset($_GET["id"]) ? $_GET["id"] : "";
 
-$templateParams["main-content"] = "template/customer-configuration.php";
+$templateParams["main-content"] = "template/configuration-form.php";
 $templateParams["product-details"] =  $dbh->getProductInformation($productId);
 $templateParams["title"] = $templateParams["product-details"]["name"];
 $templateParams["product-image"] = UPLOAD_DIR . "products/" . $dbh->getProductImages($productId, 1)[0]["imageUrl"];

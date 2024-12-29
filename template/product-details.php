@@ -5,10 +5,10 @@ $product = $templateParams["product-details"];
     <div class="d-flex flex-row align-items-center mb-3">
         <h1 class="text-start"><?php echo $product["name"]; ?></h1>
         <?php if ($product["productStatus"] === "Upcoming"): ?>
-        <span class="badge bg-success ms-2">New</span>
+            <span class="badge bg-success ms-2">New</span>
         <?php endif; ?>
         <?php if (!empty($product["discount"])): ?>
-        <span class="badge bg-danger ms-2">Save <?php echo formatPrice($product["discount"]["amount"]); ?></span>
+            <span class="badge bg-danger ms-2">Save <?php echo formatPrice($product["discount"]["amount"]); ?></span>
         <?php endif; ?>
     </div>
     <div class="row">
@@ -22,9 +22,9 @@ $product = $templateParams["product-details"];
                     </div>
                     <div class="carousel-inner">
                         <?php foreach ($product["images"] as $index => $image): ?>
-                        <div class="carousel-item <?php echo $index === 0 ? "active" : ""; ?>">
-                            <img src="<?php echo $image; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]; ?>" />
-                        </div>
+                            <div class="carousel-item <?php echo $index === 0 ? "active" : ""; ?>">
+                                <img src="<?php echo $image; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]; ?>" />
+                            </div>
                         <?php endforeach; ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
@@ -59,24 +59,24 @@ $product = $templateParams["product-details"];
                 <div class="card-body overflow-auto">
                     <h2 class="card-header">Specification Table</h2>
                     <ul class="list-group list-group-flush">
-                        <?php 
+                        <?php
                         $data = json_decode($product["specSheet"], true);
-                        foreach ($data as $key => $info): 
+                        foreach ($data as $key => $info):
                         ?>
-                        <li class="list-group-item">
-                            <?php 
-                            echo $key . ": ";
-                            if (is_array($info)) {
-                                foreach ($info as $value) {
-                                    echo "| " . $value . " ";
+                            <li class="list-group-item">
+                                <?php
+                                echo $key . ": ";
+                                if (is_array($info)) {
+                                    foreach ($info as $value) {
+                                        echo "| " . $value . " ";
+                                    }
+                                    echo "|";
+                                } else {
+                                    echo ($info);
                                 }
-                                echo "|";
-                            } else {
-                                echo ($info);
-                            }
-                            ?>
-                        </li>
-                        <?php endforeach ?> 
+                                ?>
+                            </li>
+                        <?php endforeach ?>
                     </ul>
                 </div>
             </div>
