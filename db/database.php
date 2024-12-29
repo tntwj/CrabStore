@@ -418,7 +418,9 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Update the quantity of product in the customer's shopping cart.
+    /**
+     * Update the quantity of product in the customer's shopping cart.
+     */
     public function updateCartProductQuantity($customProductId, $n) {
         $query = "UPDATE CartProduct SET amount = ? WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
@@ -483,6 +485,26 @@ class DatabaseHelper {
         $stmt->execute();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Return the id of the orders which have not yet been delivered.
+     */
+    public function getPendingOrders($email) {
+        $query  = "SELECT orderId, orderStatus, deliveryDate FROM `order` WHERE orderStatus != 'Delivered' AND email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function updateOrder($orderId, $status, $deliveryDate = null) {
+        $query = "UPDATE `order` SET orderStatus = ?, deliveryDate = ? WHERE orderId = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssi", $status, $deliveryDate, $orderId);
+        $stmt->execute();
     }
 }
 ?>

@@ -13,38 +13,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         switch ($action) {
             case "updateQuantity":
                 if (isset($data["quantity"])) {
-                    $quantity = $data["quantity"];
-                    if ($dbh->updateCartProductQuantity($customProductId, $quantity)) {
-                        echo json_encode(["success" => true, "message" => "Quantity updated successfully"]);
-                    } else {
-                        echo json_encode(["success" => false, "message" => "Failed to update quantity"]);
-                    }
+                    $dbh->updateCartProductQuantity($customProductId, $data["quantity"]);
+                    echo json_encode(["success" => true, "message" => "Quantity updated successfully"]);
+                    exit();
                 } else {
                     echo json_encode(["success" => false, "message" => "Quantity value missing"]);
+                    exit();
                 }
                 break;
-
+        
             case "removeProduct":
                 if ($dbh->removeProductFromCart($customProductId)) {
-                    $options = $dbh->getCustomProductConfiguredOptions($customProductId);
-                    if ($dbh->removeCustomProduct($customProductId)) {
-                        echo json_encode(["success" => true, "message" => "Product removed successfully"]);
-                    } else {
-                        echo json_encode(["success" => false, "message" => "Failed to remove product"]);
-                    }
+                    echo json_encode(["success" => true, "message" => "Product removed successfully"]);
+                    exit();
                 } else {
                     echo json_encode(["success" => false, "message" => "Failed to remove product from cart"]);
+                    exit();
                 }
                 break;
-
+        
             default:
                 echo json_encode(["success" => false, "message" => "Invalid action"]);
-                break;
+                exit();
         }
     } else {
         echo json_encode(["success" => false, "message" => "Action or product id missing"]);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => "Invalid request method"]);
+    echo json_encode(["success" => false, "message" => "Invalid request method"]);
 }
 ?>

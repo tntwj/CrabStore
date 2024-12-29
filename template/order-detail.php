@@ -38,7 +38,7 @@ $totalPrice = 0;
         <ul class="list-group">
             <li class="list-group-item"><span class="fw-bold">Status: </span><span class="fw-bold <?php echo getOrderBadgeClass($order["orderStatus"]); ?>"><?php echo $order["orderStatus"]; ?></span>
             <li class="list-group-item"><span class="fw-bold">Order Date: </span><?php echo formatDate($order["orderDate"]); ?></li>
-            <li class="list-group-item"><span class="fw-bold">Delivery Date: </span><?php echo $order["deliveryDate"] ? $order["deliveryDate"] : "Yet to arrive"; ?></li>
+            <li class="list-group-item"><span class="fw-bold">Delivery Date: </span><?php echo $order["deliveryDate"] ? formatDate($order["deliveryDate"]) : "Yet to arrive"; ?></li>
             <li class="list-group-item"><span class="fw-bold">Total Price: </span><?php echo formatPrice($totalPrice); ?></li>
         </ul>
     </div>

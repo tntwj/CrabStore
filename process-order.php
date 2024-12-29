@@ -14,7 +14,7 @@ foreach($products as $product) {
     $dbh->addOrderProduct($product["customProductId"], $product["amount"], $orderId);
 }
 $customerName = $dbh->getCustomerDetails($email)["firstName"];
-$dbh->insertNotification("Order #" . $orderId . " Update", "Hi " . $customerName . "! You have successfully placed order #" . $orderId, $email);
+$dbh->insertNotification("Order #" . $orderId . " Update", "Hi " . $customerName . "! You have successfully placed the order.", $email);
 setFlashMessage("You have successfully placed the order.", MessageType::INFO);
 header("Location: order.php?id=" . $orderId);
 exit();

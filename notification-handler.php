@@ -28,7 +28,6 @@ try {
     } elseif ($action === "delete") {
         $dbh->deleteNotification($notificationId);
     }
-
     echo json_encode(["success" => true]);
 } catch (Exception $e) {
     echo json_encode(["success" => false, "error" => "An error occurred"]);
