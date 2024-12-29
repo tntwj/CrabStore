@@ -14,7 +14,9 @@ class DatabaseHelper {
      * PRODUCT QUERIES *
      *******************/
 
-    // Returns all the categories.
+    /**
+     * Returns all the categories.
+     */
     public function getCategories() {
         $query = "SELECT categoryName, shortDescription, description, icon, mainImage, secondaryImage, video FROM category";
         $stmt = $this->db->prepare($query);
@@ -24,7 +26,9 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns the category details.
+    /**
+     * Returns the category details.
+     */
     public function getCategoryDetails($category) {
         $query = "SELECT categoryName, description, icon FROM category WHERE categoryName = ?";
         $stmt = $this->db->prepare($query);
@@ -35,22 +39,26 @@ class DatabaseHelper {
         return $result->fetch_assoc();
     }
 
-    // Returns products of a set category.
+    /**
+     * Returns products of a set category.
+     */
     public function getProductsOfCategory($category) {
         $query = "SELECT productId, name, P.shortDescription, P.description, price, releaseDate, productStatus, specSheet, P.video, P.categoryName, discountId FROM product P, category C WHERE P.categoryName = C.categoryName ANd P.categoryName = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $category); // bind "$category" as a string
+        $stmt->bind_param("s", $category);
         $stmt->execute();
         $result = $stmt->get_result();
         
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns the images related to a product in order of priority
+    /**
+     * Returns the images related to a product in order of priority
+     */
     public function getProductImages($productId, $limit = 3) {
         $query = "SELECT priority, imageUrl FROM productimageusage PI, product P WHERE PI.productId = P.productId AND P.productId = ? ORDER BY priority ASC LIMIT ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $productId, $limit); // bind $productId as a integer
+        $stmt->bind_param("ii", $productId, $limit);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -60,14 +68,16 @@ class DatabaseHelper {
     public function getProductInformation($productId) {
         $query = "SELECT `name`, p.productId, P.description, price, releaseDate, productStatus, specSheet, P.video, discountId FROM product P, category C WHERE P.categoryName = C.categoryName ANd P.productId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->bind_param("i", $productId);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_assoc();
     }
 
-    // Returns up to three random upcoming products with an image.
+    /**
+     * Returns up to three random upcoming products with an image.
+     */
     public function getThreeUpcomingProducts() {
         $query = "SELECT P.productId, P.name, P.shortDescription, P.price, PI.imageUrl
             FROM product P, productImage PI, productImageUsage PIM
@@ -88,29 +98,35 @@ class DatabaseHelper {
      * PRODUCT CONFIGURATION QUERIES *
      *********************************/
 
-    // Returns the configurables of a product
+    /**
+     * Returns the configurables of a product
+     */
     public function getProductConfigurables($productId) {
         $query = "SELECT configurableId, C.name, icon, C.productId FROM configurable C, product P WHERE C.productId = P.productId AND C.productId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $productId); // bind $productId as a integer
+        $stmt->bind_param("i", $productId);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns the configurable options of a configurable of a product
+    /*
+     * Returns the configurable options of a configurable of a product
+     */
     public function getConfigurableOptions($configurableId) {
         $query = "SELECT configurableOptionId, isDefault, details, price, CO.configurableId FROM configurableoption CO, configurable C WHERE CO.configurableId = C.configurableId AND CO.configurableId = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("i", $configurableId); // bind $configurableId as a integer
+        $stmt->bind_param("i", $configurableId);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Returns the selected options of a configured product.
+    /**
+     * Returns the selected options of a configured product.
+     */
     public function getCustomProductConfiguredOptions($customProductId) {
         $query = "SELECT co.isDefault, co.details, co.price, configurable.name
                     FROM customproduct cp, configuration c, configurableoption co, configurable
@@ -134,7 +150,7 @@ class DatabaseHelper {
     }
 
     /**
-     * Return custom product ID created.
+     * Configures and returns the custom product id used.
      */
     public function configureCustomProduct($productId) {
         $price = $this->getProductInformation($productId)["price"];
@@ -195,11 +211,6 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-    /**
-     * Before use this function, be sure that all associations with custom product are removed.
-     * cart-product and configuration can be removed.
-     * orderProduct cannot be removed.
-    */
     public function removeCustomProduct($customProductId) {
         $query = "DELETE FROM customProduct WHERE customProductId = ?";
         $stmt = $this->db->prepare($query);
@@ -211,27 +222,32 @@ class DatabaseHelper {
      * NOTIFICATIONS QUERIES *
      *************************/
 
-    // Returns all the notifications related to a user.
+    /**
+     * Returns all the notifications related to a user.
+     */
     public function getUserNotifications($email) {
         $query = "SELECT notificationId, subject, description, date, isRead, email FROM notification WHERE email = ? ORDER BY date DESC";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("s", $email); // bind $email as a string
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // Sets a notification as read.
+    /**
+     * Sets a notification as read.
+     */
     public function setNotificationAsRead($notificationId) {
         $query = "UPDATE notification SET isRead=1 WHERE notificationId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $notificationId);
         $stmt->execute();
-        // More checks could be added
     }
 
-    // Sets all notifications related to an user as read.
+    /**
+     * Sets all notifications related to an user as read.
+     */
     public function setAllUserNotificationsAsRead($email) {
         $query = "UPDATE notification SET isRead=1 WHERE email = ?";
         $stmt = $this->db->prepare($query);
@@ -239,7 +255,9 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-    // Removes a notification identified by its id.
+    /**
+     * Removes a notification identified by its id.
+     */
     public function deleteNotification($notificationId) {
         $query = "DELETE FROM notification WHERE notificationId = ?";
         $stmt = $this->db->prepare($query);
@@ -247,7 +265,9 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-    // Removes all notifications related to a email.
+    /**
+     * Removes all notifications related to a email.
+     */
     public function deleteAllUserNotification($email) {
         $query = "DELETE FROM notification WHERE email = ?";
         $stmt = $this->db->prepare($query);
@@ -255,7 +275,9 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
-    // Inserts a notification
+    /**
+     * Inserts a notification.
+     */
     public function insertNotification($subject, $description, $email) {
         $query = "INSERT INTO notification (subject, description, date, email) VALUES (?, ?, NOW(), ?)";
         $stmt = $this->db->prepare($query);
@@ -338,7 +360,9 @@ class DatabaseHelper {
      * CART AND ORDER QUERIES *
      **************************/
 
-    // Return the products in the customer's shopping cart.
+    /**
+     * Return the products in the customer's shopping cart.
+     */
     public function getCartProductsOfCustomer($email) {
         $query = "SELECT name, amount, finalPrice, configuredPrice, product.productId, customProduct.customProductId FROM cartproduct, customproduct, product, customer WHERE cartproduct.customProductId = customproduct.customProductId AND customproduct.productId = product.productId AND customer.email = cartproduct.email AND customer.email = ?";
         $stmt = $this->db->prepare($query);
