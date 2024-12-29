@@ -16,7 +16,7 @@ $productCount = count($products);
             <div class="row">
             <?php endif; ?>
             <div class="col-md mb-4">
-                <div class="card h-100">
+                <div class="card h-100 shadow">
                     <img src="<?php echo $product["image"]; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]?>" />
                     <div class="card-body d-flex flex-column">
                     <h2 class="card-title"><?php echo $product["name"]; ?></h2>

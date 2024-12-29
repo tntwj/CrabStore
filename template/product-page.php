@@ -13,7 +13,7 @@ $product = $templateParams["product-details"];
     </div>
     <div class="row">
         <div class="col-md-4 mb-3">
-            <div class="card h-100">
+            <div class="card h-100 shadow">
                 <div id="productImageCarousel" class="carousel slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="0" class="active"></button>
@@ -45,7 +45,7 @@ $product = $templateParams["product-details"];
             </div>
         </div>
         <div class="col-12 col-md-8 mb-3">
-            <div class="card h-100 d-flex flex-column">
+            <div class="card h-100 d-flex flex-column shadow">
                 <div class="card-header">Description</div>
                 <div class="card-body">
                     <p class="card-text"><?php echo $product["description"]; ?></p>
@@ -55,7 +55,7 @@ $product = $templateParams["product-details"];
     </div>
     <div class="row">
         <div class="col-12 mb-3">
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-body overflow-auto">
                     <h2 class="card-header">Specification Table</h2>
                     <ul class="list-group list-group-flush">
