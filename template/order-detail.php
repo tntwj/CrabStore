@@ -2,7 +2,7 @@
 $order = $templateParams["order"];
 $totalPrice = 0;
 ?>
-<div class="container my-5">
+<section class="container my-5">
     <h1 class="text-center mb-3">Order #<?php echo $orderId; ?></h1>
     <div class="row">
         <?php foreach($templateParams["order-products"] as $product): ?>
@@ -42,4 +42,4 @@ $totalPrice = 0;
             <li class="list-group-item"><span class="fw-bold">Total Price: </span><?php echo formatPrice($totalPrice); ?></li>
         </ul>
     </div>
-</div>
+</section>

@@ -7,6 +7,9 @@ $products = $dbh->getProductsOfCategory($category);
 foreach ($products as $key => $product) {
     $images = $dbh->getProductImages($product["productId"], 1)[0]["imageUrl"];
     $products[$key]["image"] = UPLOAD_DIR . "products/" . $images; 
+    if ($product["discountId"] !== null) {
+        $products[$key]["discount"] = $dbh->getProductDiscount($product["productId"]);
+    }
 }
 
 $templateParams["title"] = "CrabStore - " . $category;

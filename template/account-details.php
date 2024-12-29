@@ -1,11 +1,11 @@
 <?php
-    $accountDetails = $templateParams["account-details"];
-    $totalOrders = $templateParams["total-orders"];
+$accountDetails = $templateParams["account-details"];
+$totalOrders = $templateParams["total-orders"];
 ?>
-<section class="container mt-5">
+<section class="container my-5">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
-            <div class="card shadow border">
+            <div class="card shadow">
                 <div class="card-body">
                     <h1 class="card-title display-4 mb-4 text-center">Account Details</h1>
                     <p><span class="fw-bold">First Name: </span><?php echo $accountDetails["firstName"]; ?></p>

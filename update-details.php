@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
 
     try {
         if ($dbh->changeCustomerDetails($email, $firstname, $lastname)) {
-            setFlashMessage("Account Details changed successfully.", MessageType::SUCCESS);
+            setFlashMessage("Account details have been changed successfully.", MessageType::SUCCESS);
         } else {
             setFlashMessage("We were unable to change your personal details.", MessageType::FAIL);
         }

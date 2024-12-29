@@ -1,14 +1,11 @@
 <section class="container my-5">
-    <h1 class="display-4 text-center">Inbox</h1>
+    <h1 class="text-center">Inbox</h1>
     <?php if (!empty($templateParams["notifications"])): ?>
     <div class="accordion" id="notificationsAccordion">
         <?php foreach ($templateParams["notifications"] as $index => $notification): ?>
         <div class="accordion-item" id="notification-<?php echo $notification["notificationId"]; ?>">
             <h2 class="accordion-header">
-                <button class="accordion-button collapsed"
-                        type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapse-<?php echo $index; ?>"
-                        data-notification-id="<?php echo $notification["notificationId"]; ?>">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-<?php echo $index; ?>" data-notification-id="<?php echo $notification["notificationId"]; ?>">
                     <span><?php echo $notification["subject"]; ?></span>
                     <?php if ($notification["isRead"] == false): ?>
                     <span class='badge text-bg-dark mx-2'>New</span>

@@ -4,10 +4,10 @@ $columnsInRow = 3;
 $productCount = count($products);
 ?>
 <?php if ($productCount > 0): ?>
-<header class="text-center my-4">
-    <h1 class="h2"><?php echo $templateParams["category-details"]["description"]; ?></h1>
+<header class="text-center my-5">
+    <h1><?php echo $templateParams["category-details"]["description"]; ?></h1>
 </header>
-<section class="container my-4">
+<section class="container my-5">
     <div class="container">
         <div class="row">
             <?php foreach ($products as $index => $product): ?>
@@ -17,9 +17,17 @@ $productCount = count($products);
             <?php endif; ?>
             <div class="col-md mb-4">
                 <div class="card h-100">
-                    <img src="<?php echo $product["image"]; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]?>">
+                    <img src="<?php echo $product["image"]; ?>" class="card-img-top" alt="Image of <?php echo $product["name"]?>" />
                     <div class="card-body d-flex flex-column">
-                        <h2 class="card-title"><?php echo $product["name"]; ?></h2>
+                    <h2 class="card-title"><?php echo $product["name"]; ?></h2>
+                        <div class="d-flex flex-row align-items-center mb-3">
+                            <?php if ($product["productStatus"] === "Upcoming"): ?>
+                            <span class="badge bg-success me-2">New</span>
+                            <?php endif; ?>
+                            <?php if (!empty($product["discount"])): ?>
+                            <span class="badge bg-danger">Save <?php echo formatPrice($product["discount"]["amount"]); ?></span>
+                            <?php endif; ?>
+                        </div>
                         <p class="card-text"><?php echo $product["shortDescription"]; ?></p>
                         <a href="product.php?id=<?php echo $product["productId"]; ?>" class="btn btn-primary mt-auto">View Product</a>
                     </div>
@@ -38,5 +46,5 @@ $productCount = count($products);
     </div>
 </section>
 <?php else: ?>
-<h1 class="text-center mt-5">No products found</h1>
+<h1 class="text-center my-5">No products found</h1>
 <?php endif; ?>

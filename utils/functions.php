@@ -25,10 +25,10 @@ function displayFlashMessage() {
     if (isset($_SESSION["flash_message"])) {
         $message = $_SESSION["flash_message"]["message"];
         $type = $_SESSION["flash_message"]["type"];
-        echo "<div class='alert alert-" . $type . " alert-dismissible fade show role='alert'>"
+        echo "<div class='alert alert-" . $type . " alert-dismissible fade show' role='alert'>"
             . $message .
-            "<button type='button' class='btn-close' data-bs-dismiss='alert'></button>
-            </div>";
+            "<button type='button' class='btn-close' data-bs-dismiss='alert'></button>"
+            . "</div>";
         unset($_SESSION["flash_message"]);
     }
 }

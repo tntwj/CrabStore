@@ -180,7 +180,7 @@ class DatabaseHelper {
     }
     
     public function getProductDiscount($productId) {
-        $query = "SELECT * FROM discount d, product p WHERE d.discountId = p.discountId AND p.productId = ?";
+        $query = "SELECT d.discountId, d.name, d.amount FROM discount d, product p WHERE d.discountId = p.discountId AND p.productId = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $productId);
         $stmt->execute();

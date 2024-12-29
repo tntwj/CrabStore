@@ -11,6 +11,10 @@ if (!empty($images)) {
     }, $images);
 }
 
+if ($product["discountId"] !== null) {
+    $product["discount"] = $dbh->getProductDiscount($productId);
+}
+
 $templateParams["title"] = $product["name"];
 $templateParams["main-content"] = "template/product-page.php";
 $templateParams["product-details"] = $product;

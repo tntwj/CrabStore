@@ -1,9 +1,9 @@
-<h1 class="text-center my-4 h2">Your Orders</h1>
-<section class="container">
-    <div class="row g-4">
+<section class="container my-5">
+    <h1 class="text-center">Your Orders</h1>
+    <div class="row g-4 mt-2">
         <?php foreach($templateParams["orders"] as $order): ?>
             <div class="col-12 col-md-6 col-lg-4">
-                <a href="order.php?id=<?php echo $order["orderId"]; ?>" class="text-decoration-none d-block">
+                <a href="order.php?id=<?php echo $order["orderId"]; ?>" class="text-decoration-none">
                     <div class="card h-100 order-card shadow">
                         <div class="card-body">
                             <h2 class="card-title">Order #<?php echo $order["orderId"]; ?></h2>

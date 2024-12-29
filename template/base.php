@@ -69,17 +69,17 @@
     </main>
     <?php if (!empty($templateParams["aside-content"])): ?>
     <aside>
-    <?php require($templateParams["aside-content"]); ?>
+        <?php require($templateParams["aside-content"]); ?>
     </aside>
     <?php endif; ?>
-    <footer class="mt-3 py-4 bg-dark text-center">
-    <div class="container-fluid justify-content-center text-secondary">
-        <p>This website neither uses cookies nor tracks user data.</p>
-        <div class="mb-3">
-            <a href="about.php" class="text-light text-decoration-none">About Us</a>
+    <footer class="py-4 bg-dark text-center">
+        <div class="container-fluid justify-content-center text-secondary">
+            <p>This website neither uses cookies nor tracks user data.</p>
+            <div class="mb-3">
+                <a href="about.php" class="text-light text-decoration-none">About Us</a>
+            </div>
+            <p>Copyright © <?php echo date("Y"); ?> Crabapple Inc. All rights reserved.</p>
         </div>
-        <p>Copyright © <?php echo date("Y"); ?> Crabapple Inc. All rights reserved.</p>
-    </div>
     </footer>
     <?php if (!empty($templateParams["scripts"])): ?>
     <?php foreach ($templateParams["scripts"] as $script): ?>

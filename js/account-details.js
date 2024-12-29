@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                             <div class="d-flex justify-content-end w-100 gap-1">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <input type="submit" value="Save Changes" class="btn btn-primary"/>
+                                <input type="submit" value="Save Changes" class="btn btn-primary" />
                             </div>
                         </div>
                     </form>
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalTag = document.querySelector(".change-details-modal");
         const modal = new bootstrap.Modal(modalTag);
 
-        modalTag.addEventListener('hidden.bs.modal', () => {
+        modalTag.addEventListener("hidden.bs.modal", () => {
             modalTag.remove();
         });
         modal.show();
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             </div>
                             <div class="d-flex justify-content-end w-100 gap-1">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                <input type="submit" value="Change Password" class="btn btn-primary"/>
+                                <input type="submit" value="Change Password" class="btn btn-primary" />
                             </div>
                         </div>
                     </form>
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const modalTag = document.querySelector(".change-password-modal");
         const modal = new bootstrap.Modal(modalTag);
 
-        modalTag.addEventListener('hidden.bs.modal', () => {
+        modalTag.addEventListener("hidden.bs.modal", () => {
             modalTag.remove();
         });
         modal.show();
