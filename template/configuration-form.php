@@ -27,13 +27,13 @@
                     <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
                         <?php foreach ($configurable["options"] as $option): ?>
                             <div class="col">
-                                <input type="radio" id="<?php echo $option["configurableOptionId"]; ?>" name="config_<?php echo $configurable["configurableId"]; ?>" value="<?php echo $option["configurableOptionId"]; ?>" class="form-check-input d-none" <?php echo $option["isDefault"] ? "checked='checked' " : ""; ?>required />
-                                <label for="<?php echo $option["configurableOptionId"]; ?>" class="card h-100 p-3 border shadow-sm option-card">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <p class="card-title my-0"><?php echo $option["details"]; ?></p>
-                                        <p class="card-price my-0 text-success"><?php echo "+" . formatPrice($option["price"]); ?></p>
-                                    </div>
-                                </label>
+                            <input type="radio" id="<?php echo $option["configurableOptionId"]; ?>" name="config_<?php echo $configurable["configurableId"]; ?>" value="<?php echo $option["configurableOptionId"]; ?>" class="form-check-input d-none" <?php echo $option["isDefault"] ? "checked='checked' " : ""; ?>required />
+                            <label for="<?php echo $option["configurableOptionId"]; ?>" class="card h-100 p-3 border shadow-sm option-card">
+                                <span class="d-flex justify-content-between align-items-center w-100">
+                                    <span class="card-title my-0"><?php echo $option["details"]; ?></span>
+                                    <span class="card-price my-0 text-success"><?php echo "+" . formatPrice($option["price"]); ?></span>
+                                </span>
+                            </label>
                             </div>
                         <?php endforeach; ?>
                     </div>

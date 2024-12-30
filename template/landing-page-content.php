@@ -17,7 +17,7 @@
             <?php $setActive = true; ?>
             <?php foreach($templateParams["upcoming-products"] as $product): ?>
             <div class="carousel-item<?php echo $setActive ? ' active' : ''; ?>" data-bs-interval="5000">
-                <h3 class="display-6 text-center mb-2"><?php echo $product["name"]; ?></h2>
+                <h3 class="display-6 text-center mb-2"><?php echo $product["name"]; ?></h3>
                 <p class="lead text-center mb-3"><?php echo $product["shortDescription"]; ?></p>
                 <p class="h4 text-center text-primary"><?php echo "Starting at " . formatPrice($product["price"]); ?></p>
                 <a href="product.php?id=<?php echo $product["productId"]?>">

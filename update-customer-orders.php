@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isUserLoggedIn()) {
     $customerOrders = $dbh->getPendingOrders($email);
 
     foreach ($customerOrders as $order) {
-        echo $order["orderStatus"];
         switch ($order["orderStatus"]) {
             case "Ordered":
                 $dbh->updateOrder($order["orderId"], "In Transit");
